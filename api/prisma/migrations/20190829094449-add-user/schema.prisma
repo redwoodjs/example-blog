@@ -1,0 +1,19 @@
+datasource sqlite {
+  url = "file:dev.db"
+  provider = "sqlite"
+}
+
+generator photonjs {
+  provider = "photonjs"
+  output = "../generated/photon"
+}
+
+// Define your own models here and run yarn db:save to create
+// migrations for them.
+
+model User {
+  id Int @id
+  name String?
+  email String @unique
+  isAdmin Boolean @default(false)
+}

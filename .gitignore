@@ -1,0 +1,8 @@
+node_modules
+
+
+# api
+dev.db
+api/generated/photon/
+api/generated/generated-types.d.ts
+
