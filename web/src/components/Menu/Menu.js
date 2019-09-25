@@ -1,3 +1,7 @@
+import { Link } from "react-router-dom";
+
+import TagList from "src/components/TagList";
+
 export default ({ articles }) => {
   return (
     <aside className="hidden sm:block w-1/3 mt-8 pr-8">
@@ -18,30 +22,18 @@ export default ({ articles }) => {
         <ul className="text-sm mt-2">
           {articles.map(article => (
             <li key={article.id} className="my-2">
-              <a href="#" className="text-indigo-600 hover:bg-indigo-100 rounded">
+              <Link
+                to={`/posts/${article.slug}`}
+                className="text-indigo-600 hover:bg-indigo-100 rounded">
                 {article.title}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
 
         <h2 className="font-semibold text-indigo-800 mt-16">Popular Tags</h2>
         <ul className="text-sm mt-2">
-          <li className="my-2">
-            <a href="#" className="text-indigo-600 hover:bg-indigo-100 rounded">
-              hammer
-            </a>
-          </li>
-          <li className="my-2">
-            <a href="#" className="text-indigo-600 hover:bg-indigo-100 rounded">
-              woodworking
-            </a>
-          </li>
-          <li className="my-2">
-            <a href="#" className="text-indigo-600 hover:bg-indigo-100 rounded">
-              wood
-            </a>
-          </li>
+          <TagList tags={articles[0].tags} />
         </ul>
       </nav>
     </aside>

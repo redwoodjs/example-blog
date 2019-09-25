@@ -1,11 +1,7 @@
-import Logo from "./logo.svg";
-
 export default () => {
   return (
-    <header className="flex items-center border-b-4 border-indigo-300 bg-indigo-600 text-white pl-2 pr-8 py-3 ">
+    <header className="flex items-center border-b-4 border-indigo-300 bg-indigo-600 text-white pl-4 pr-8 py-12 ">
       <div className="flex flex-1">
-        <Logo className="w-32 h-32 -my-6 mr-4 bg-white rounded-full p-4" />
-
         <div className="mt-1">
           <h1>
             <a href="/" className="text-5xl font-semibold leading-none">

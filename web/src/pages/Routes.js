@@ -1,16 +1,20 @@
-import { BrowserRouter, Switch, Route } from "@hammerframework/hammer-web";
+import { BrowserRouter, Switch, Route, PrivateRoute } from "@hammerframework/hammer-web";
 
+import Admin from "./Admin";
 import Home from "./Home";
-import About from "./About";
-import Contact from "./Contact";
+
+console.info("HELLO WORLD");
 
 const Routes = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/about" exact component={About} />
-        <Route path="/contact" exact component={Contact} />
+        <Route path="/admin">
+          <Admin />
+        </Route>
+        <Route path="/">
+          <Home />
+        </Route>
       </Switch>
     </BrowserRouter>
   );

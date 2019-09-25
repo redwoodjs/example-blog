@@ -1,8 +1,11 @@
 import { useState } from "react";
+import { Route, Switch, useParams, useLocation, useHistory } from "react-router-dom";
 
-import Article from "src/components/Article";
+import Post from "src/components/Post";
 import Header from "src/components/Header";
 import Menu from "src/components/Menu";
+import Summaries from "src/components/Summaries";
+import Tag from "src/components/Tag";
 
 import hammer1 from "src/images/lump.png";
 import hammer2 from "src/images/mallet.png";
@@ -84,9 +87,17 @@ export default () => {
         <main className="flex px-8">
           <Menu articles={sortedArticles()} />
           <section className="flex-1 mt-4">
-            {sortedArticles().map(article => (
-              <Article key={article.id} article={article} summary={true} />
-            ))}
+            <Switch>
+              <Route path="/" exact>
+                <Summaries articles={sortedArticles()} />
+              </Route>
+              <Route path="/posts/:slug">
+                <Post articles={articles} />
+              </Route>
+              <Route path="/tags/:tag">
+                <Tag articles={articles} />
+              </Route>
+            </Switch>
           </section>
         </main>
       </div>

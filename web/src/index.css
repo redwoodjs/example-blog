@@ -1,3 +1,8 @@
 body {
   font-family: 'Avenir', sans-serif;
 }
+
+.markdown p {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
