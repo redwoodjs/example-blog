@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom'
 
 export default ({ tags }) => {
-  return tags.map(tag => (
+  return tags.map((tag) => (
     <li key={tag} className="inline-block mx-1">
       <Link
         to={`/tags/${tag}`}
@@ -9,5 +9,5 @@ export default ({ tags }) => {
         {tag}
       </Link>
     </li>
-  ));
-};
+  ))
+}

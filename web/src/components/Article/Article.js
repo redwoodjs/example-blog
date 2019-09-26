@@ -1,21 +1,21 @@
-import { Link } from "react-router-dom";
-import TagList from "src/components/TagList";
+import { Link } from 'react-router-dom'
+import TagList from 'src/components/TagList'
 
-const MarkdownIt = require("markdown-it");
-const md = new MarkdownIt();
+const MarkdownIt = require('markdown-it')
+const md = new MarkdownIt()
 
 export default ({ article, summary }) => {
-  function formattedDate(date) {
-    return new Date(date).toUTCString();
+  function formattedDate (date) {
+    return new Date(date).toUTCString()
   }
 
-  function formattedBody(article) {
-    let output = article.body;
+  function formattedBody (article) {
+    let output = article.body
     if (summary) {
-      output = output.split("\n\n").shift();
+      output = output.split('\n\n').shift()
     }
 
-    return md.render(output);
+    return md.render(output)
   }
 
   return (
@@ -52,5 +52,5 @@ export default ({ article, summary }) => {
         </ul>
       </footer>
     </article>
-  );
-};
+  )
+}

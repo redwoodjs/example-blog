@@ -26,5 +26,5 @@ export default () => {
         </ul>
       </nav>
     </header>
-  );
-};
+  )
+}

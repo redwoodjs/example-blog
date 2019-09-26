@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom'
 
-import TagList from "src/components/TagList";
+import TagList from 'src/components/TagList'
 
 export default ({ articles }) => {
   return (
@@ -20,7 +20,7 @@ export default ({ articles }) => {
       <nav className="mt-8">
         <h2 className="font-semibold text-indigo-800">Recent Hammers</h2>
         <ul className="text-sm mt-2">
-          {articles.map(article => (
+          {articles.map((article) => (
             <li key={article.id} className="my-2">
               <Link
                 to={`/posts/${article.slug}`}
@@ -37,5 +37,5 @@ export default ({ articles }) => {
         </ul>
       </nav>
     </aside>
-  );
-};
+  )
+}

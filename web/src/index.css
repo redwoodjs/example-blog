@@ -6,3 +6,15 @@ body {
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
+
+.top-50 {
+  top: 50%;
+}
+
+.left-50 {
+  left: 50%;
+}
+
+.-translate-50 {
+  transform: translate(-50%, -50%);
+}
