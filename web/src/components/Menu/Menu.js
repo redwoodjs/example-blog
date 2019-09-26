@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 import TagList from 'src/components/TagList'
 
-export default ({ articles }) => {
+const Menu = ({ articles }) => {
   return (
     <aside className="hidden sm:block w-1/3 mt-8 pr-8">
       <form className="md:flex mt-2">
@@ -13,7 +13,8 @@ export default ({ articles }) => {
         />
         <button
           type="submit"
-          className="w-full md:w-auto bg-indigo-400 hover:bg-indigo-600 text-white uppercase text-sm rounded-b md:rounded-b-none md:rounded-r px-3 py-2">
+          className="w-full md:w-auto bg-indigo-400 hover:bg-indigo-600 text-white uppercase text-sm rounded-b md:rounded-b-none md:rounded-r px-3 py-2"
+        >
           Go
         </button>
       </form>
@@ -24,7 +25,8 @@ export default ({ articles }) => {
             <li key={article.id} className="my-2">
               <Link
                 to={`/posts/${article.slug}`}
-                className="text-indigo-600 hover:bg-indigo-100 rounded">
+                className="text-indigo-600 hover:bg-indigo-100 rounded"
+              >
                 {article.title}
               </Link>
             </li>
@@ -39,3 +41,5 @@ export default ({ articles }) => {
     </aside>
   )
 }
+
+export default Menu

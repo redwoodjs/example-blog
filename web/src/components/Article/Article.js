@@ -4,12 +4,12 @@ import TagList from 'src/components/TagList'
 const MarkdownIt = require('markdown-it')
 const md = new MarkdownIt()
 
-export default ({ article, summary }) => {
-  function formattedDate (date) {
+const Article = ({ article, summary }) => {
+  const formattedDate = (date) => {
     return new Date(date).toUTCString()
   }
 
-  function formattedBody (article) {
+  const formattedBody = (article) => {
     let output = article.body
     if (summary) {
       output = output.split('\n\n').shift()
@@ -24,7 +24,8 @@ export default ({ article, summary }) => {
         <h1 className="text-2xl font-semibold">
           <Link
             to={`/posts/${article.slug}`}
-            className="text-indigo-600 hover:bg-indigo-100 rounded">
+            className="text-indigo-600 hover:bg-indigo-100 rounded"
+          >
             {article.title}
           </Link>
         </h1>
@@ -34,12 +35,14 @@ export default ({ article, summary }) => {
         <img src={article.image} className="float-left mt-1 mr-4 w-48" />
         <div
           className="markdown"
-          dangerouslySetInnerHTML={{ __html: formattedBody(article) }}></div>
+          dangerouslySetInnerHTML={{ __html: formattedBody(article) }}
+        ></div>
         {summary && (
           <p className="clearfix">
             <Link
               to={`/posts/${article.slug}`}
-              className="inline-block mt-4 text-indigo-600 text-sm rounded font-medium hover:bg-indigo-100 rounded">
+              className="inline-block mt-4 text-indigo-600 text-sm rounded font-medium hover:bg-indigo-100 rounded"
+            >
               Continue reading &raquo;
             </Link>
           </p>
@@ -54,3 +57,5 @@ export default ({ article, summary }) => {
     </article>
   )
 }
+
+export default Article

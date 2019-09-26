@@ -1,7 +1,7 @@
 import Header from 'src/components/Header'
 import Menu from 'src/components/Menu'
 
-export default (props) => {
+const BlogLayout = (props) => {
   return (
     <div className="container mx-auto">
       <div className="mx-8 bg-white shadow">
@@ -17,3 +17,5 @@ export default (props) => {
     </div>
   )
 }
+
+export default BlogLayout
