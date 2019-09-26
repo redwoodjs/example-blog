@@ -1,4 +1,7 @@
 {
+  "eslintConfig": {
+    "extends": "@hammerframework/eslint-config-hammer"
+  },
   "name": "create-hammer-app",
   "private": true,
   "workspaces": [
@@ -15,9 +18,9 @@
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.3.3",
     "core-js": "^3.2.1",
-    "typescript": "^3.5.3"
+    "typescript": "^3.5.3",
+    "@hammerframework/eslint-config-hammer": "^0.0.1-alpha.8"
   },
-  "dependencies": {},
   "scripts": {
     "dev": "yarn dev:api & yarn dev:web",
     "open": "open http://localhost:8910",
