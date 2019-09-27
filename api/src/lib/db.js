@@ -1,3 +1,3 @@
-import Photon from "../../generated/photon";
+import Photon from '../../generated/photon'
 
-export const db = new Photon();
+export const db = new Photon()
