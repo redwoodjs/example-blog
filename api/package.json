@@ -8,7 +8,8 @@
     "prisma2": "^2.0.0-preview-9.1"
   },
   "scripts": {
-    "dev": "yarn hammer-dev-server"
+    "dev": "yarn hammer-dev-server",
+    "seed": "node prisma/seeds.js"
   },
   "devDependencies": {
     "babel-plugin-module-resolver": "^3.2.0",

@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom'
 import { HammerProvider } from '@hammerframework/hammer-web'
 
-import Routes from 'src/pages/Routes'
+import Routes from 'src/Routes'
 
 import './index.css'
 

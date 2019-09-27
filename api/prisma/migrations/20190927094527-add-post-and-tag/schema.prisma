@@ -15,7 +15,6 @@ model Post {
   id Int @id
   title String
   slug String
-  author String
   body String
   image String?
   tags Tag[]

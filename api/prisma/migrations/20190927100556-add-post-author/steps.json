@@ -1,0 +1,15 @@
+{
+  "version": "0.2.33",
+  "steps": [
+    {
+      "stepType": "CreateField",
+      "model": "Post",
+      "name": "author",
+      "type": {
+        "Base": "String"
+      },
+      "arity": "required",
+      "isUnique": false
+    }
+  ]
+}
