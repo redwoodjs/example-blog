@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom'
+import moment from 'moment'
+
 import TagList from 'src/components/TagList'
 
 const MarkdownIt = require('markdown-it')
@@ -6,7 +8,7 @@ const md = new MarkdownIt()
 
 const Article = ({ article, summary }) => {
   const formattedDate = (date) => {
-    return new Date(date).toUTCString()
+    return moment(date).fromNow()
   }
 
   const formattedBody = (article) => {
@@ -48,7 +50,7 @@ const Article = ({ article, summary }) => {
           </p>
         )}
       </div>
-      <footer className="flex mt-4 text-xs text-gray-600">
+      <footer className="flex items-center mt-4 text-xs text-gray-600">
         <time>Posted: {formattedDate(article.postedAt)}</time>
         <ul className="flex-1 text-right">
           <TagList tags={article.tags} />

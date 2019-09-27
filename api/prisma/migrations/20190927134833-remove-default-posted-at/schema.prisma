@@ -14,7 +14,7 @@ generator photonjs {
 model Post {
   id Int @id
   title String
-  slug String @unique
+  slug String
   author String
   body String
   image String?
@@ -24,7 +24,7 @@ model Post {
 
 model Tag {
   id Int @id
-  name String @unique
+  name String
   posts Post[]
 }
 

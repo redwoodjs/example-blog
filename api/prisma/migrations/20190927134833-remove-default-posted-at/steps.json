@@ -1,0 +1,11 @@
+{
+  "version": "0.2.33",
+  "steps": [
+    {
+      "stepType": "UpdateField",
+      "model": "Post",
+      "name": "postedAt",
+      "default": null
+    }
+  ]
+}

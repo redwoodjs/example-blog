@@ -2,7 +2,10 @@ import { Link } from 'react-router-dom'
 
 import TagList from 'src/components/TagList'
 
-const Menu = ({ articles }) => {
+const Menu = (props) => {
+  const { loading: articlesLoading, data: articlesData } = props.articles
+  const { loading: tagsLoading, data: tagsData } = props.tags
+
   return (
     <aside className="hidden sm:block w-1/3 mt-8 pr-8">
       <form className="md:flex mt-2">
@@ -21,21 +24,23 @@ const Menu = ({ articles }) => {
       <nav className="mt-8">
         <h2 className="font-semibold text-indigo-800">Recent Hammers</h2>
         <ul className="text-sm mt-2">
-          {articles.map((article) => (
-            <li key={article.id} className="my-2">
-              <Link
-                to={`/posts/${article.slug}`}
-                className="text-indigo-600 hover:bg-indigo-100 rounded"
-              >
-                {article.title}
-              </Link>
-            </li>
-          ))}
+          {articlesLoading
+            ? 'Loading...'
+            : Post.all(only: { id, body, slug }).map((article) => (
+                <li key={article.id} className="my-2">
+                  <Link
+                    to={`/posts/${article.slug}`}
+                    className="text-indigo-600 hover:bg-indigo-100 rounded"
+                  >
+                    {article.title}
+                  </Link>
+                </li>
+              ))}
         </ul>
 
         <h2 className="font-semibold text-indigo-800 mt-16">Popular Tags</h2>
         <ul className="text-sm mt-2">
-          <TagList tags={articles[0].tags} />
+          {tagsLoading ? 'Loading...' : <TagList tags={tagsData.tags} />}
         </ul>
       </nav>
     </aside>

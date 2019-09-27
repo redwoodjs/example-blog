@@ -6,9 +6,27 @@ type Mutation {
   usersCreate(email: String!, isAdmin: Boolean = false): User!
 }
 
+type Post {
+  author: String!
+  body: String!
+  id: Int!
+  image: String!
+  postedAt: String!
+  slug: String!
+  tags: [Tag!]!
+  title: String!
+}
+
 type Query {
   help: String!
+  posts: [Post!]
+  tags: [Tag!]
   users: [User!]
+}
+
+type Tag {
+  id: Int!
+  name: String!
 }
 
 type User {

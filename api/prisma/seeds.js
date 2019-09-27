@@ -54,7 +54,7 @@ async function main () {
         'wolf ethical, wayfarers pok pok + 1 celiac.Vape schlitz fam viral tofu sriracha. Polaroid' +
         'retro cred farm - to - table vexillologist tousled.Viral farm - to - table before they' +
         'sold out man bun neutra.Try - hard tofu flexitarian bushwick tote bag.',
-      image: 'lump.png',
+      image: 'https://i.imgur.com/s0oSh56.png',
       tags: {
         connect: [{ id: tags[0].id }, { id: tags[1].id }, { id: tags[2].id }],
       },
@@ -73,7 +73,7 @@ async function main () {
         'lumbersexual, bitters normcore vape listicle dreamcatcher humblebrag.Knausgaard ' +
         'unicorn adaptogen celiac.Biodiesel authentic stumptown, photo booth unicorn trust ' +
         'fund woke street art knausgaard wayfarers seitan.',
-      image: 'mallet.png',
+      image: 'https://i.imgur.com/ItvtYid.png',
       tags: {
         connect: [{ id: tags[0].id }, { id: tags[2].id }, { id: tags[3].id }],
       },
@@ -91,12 +91,14 @@ async function main () {
         'hella prism forage listicle. Flexitarian affogato locavore try-hard, tbh kombucha ' +
         'woke echo park listicle kinfolk drinking vinegar cliche. Cold-pressed pok pok ' +
         "sartorial tousled, succulent you probably haven't heard of them gochujang selvage.",
-      image: 'peen.png',
+      image: 'https://i.imgur.com/9gmb9sd.png',
       tags: {
         connect: [{ id: tags[0].id }, { id: tags[1].id }, { id: tags[3].id }],
       },
     },
   ]
+
+  console.info(postData)
 
   const posts = []
 
