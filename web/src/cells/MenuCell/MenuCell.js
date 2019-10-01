@@ -5,7 +5,7 @@ import { TAGS } from 'src/api/tags'
 import Menu from 'src/components/Menu'
 
 const MenuCell = () => {
-  return <Menu articles={useQuery(POSTS)} tags={useQuery(TAGS)} />
+  return <Menu posts={useQuery(POSTS)} tags={useQuery(TAGS)} />
 }
 
 export default MenuCell

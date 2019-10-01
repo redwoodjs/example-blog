@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import TagList from 'src/components/TagList'
 
 const Menu = (props) => {
-  const { loading: articlesLoading, data: articlesData } = props.articles
+  const { loading: postsLoading, data: postsData } = props.posts
   const { loading: tagsLoading, data: tagsData } = props.tags
 
   return (
@@ -24,15 +24,15 @@ const Menu = (props) => {
       <nav className="mt-8">
         <h2 className="font-semibold text-indigo-800">Recent Hammers</h2>
         <ul className="text-sm mt-2">
-          {articlesLoading
+          {postsLoading
             ? 'Loading...'
-            : Post.all(only: { id, body, slug }).map((article) => (
-                <li key={article.id} className="my-2">
+            : postsData.posts.map((post) => (
+                <li key={post.id} className="my-2">
                   <Link
-                    to={`/posts/${article.slug}`}
+                    to={`/posts/${post.slug}`}
                     className="text-indigo-600 hover:bg-indigo-100 rounded"
                   >
-                    {article.title}
+                    {post.title}
                   </Link>
                 </li>
               ))}

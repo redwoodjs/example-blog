@@ -1,17 +1,17 @@
 import { useQuery } from '@hammerframework/hammer-web'
 import gql from 'graphql-tag'
 
-import Article from 'src/components/Article'
+import Post from 'src/components/Post'
 
-const sortedArticles = (articles) => {
-  return articles.sort((a, b) => {
+const sortedPosts = (posts) => {
+  return posts.sort((a, b) => {
     if (new Date(a.postedAt) < new Date(b.postedAt)) return 1
     if (new Date(a.postedAt) > new Date(b.postedAt)) return -1
     return 0
   })
 }
 
-const ArticleSummariesCell = () => {
+const PostSummariesCell = () => {
   const { loading, data } = useQuery(gql`
     {
       posts {
@@ -34,9 +34,9 @@ const ArticleSummariesCell = () => {
     return <div>Loading...</div>
   }
 
-  return sortedArticles(data.posts).map((post) => (
-    <Article key={post.id} article={post} summary={true} />
+  return sortedPosts(data.posts).map((post) => (
+    <Post key={post.id} article={post} summary={true} />
   ))
 }
 
-export default ArticleSummariesCell
+export default PostSummariesCell

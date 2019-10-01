@@ -1,18 +1,18 @@
 import { useParams } from 'react-router-dom'
 
-import Article from 'src/components/Article'
+import Post from 'src/components/Post'
 import BlogLayout from 'src/layouts/BlogLayout'
 
-const SingleArticlePage = ({ articles }) => {
+const SingleArticlePage = ({ posts }) => {
   let { slug } = useParams()
 
-  const article = articles.find((article) => {
-    return article.slug === slug
+  const post = posts.find((post) => {
+    return post.slug === slug
   })
 
   return (
-    <BlogLayout articles={articles}>
-      <Article article={article} summary={false} />
+    <BlogLayout>
+      <Post post={post} summary={false} />
     </BlogLayout>
   )
 }

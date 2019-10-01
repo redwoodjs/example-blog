@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom'
 
-import ArticleSummariesCell from 'src/cells/ArticleSummariesCell'
+import PostSummariesCell from 'src/cells/PostSummariesCell'
 import BlogLayout from 'src/layouts/BlogLayout'
 
 const TaggedArticlesPage = ({ articles }) => {
@@ -12,7 +12,7 @@ const TaggedArticlesPage = ({ articles }) => {
 
   return (
     <BlogLayout articles={articles}>
-      <ArticleSummariesCell articles={filteredArticles} />
+      <PostSummariesCell articles={filteredArticles} />
     </BlogLayout>
   )
 }

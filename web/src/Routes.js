@@ -3,7 +3,7 @@ import { useState } from 'react'
 
 import AdminLayout from 'src/layouts/AdminLayout'
 import SingleArticlePage from 'src/pages/SingleArticlePage'
-import ArticleSummariesPage from 'src/pages/ArticleSummariesPage'
+import PostSummariesPage from 'src/pages/PostSummariesPage'
 import TaggedArticlesPage from 'src/pages/TaggedArticlesPage'
 import NotFoundPage from 'src/pages/NotFoundPage'
 
@@ -18,13 +18,13 @@ const Routes = () => {
         </Route>
 
         <Route path="/" exact>
-          <ArticleSummariesPage articles={articles} />
+          <PostSummariesPage />
         </Route>
         <Route path="/posts/:slug">
-          <SingleArticlePage articles={articles} />
+          <SingleArticlePage />
         </Route>
         <Route path="/tags/:tag">
-          <TaggedArticlesPage articles={articles} />
+          <TaggedArticlesPage />
         </Route>
 
         <Route>
