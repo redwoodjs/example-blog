@@ -3,6 +3,8 @@ node_modules
 
 # api
 dev.db
-api/generated/photon/
 api/generated/generated-types.d.ts
+packages/photon/runtime
+packages/photon/index.js
+packages/photon/index.d.ts
 

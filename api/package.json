@@ -3,6 +3,7 @@
   "name": "api",
   "version": "0.0.0",
   "dependencies": {
+    "@generated/photon": "0.0.0-generated",
     "@hammerframework/hammer-api": "^0.0.1-alpha.7",
     "nexus": "^0.12.0-beta.8",
     "prisma2": "^2.0.0-preview-9.1"
