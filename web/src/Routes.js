@@ -1,5 +1,4 @@
 import { BrowserRouter, Switch, Route } from '@hammerframework/hammer-web'
-
 import AdminLayout from 'src/layouts/AdminLayout'
 import PostPage from 'src/pages/PostPage'
 import PostSummariesPage from 'src/pages/PostSummariesPage'

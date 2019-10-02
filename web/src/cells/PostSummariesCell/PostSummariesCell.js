@@ -1,6 +1,5 @@
 import { useQuery } from '@hammerframework/hammer-web'
 import gql from 'graphql-tag'
-
 import Post from 'src/components/Post'
 
 const sortedPosts = (posts) => {

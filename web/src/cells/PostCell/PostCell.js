@@ -1,7 +1,6 @@
 import { useQuery } from '@hammerframework/hammer-web'
 import { useParams } from 'react-router-dom'
 import gql from 'graphql-tag'
-
 import Post from 'src/components/Post'
 
 const PostCell = () => {

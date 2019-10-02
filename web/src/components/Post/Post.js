@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom'
 import moment from 'moment'
-
 import TagList from 'src/components/TagList'
 
 const MarkdownIt = require('markdown-it')

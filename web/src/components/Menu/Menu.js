@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-
 import TagList from 'src/components/TagList'
 
 const Menu = (props) => {

@@ -1,5 +1,4 @@
 import { useQuery } from '@hammerframework/hammer-web'
-
 import Menu from 'src/components/Menu'
 
 export const postsQuery = gql`
