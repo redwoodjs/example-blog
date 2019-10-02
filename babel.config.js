@@ -1,22 +1,9 @@
 module.exports = {
-  presets: [
-    "@babel/preset-react",
-    "@babel/typescript",
-    [
-      // @babel/preset-env does not support stage-x plugins
-      "@babel/preset-env",
-      {
-        targets: {
-          node: true
-        },
-        useBuiltIns: "usage",
-        corejs: 3
-      }
-    ]
-  ],
+  presets: ["@babel/preset-react", "@babel/typescript"],
   plugins: [
     ["@babel/plugin-proposal-class-properties", { loose: true }],
     ["@babel/plugin-proposal-export-default-from"],
-    ["@babel/plugin-proposal-object-rest-spread"]
+    ["@babel/plugin-proposal-object-rest-spread"],
+    ["@babel/plugin-proposal-optional-chaining"]
   ]
 };

@@ -3,16 +3,17 @@
   "name": "api",
   "version": "0.0.0",
   "dependencies": {
-    "@hammerframework/hammer-api": "^0.0.1-alpha.7",
-    "nexus": "^0.12.0-beta.8",
-    "prisma2": "^2.0.0-preview-9.1"
+    "@generated/photon": "0.0.0-generated",
+    "@hammerframework/hammer-api": "^0.0.1-alpha.9",
+    "apollo-server-lambda": "^2.9.4",
+    "nexus": "^0.12.0-beta.5",
+    "prisma2": "^2.0.0-preview-13.2"
+  },
+  "devDependencies": {
+    "@hammerframework/hammer-dev-server": "^0.0.1-alpha.9"
   },
   "scripts": {
     "dev": "yarn hammer-dev-server",
     "seed": "node prisma/seeds.js"
-  },
-  "devDependencies": {
-    "babel-plugin-module-resolver": "^3.2.0",
-    "@hammerframework/hammer-dev-server": "^0.0.1-alpha.7"
   }
 }
