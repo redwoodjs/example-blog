@@ -4,7 +4,7 @@ import gql from 'graphql-tag'
 
 import Post from 'src/components/Post'
 
-const TaggedPostsCell = (props) => {
+const TaggedPostsCell = () => {
   const { tag } = useParams()
   const { loading, data } = useQuery(
     gql`

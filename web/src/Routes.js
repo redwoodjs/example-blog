@@ -1,5 +1,4 @@
 import { BrowserRouter, Switch, Route } from '@hammerframework/hammer-web'
-import { useState } from 'react'
 
 import AdminLayout from 'src/layouts/AdminLayout'
 import PostPage from 'src/pages/PostPage'
@@ -8,8 +7,6 @@ import TaggedPostsPage from 'src/pages/TaggedPostsPage'
 import NotFoundPage from 'src/pages/NotFoundPage'
 
 const Routes = () => {
-  const [articles] = useState([])
-
   return (
     <BrowserRouter>
       <Switch>
