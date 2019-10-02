@@ -19,7 +19,9 @@ type Post {
 
 type Query {
   help: String!
+  post(slug: String): Post!
   posts: [Post!]
+  postsByTag(tag: String): [Post!]
   tags: [Tag!]
   users: [User!]
 }

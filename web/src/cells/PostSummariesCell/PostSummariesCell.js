@@ -35,7 +35,7 @@ const PostSummariesCell = () => {
   }
 
   return sortedPosts(data.posts).map((post) => (
-    <Post key={post.id} article={post} summary={true} />
+    <Post key={post.id} post={post} summary={true} />
   ))
 }
 

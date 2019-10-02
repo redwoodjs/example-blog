@@ -2,9 +2,9 @@ import { BrowserRouter, Switch, Route } from '@hammerframework/hammer-web'
 import { useState } from 'react'
 
 import AdminLayout from 'src/layouts/AdminLayout'
-import SingleArticlePage from 'src/pages/SingleArticlePage'
+import PostPage from 'src/pages/PostPage'
 import PostSummariesPage from 'src/pages/PostSummariesPage'
-import TaggedArticlesPage from 'src/pages/TaggedArticlesPage'
+import TaggedPostsPage from 'src/pages/TaggedPostsPage'
 import NotFoundPage from 'src/pages/NotFoundPage'
 
 const Routes = () => {
@@ -21,10 +21,10 @@ const Routes = () => {
           <PostSummariesPage />
         </Route>
         <Route path="/posts/:slug">
-          <SingleArticlePage />
+          <PostPage />
         </Route>
         <Route path="/tags/:tag">
-          <TaggedArticlesPage />
+          <TaggedPostsPage />
         </Route>
 
         <Route>
