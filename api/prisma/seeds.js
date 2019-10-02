@@ -56,7 +56,7 @@ async function main () {
         'sold out man bun neutra.Try - hard tofu flexitarian bushwick tote bag.',
       image: 'https://i.imgur.com/s0oSh56.png',
       tags: {
-        connect: [{ id: tags[0].id }, { id: tags[1].id }, { id: tags[2].id }],
+        connect: [{ id: tags[0].id }, { id: tags[1].id }, { id: tags[3].id }],
       },
     },
     {
