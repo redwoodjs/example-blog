@@ -4,7 +4,7 @@ const BlogLayout = (props) => {
   return (
     <div className="container mx-auto">
       <div className="mx-8 bg-white shadow">
-        <header className="flex items-center border-b-4 border-indigo-300 bg-indigo-600 text-white pl-4 pr-8 py-12 ">
+        <header className="flex items-center border-b-4 border-indigo-300 bg-indigo-600 text-white px-8 py-12 ">
           <div className="flex flex-1">
             <div className="mt-1">
               <h1>
