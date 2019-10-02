@@ -1,12 +1,12 @@
 {
-  "eslintConfig": {
-    "extends": "@hammerframework/eslint-config-hammer"
-  },
-  "name": "create-hammer-app",
+  "name": "example-blog",
+  "version": "0.0.1-alpha.9",
   "private": true,
+  "files": [],
   "workspaces": [
     "api",
-    "web"
+    "web",
+    "packages/**"
   ],
   "devDependencies": {
     "@babel/cli": "^7.5.5",
@@ -14,19 +14,26 @@
     "@babel/node": "^7.5.5",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/plugin-proposal-export-default-from": "^7.5.2",
+    "@babel/plugin-proposal-optional-chaining": "^7.6.0",
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.3.3",
+    "@hammerframework/eslint-config-hammer": "0.0.1-alpha.9",
+    "babel-plugin-module-resolver": "^3.2.0",
     "core-js": "^3.2.1",
-    "typescript": "^3.5.3",
-    "@hammerframework/eslint-config-hammer": "^0.0.1-alpha.8"
+    "typescript": "^3.5.3"
+  },
+  "eslintConfig": {
+    "extends": "@hammerframework/eslint-config-hammer"
   },
   "scripts": {
     "dev": "yarn dev:api & yarn dev:web",
     "open": "open http://localhost:8910",
     "dev:api": "yarn workspace api dev",
     "dev:web": "yarn workspace web dev",
+    "db:up": "yarn workspace api prisma2 lift up && yarn workspace api prisma2 generate",
     "db:save": "yarn workspace api prisma2 lift save",
-    "db:up": "yarn workspace api prisma2 lift up && yarn workspace api prisma2 generate"
+    "lint": "yarn eslint 'web/src/**/*.js' 'api/src/**/*.js'",
+    "lint:fix": "yarn eslint --fix 'web/src/**/*.js' 'api/src/**/*.js'"
   }
 }
