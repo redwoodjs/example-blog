@@ -994,16 +994,12 @@
     eslint-plugin-react-hooks "^2.0.1"
     prettier "^1.18.2"
 
-"@hammerframework/hammer-api@^0.0.1-alpha.7":
-  version "0.0.1-alpha.7"
-  resolved "https://registry.yarnpkg.com/@hammerframework/hammer-api/-/hammer-api-0.0.1-alpha.7.tgz#9eefda08b1c926385609db98d484a8ff12514cfb"
-  integrity sha512-wtI87npxESZQBAZlnua77NnaGSNKL9rqTnZ1kkgh7tIKBV8OmB65VcUYAN9vIutsc9vpiP+iOfogHze9Qk9y1A==
+"@hammerframework/hammer-api@^0.0.1-alpha.9":
+  version "0.0.1-alpha.9"
+  resolved "https://registry.yarnpkg.com/@hammerframework/hammer-api/-/hammer-api-0.0.1-alpha.9.tgz#36fb7eab678eb791e3f651528ed4410921488e09"
+  integrity sha512-nsb+8LkmvhRyYKeU9T2khYAQ5bwsXdq/XwAs5KRM5vUQO0mdnK9BMwqRpq1ufd34CIzgVFzq5pGXA4/B4oB3yQ==
   dependencies:
-    "@babel/register" "^7.5.5"
-    "@hammerframework/hammer-core" "^0.0.1-alpha.7"
-    apollo-server-lambda "^2.9.3"
-    findup-sync "^3.0.0"
-    graphql "^14.5.4"
+    "@hammerframework/hammer-core" "^0.0.1-alpha.9"
 
 "@hammerframework/hammer-core@^0.0.1-alpha.7":
   version "0.0.1-alpha.7"
@@ -1013,16 +1009,25 @@
     findup-sync "^3.0.0"
     toml "^3.0.0"
 
-"@hammerframework/hammer-dev-server@^0.0.1-alpha.7":
-  version "0.0.1-alpha.7"
-  resolved "https://registry.yarnpkg.com/@hammerframework/hammer-dev-server/-/hammer-dev-server-0.0.1-alpha.7.tgz#b03106dec9bc7be16f0000e932d1d2e954ebdeb1"
-  integrity sha512-DFjWt0k7qMRa3EmwPtMB65wd+2Bmyfa4sDfzLQBla+WOC3LxJuGGos0wfv3ku5nutIDhWmxuYtubd5d8F/A1mg==
+"@hammerframework/hammer-core@^0.0.1-alpha.9":
+  version "0.0.1-alpha.9"
+  resolved "https://registry.yarnpkg.com/@hammerframework/hammer-core/-/hammer-core-0.0.1-alpha.9.tgz#4a5df6b19c3d0328f7dd2db2f350be0e7994eb8f"
+  integrity sha512-N0nWW62IIT4cr3JgCTKbszir3kN/lMmqzwr+OzI+cf5/+PuqUopmCQqFU3/i2HVCuQMWjaSwCAKmkq337MOG6A==
+  dependencies:
+    findup-sync "^3.0.0"
+    toml "^3.0.0"
+
+"@hammerframework/hammer-dev-server@^0.0.1-alpha.9":
+  version "0.0.1-alpha.9"
+  resolved "https://registry.yarnpkg.com/@hammerframework/hammer-dev-server/-/hammer-dev-server-0.0.1-alpha.9.tgz#dee823ae9911628df97119a2acbded0fade04e93"
+  integrity sha512-KfusHwFRGiuOJYjpud3nwCC4jsyHZMAx/uj8vqQKC5TMwZbVZYfR3RConj49SE1tnuapxNFRyGe+ESEMtKpNjw==
   dependencies:
     "@babel/register" "^7.5.5"
-    "@hammerframework/hammer-core" "^0.0.1-alpha.7"
+    "@hammerframework/hammer-core" "^0.0.1-alpha.9"
     args "^5.0.1"
     body-parser "^1.19.0"
     chokidar "^3.0.2"
+    clear "^0.1.0"
     express "^4.17.1"
     express-logging "^1.1.1"
     qs "^6.7.0"
@@ -1773,10 +1778,10 @@ apollo-server-caching@^0.5.0:
   dependencies:
     lru-cache "^5.0.0"
 
-apollo-server-core@^2.9.3:
-  version "2.9.3"
-  resolved "https://registry.yarnpkg.com/apollo-server-core/-/apollo-server-core-2.9.3.tgz#918f836c8215d371935c831c72d0840c7bf0250f"
-  integrity sha512-KQpOM3nAXdMqKVE0HHcOkH/EVhyDqFEKLNFlsyGHGOn9ujpI6RsltX+YpXRyAdbfQHpTk11v/IAo6XksWN+g1Q==
+apollo-server-core@^2.9.4:
+  version "2.9.4"
+  resolved "https://registry.yarnpkg.com/apollo-server-core/-/apollo-server-core-2.9.4.tgz#0404455884951804d23ea64e45514c73afd34e5e"
+  integrity sha512-6mzipnn9woJxgo/JQFWTlY13svS7HCr0ZsN035eRmKOsXzROfB9ugXcTuc6MP94ICM7TlB/DtJOP+bLX53mijw==
   dependencies:
     "@apollographql/apollo-tools" "^0.4.0"
     "@apollographql/graphql-playground-html" "1.6.24"
@@ -1813,14 +1818,14 @@ apollo-server-errors@^2.3.3:
   resolved "https://registry.yarnpkg.com/apollo-server-errors/-/apollo-server-errors-2.3.3.tgz#83763b00352c10dc68fbb0d41744ade66de549ff"
   integrity sha512-MO4oJ129vuCcbqwr5ZwgxqGGiLz3hCyowz0bstUF7MR+vNGe4oe3DWajC9lv4CxrhcqUHQOeOPViOdIo1IxE3g==
 
-apollo-server-lambda@^2.9.3:
-  version "2.9.3"
-  resolved "https://registry.yarnpkg.com/apollo-server-lambda/-/apollo-server-lambda-2.9.3.tgz#6848ba3312d6e00ec05fec2948790a2f86ca5b63"
-  integrity sha512-rU9Xx/s//18BpyOejbaDLahpYLpctPqHDNlOQVI7K1Nag2bKxQbgPxu2x7llt/naDc2bZHgynfRVlmuujYYJZQ==
+apollo-server-lambda@^2.9.4:
+  version "2.9.4"
+  resolved "https://registry.yarnpkg.com/apollo-server-lambda/-/apollo-server-lambda-2.9.4.tgz#a900a997c1511da7329db85b0ab9374f9179dee4"
+  integrity sha512-O6ucSDd6KIh+s5X6G5pqxiXSD+KyHWy7+cccETHEm7rXEPGAgrelRN05Lz3S2dE7dcaxoh5nYalmpHzarV70NQ==
   dependencies:
     "@apollographql/graphql-playground-html" "1.6.24"
     "@types/aws-lambda" "^8.10.31"
-    apollo-server-core "^2.9.3"
+    apollo-server-core "^2.9.4"
     apollo-server-env "^2.4.3"
     apollo-server-types "^0.2.4"
     graphql-tools "^4.0.0"
@@ -2524,6 +2529,11 @@ clean-css@4.2.x:
   integrity sha512-4ZxI6dy4lrY6FHzfiy1aEOXgu4LIsW2MhwG0VBKdcoGoH/XLFgaHSdLTGr4O8Be6A8r3MOphEiI8Gc1n0ecf3g==
   dependencies:
     source-map "~0.6.0"
+
+clear@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/clear/-/clear-0.1.0.tgz#b81b1e03437a716984fd7ac97c87d73bdfe7048a"
+  integrity sha512-qMjRnoL+JDPJHeLePZJuao6+8orzHMGP04A8CdwCNsKhRbOnKRjefxONR7bwILT3MHecxKBjHkKL/tkZ8r4Uzw==
 
 cli-cursor@^2.1.0:
   version "2.1.0"
@@ -5388,10 +5398,10 @@ neo-async@^2.5.0, neo-async@^2.6.1:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.1.tgz#ac27ada66167fa8849a6addd837f6b189ad2081c"
   integrity sha512-iyam8fBuCUpWeKPGpaNMetEocMt364qkCsfL9JuhjXX6dRnguRVOfk2GZaDpPjcOKiiXCPINZC1GczQ7iTq3Zw==
 
-nexus@^0.12.0-beta.8:
-  version "0.12.0-beta.8"
-  resolved "https://registry.yarnpkg.com/nexus/-/nexus-0.12.0-beta.8.tgz#aaa9b2affdabbc611b90762232482e9a32b760d8"
-  integrity sha512-Zmwbf3QslkXlu/j3Rur1f8dOG/N6rqczDAWW6Ykd5hTvkS7jnuE5Srx9tPtFtetGPYtcpgRhl8hr/PhQyhUCbQ==
+nexus@^0.12.0-beta.5:
+  version "0.12.0-beta.9"
+  resolved "https://registry.yarnpkg.com/nexus/-/nexus-0.12.0-beta.9.tgz#aa3330a60d152d0868f13a56292af38a34ccac70"
+  integrity sha512-e95NXcFzLArNPz3QYTzo2WjTyu27Gv7v2LJoiezZQknek7E+53kaJMKv3+0ceLV6C/aCcsUtMuRaKerOnNyMVw==
   dependencies:
     tslib "^1.9.3"
 
@@ -6182,10 +6192,10 @@ pretty-hrtime@^1.0.3:
   resolved "https://registry.yarnpkg.com/pretty-hrtime/-/pretty-hrtime-1.0.3.tgz#b7e3ea42435a4c9b2759d99e0f201eb195802ee1"
   integrity sha1-t+PqQkNaTJsnWdmeDyAesZWALuE=
 
-prisma2@^2.0.0-preview-9.1:
-  version "2.0.0-preview-9.1"
-  resolved "https://registry.yarnpkg.com/prisma2/-/prisma2-2.0.0-preview-9.1.tgz#b87359de0854a26ebee506bc92c35cfd53355bcd"
-  integrity sha512-nSlPBmmdi7CrFJ+HtumJJak9XepYNfAAd4ZMSB6tbVhIlyXwzzwOVNRyzKQrFXeRalv/hkXnItzU7+A5bT4BYQ==
+prisma2@^2.0.0-preview-13.2:
+  version "2.0.0-preview-13.2"
+  resolved "https://registry.yarnpkg.com/prisma2/-/prisma2-2.0.0-preview-13.2.tgz#70ad3a55e258646417baf07308515f47dc22e2fa"
+  integrity sha512-9zODuCOoDhUHpFVWYgcKAWa7Blie4UIfkwH2gCTs/7IfWyca2zng+XyJuNcm5Yp5f1JyZ5EEvIe0ysZdZNcsBQ==
 
 private@^0.1.6:
   version "0.1.8"
