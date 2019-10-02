@@ -6,7 +6,7 @@ import TagList from 'src/components/TagList'
 const MarkdownIt = require('markdown-it')
 const md = new MarkdownIt()
 
-const Article = ({ post, summary }) => {
+const Post = ({ post, summary }) => {
   const formattedDate = (date) => {
     return moment(date).fromNow()
   }
@@ -60,4 +60,4 @@ const Article = ({ post, summary }) => {
   )
 }
 
-export default Article
+export default Post
