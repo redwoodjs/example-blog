@@ -36,11 +36,7 @@ export const post = queryField('post', {
   args: { slug: stringArg() },
   nullable: false,
   async resolve (_root, { slug }, { photon }) {
-    const posts = await photon.posts.findMany({
-      where: { slug },
-      include: { tags: true },
-    })
-    return posts[0]
+    return await photon.posts.findOne({ where: { slug } })
   },
 })
 
@@ -50,6 +46,6 @@ export const postsByTag = queryField('postsByTag', {
   args: { tag: stringArg() },
   nullable: true,
   async resolve (_root, { tag }, { photon }) {
-    return await photon.tags.findOne({ where: { name: 'wood' } }).posts()
+    return await photon.tags.findOne({ where: { name: tag } }).posts()
   },
 })
