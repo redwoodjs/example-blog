@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 
-const Photon = require('../generated/photon')
-const photon = new Photon({ debug: true })
+const Photon = require('@generated/photon')
+const photon = new Photon()
 
 async function asyncForEach (array, callback) {
   for (let index = 0; index < array.length; index++) {
