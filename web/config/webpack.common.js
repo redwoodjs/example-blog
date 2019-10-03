@@ -1,9 +1,9 @@
 /* eslint-disable import/no-extraneous-dependencies */
 const path = require('path')
+
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const DirectoryNamedWebpackPlugin = require('directory-named-webpack-plugin')
-const Dotenv = require('dotenv-webpack')
 const { getHammerConfig } = require('@hammerframework/hammer-core')
 
 const hammerConfig = getHammerConfig()

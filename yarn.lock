@@ -978,15 +978,15 @@
   resolved "https://registry.yarnpkg.com/@emotion/unitless/-/unitless-0.7.4.tgz#a87b4b04e5ae14a88d48ebef15015f6b7d1f5677"
   integrity sha512-kBa+cDHOR9jpRJ+kcGMsysrls0leukrm68DmFQoMIWQcXdr2cZvyvypWuGYT7U+9kAExUE7+T7r6G3C3A6L8MQ==
 
-"@hammerframework/eslint-config-hammer@0.0.1-alpha.9":
-  version "0.0.1-alpha.9"
-  resolved "https://registry.yarnpkg.com/@hammerframework/eslint-config-hammer/-/eslint-config-hammer-0.0.1-alpha.9.tgz#6c3b3825c0faab66fe218243b5f4dd1cb786e8d1"
-  integrity sha512-vtiB0md8JEyO3Jb1E+p4M9qudsTdI9vWR4mDvteIn3+M/AZwgxXJ+2XJv7w+fexgrwhgzJhi+M3hgztC4w3YvA==
+"@hammerframework/eslint-config-hammer@0.0.1-alpha.9.1":
+  version "0.0.1-alpha.9.1"
+  resolved "https://registry.yarnpkg.com/@hammerframework/eslint-config-hammer/-/eslint-config-hammer-0.0.1-alpha.9.1.tgz#d8f4f6ce3d7fbc42d5583448f8cceff6a7ddf49b"
+  integrity sha512-XiUdny1NaJWT33jKAqscFNIdGgiK+nBQftcPX+8MQsvBcqaKYei17HD7KXTzjFv7bnhJFf4iMen4ERVdnQI1XQ==
   dependencies:
     babel-eslint "^10.0.3"
     eslint "5.16.0"
-    eslint-config-prettier "^6.2.0"
     eslint-import-resolver-babel-module "^5.1.0"
+    eslint-plugin-babel "^5.3.0"
     eslint-plugin-import "^2.18.2"
     eslint-plugin-jsx-a11y "^6.2.3"
     eslint-plugin-prettier "^3.1.0"
@@ -3369,13 +3369,6 @@ escape-string-regexp@^1.0.2, escape-string-regexp@^1.0.5:
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
   integrity sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=
 
-eslint-config-prettier@^6.2.0:
-  version "6.3.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-6.3.0.tgz#e73b48e59dc49d950843f3eb96d519e2248286a3"
-  integrity sha512-EWaGjlDAZRzVFveh2Jsglcere2KK5CJBhkNSa1xs3KfMUGdRiT7lG089eqPdvlzWHpAqaekubOsOMu8W8Yk71A==
-  dependencies:
-    get-stdin "^6.0.0"
-
 eslint-import-resolver-babel-module@^5.1.0:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/eslint-import-resolver-babel-module/-/eslint-import-resolver-babel-module-5.1.0.tgz#50dac176dfbce2824b0e12100d6c23370d4325c0"
@@ -3399,6 +3392,13 @@ eslint-module-utils@^2.4.0:
   dependencies:
     debug "^2.6.8"
     pkg-dir "^2.0.0"
+
+eslint-plugin-babel@^5.3.0:
+  version "5.3.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-babel/-/eslint-plugin-babel-5.3.0.tgz#2e7f251ccc249326da760c1a4c948a91c32d0023"
+  integrity sha512-HPuNzSPE75O+SnxHIafbW5QB45r2w78fxqwK3HmjqIUoPfPzVrq6rD+CINU3yzoDSzEhUkX07VUphbF73Lth/w==
+  dependencies:
+    eslint-rule-composer "^0.3.0"
 
 eslint-plugin-import@^2.18.2:
   version "2.18.2"
@@ -3458,6 +3458,11 @@ eslint-plugin-react@^7.14.3:
     object.values "^1.1.0"
     prop-types "^15.7.2"
     resolve "^1.10.1"
+
+eslint-rule-composer@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/eslint-rule-composer/-/eslint-rule-composer-0.3.0.tgz#79320c927b0c5c0d3d3d2b76c8b4a488f25bbaf9"
+  integrity sha512-bt+Sh8CtDmn2OajxvNO+BX7Wn4CIWMpTRm3MaiKPCQcnnlm0CS2mhui6QaoeQugs+3Kj2ESKEEGJUdVafwhiCg==
 
 eslint-scope@^4.0.3:
   version "4.0.3"
@@ -3986,11 +3991,6 @@ get-caller-file@^2.0.1:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/get-caller-file/-/get-caller-file-2.0.5.tgz#4f94412a82db32f36e3b0b9741f8a97feb031f7e"
   integrity sha512-DyFP3BM/3YHTQOCUL/w0OZHR0lpKeGrxotcHWcqNEdnltqFwXVfhEBQ94eIo34AfQpo0rGki4cyIiftY06h2Fg==
-
-get-stdin@^6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/get-stdin/-/get-stdin-6.0.0.tgz#9e09bf712b360ab9225e812048f71fde9c89657b"
-  integrity sha512-jp4tHawyV7+fkkSKyvjuLZswblUtz+SQKzSWnBbii16BuZksJlU1wuBYXY75r+duh/llF1ur6oNwi+2ZzjKZ7g==
 
 get-stream@^4.0.0:
   version "4.1.0"
