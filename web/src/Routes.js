@@ -3,6 +3,7 @@ import AdminLayout from 'src/layouts/AdminLayout'
 import PostPage from 'src/pages/PostPage'
 import PostSummariesPage from 'src/pages/PostSummariesPage'
 import TaggedPostsPage from 'src/pages/TaggedPostsPage'
+import SearchPage from 'src/pages/SearchPage'
 import NotFoundPage from 'src/pages/NotFoundPage'
 
 const Routes = () => {
@@ -21,6 +22,9 @@ const Routes = () => {
         </Route>
         <Route path="/tags/:tag">
           <TaggedPostsPage />
+        </Route>
+        <Route path="/search/:term">
+          <SearchPage />
         </Route>
 
         <Route>

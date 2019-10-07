@@ -49,3 +49,17 @@ export const postsByTag = queryField('postsByTag', {
     return await photon.tags.findOne({ where: { name: tag } }).posts()
   },
 })
+
+export const postSearch = queryField('postSearch', {
+  type: Post,
+  list: true,
+  args: { term: stringArg() },
+  nullable: true,
+  async resolve(_root, { term }, { photon }) {
+    return await photon.posts.findMany({
+      where: {
+        OR: [{ title: { contains: term } }, { body: { contains: term } }],
+      },
+    })
+  },
+})
