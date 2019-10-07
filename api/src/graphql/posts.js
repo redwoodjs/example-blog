@@ -1,4 +1,4 @@
-import { objectType, queryField, stringArg } from 'nexus'
+import { objectType, queryField, stringArg, intArg } from 'nexus'
 
 export const Post = objectType({
   name: 'Post',
@@ -33,10 +33,10 @@ export const postsAll = queryField('posts', {
 
 export const post = queryField('post', {
   type: Post,
-  args: { slug: stringArg() },
+  args: { slug: stringArg(), id: intArg() },
   nullable: false,
-  async resolve(_root, { slug }, { photon }) {
-    return await photon.posts.findOne({ where: { slug } })
+  async resolve(_root, where, { photon }) {
+    return await photon.posts.findOne({ where })
   },
 })
 
