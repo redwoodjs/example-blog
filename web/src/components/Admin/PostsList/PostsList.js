@@ -5,7 +5,25 @@ const wordCount = (post) => {
   return post.body.split(' ').length
 }
 
-const PostsList = ({ posts }) => {
+const PostsList = ({ posts, onHide, onDelete }) => {
+  const onHideClick = (event) => {
+    const id = event.target.dataset.id
+    const title = event.target.dataset.title
+
+    if (confirm(`Are you sure you want to un-publish post "${title}"?`)) {
+      onHide(id)
+    }
+  }
+
+  const onDeleteClick = (event) => {
+    const id = event.target.dataset.id
+    const title = event.target.dataset.title
+
+    if (confirm(`Are you sure you want to delete post "${title}"?`)) {
+      onDelete(id)
+    }
+  }
+
   return (
     <table className="w-full">
       <tbody>
@@ -24,7 +42,48 @@ const PostsList = ({ posts }) => {
               {wordCount(post)} words
             </td>
             <td className="py-2 text-sm text-right">
-              Published {moment(post.postedAt).fromNow()}
+              {post.postedAt ? (
+                <>
+                  <span className="block">
+                    Published{' '}
+                    <time dateTime={post.postedAt}>
+                      {moment(post.postedAt).fromNow()}
+                    </time>
+                  </span>
+                  <time
+                    className="block text-gray-500"
+                    dateTime={post.postedAt}
+                  >
+                    {moment(post.postedAt).format('LLLL')}
+                  </time>
+                </>
+              ) : (
+                <span className="text-xs bg-gray-300 text-gray-600 font-semibold tracking-wide uppercase px-2 py-1 rounded">
+                  Draft
+                </span>
+              )}
+            </td>
+            <td className="py-2 text-right text-xs">
+              {post.postedAt && (
+                <a
+                  href="#"
+                  data-id={post.id}
+                  data-title={post.title}
+                  className="mr-3 text-indigo-600 hover:underline"
+                  onClick={onHideClick}
+                >
+                  Hide
+                </a>
+              )}
+              <a
+                href="#"
+                data-id={post.id}
+                data-title={post.title}
+                className="text-red-600 hover:underline"
+                onClick={onDeleteClick}
+              >
+                Delete
+              </a>
             </td>
           </tr>
         ))}

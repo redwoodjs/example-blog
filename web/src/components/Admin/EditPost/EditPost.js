@@ -1,13 +1,13 @@
 import PostForm from 'src/components/Admin/PostForm'
 
-const EditPost = ({ post }) => {
+const EditPost = ({ post, onSave, loading, error }) => {
   return (
     <>
       <h1 className="text-2xl font-semibold text-gray-600">
-        Edit Post #{post.id}
+        Edit Post {post.id}
       </h1>
       <div className="mt-8">
-        <PostForm post={post} />
+        <PostForm post={post} onSave={onSave} loading={loading} error={error} />
       </div>
     </>
   )

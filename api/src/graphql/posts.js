@@ -1,4 +1,23 @@
-import { objectType, queryField, stringArg, intArg } from 'nexus'
+import {
+  objectType,
+  queryField,
+  stringArg,
+  arg,
+  intArg,
+  mutationField,
+} from 'nexus'
+import { UserInputError } from 'apollo-server-core'
+import { nonInputTypeOnVarMessage } from 'graphql/validation/rules/VariablesAreInputTypes'
+
+const validate = (args) => {
+  if (args.slug && !args.slug.match(/^\S+$/)) {
+    throw new UserInputError("Can't create new post", {
+      messages: {
+        slug: ['contains invalid characters (no spaces allowed)'],
+      },
+    })
+  }
+}
 
 export const Post = objectType({
   name: 'Post',
@@ -8,8 +27,8 @@ export const Post = objectType({
     t.string('slug')
     t.string('author')
     t.string('body')
-    t.string('image')
-    t.string('postedAt')
+    t.string('image', { nullable: true })
+    t.datetime('postedAt', { nullable: true })
     t.list.field('tags', {
       type: 'Tag',
       resolve(root, _args, { photon }) {
@@ -60,6 +79,49 @@ export const postSearch = queryField('postSearch', {
       where: {
         OR: [{ title: { contains: term } }, { body: { contains: term } }],
       },
+    })
+  },
+})
+
+export const postCreate = mutationField('postCreate', {
+  type: Post,
+  args: {
+    title: stringArg({ required: true }),
+    slug: stringArg({ required: true }),
+    author: stringArg({ required: true }),
+    body: stringArg({ required: true }),
+    postedAt: arg({ type: 'DateTime', required: false }),
+  },
+  async resolve(_root, args, { photon }) {
+    validate(args)
+    return await photon.posts.create({ data: args })
+  },
+})
+
+export const postUpdate = mutationField('postUpdate', {
+  type: Post,
+  args: {
+    id: intArg({ required: true }),
+    title: stringArg({ required: false }),
+    slug: stringArg({ required: false }),
+    author: stringArg({ required: false }),
+    body: stringArg({ required: false }),
+    postedAt: arg({ type: 'DateTime', required: false }),
+  },
+  async resolve(_root, args, { photon }) {
+    validate(args)
+    return await photon.posts.update({ data: args, where: { id: args.id } })
+  },
+})
+
+export const postDelete = mutationField('postDelete', {
+  type: Post,
+  args: {
+    id: intArg({ required: true }),
+  },
+  async resolve(_root, { id }, { photon }) {
+    return await photon.posts.delete({
+      where: { id },
     })
   },
 })

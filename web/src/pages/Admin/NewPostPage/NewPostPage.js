@@ -1,11 +1,10 @@
-import { Link } from 'react-router-dom'
 import AdminLayout from 'src/layouts/AdminLayout'
-import AdminNewPost from 'src/components/Admin/NewPost'
+import AdminNewPostCell from 'src/cells/Admin/NewPostCell'
 
 const NewPostPage = () => {
   return (
     <AdminLayout>
-      <AdminNewPost />
+      <AdminNewPostCell />
     </AdminLayout>
   )
 }
