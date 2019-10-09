@@ -7,7 +7,6 @@ import {
   mutationField,
 } from 'nexus'
 import { UserInputError } from 'apollo-server-core'
-import { nonInputTypeOnVarMessage } from 'graphql/validation/rules/VariablesAreInputTypes'
 
 const validate = (args) => {
   if (args.slug && !args.slug.match(/^\S+$/)) {
