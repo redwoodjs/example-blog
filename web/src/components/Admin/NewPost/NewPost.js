@@ -1,11 +1,11 @@
 import PostForm from 'src/components/Admin/PostForm'
 
-const NewPost = ({ onSave, loading, error }) => {
+const NewPost = (props) => {
   return (
     <>
       <h1 className="text-2xl font-semibold text-gray-600">New Post</h1>
       <div className="mt-8">
-        <PostForm onSave={onSave} loading={loading} error={error} />
+        <PostForm {...props} save={true} />
       </div>
     </>
   )

@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react'
 import FormErrorMessage from 'src/components/forms/ErrorMessage'
 
-const PostForm = ({ post, onSave, error, loading }) => {
+const PostForm = ({ post, onSave, error, loading, save, publish }) => {
   const [title, setTitle] = useState(post?.title || '')
   const [slug, setSlug] = useState(post?.slug || '')
   const [author, setAuthor] = useState(post?.author || '')
@@ -92,21 +92,23 @@ const PostForm = ({ post, onSave, error, loading }) => {
         />
       </label>
       <div className="flex justify-end mt-4">
-        <button
-          type="submit"
-          data-action="save"
-          disabled={loading}
-          className="px-6 py-2 bg-gray-400 text-gray-600 text-sm rounded mr-4 uppercase font-bold tracking-wide"
-        >
-          Save
-        </button>
+        {save && (
+          <button
+            type="submit"
+            data-action="save"
+            disabled={loading}
+            className="px-6 py-2 bg-gray-400 text-gray-600 text-sm rounded mr-4 uppercase font-bold tracking-wide"
+          >
+            Save
+          </button>
+        )}
         <button
           type="submit"
           data-action="publish"
           disabled={loading}
           className="px-6 py-2 bg-indigo-700 text-white text-sm rounded uppercase font-bold tracking-wider"
         >
-          Publish
+          {publish || 'Publish'}
         </button>
       </div>
     </form>

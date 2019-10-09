@@ -19,7 +19,6 @@ const GET_POSTS = gql`
     }
   }
 `
-
 const UPDATE_POST = gql`
   mutation POST($id: Int!, $postedAt: DateTime) {
     postUpdate(id: $id, postedAt: $postedAt) {
@@ -27,7 +26,6 @@ const UPDATE_POST = gql`
     }
   }
 `
-
 const DELETE_POST = gql`
   mutation POST($id: Int!) {
     postDelete(id: $id) {
@@ -46,7 +44,7 @@ const PostsCell = () => {
 
   const [
     postDelete,
-    { loading: deleteLoading, error: deleteError },
+    { loading: _deleteLoading, error: _deleteError },
   ] = useMutation(DELETE_POST, {
     onCompleted: () => {
       location.reload()
@@ -55,7 +53,7 @@ const PostsCell = () => {
 
   const [
     postUpdate,
-    { loading: updateLoading, error: updateError },
+    { loading: _updateLoading, error: _updateError },
   ] = useMutation(UPDATE_POST, {
     onCompleted: () => {
       location.reload()
