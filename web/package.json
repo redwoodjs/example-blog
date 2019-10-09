@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "dependencies": {
     "@babel/runtime": "^7.5.1",
+    "@gouch/to-title-case": "^2.2.1",
     "@hammerframework/hammer-web": "^0.0.1-alpha.9",
     "babel-plugin-inline-react-svg": "^1.1.0",
     "markdown-it": "^10.0.0",
