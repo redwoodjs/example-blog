@@ -7,3 +7,10 @@ body {
   margin-bottom: 1rem;
 }
 
+.form-field-error label {
+  color: #e53e3e;
+}
+
+.form-field-error input[type=text], .form-field-error textarea {
+  border-color: #e53e3e;
+}
