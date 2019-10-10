@@ -1,5 +1,7 @@
 import '@gouch/to-title-case'
+import { useContext } from 'react'
 import { useFormContext } from 'react-hook-form'
+import { FieldErrorContext } from 'src/components/forms/HammerForm'
 
 const DEFAULT_MESSAGES = {
   required: 'is required',
@@ -12,20 +14,25 @@ const DEFAULT_MESSAGES = {
 }
 
 const InputField = (props) => {
-  const { errors } = useFormContext()
-  const error = errors[props.input.name]
+  const { watch, errors, setError, clearError } = useFormContext()
+  const fieldErrorsContext = useContext(FieldErrorContext)
+  const contextError = fieldErrorsContext[props.input.name]
+  if (contextError) {
+    setError(props.input.name, 'server', contextError)
+  }
+  const validationError = errors[props.input.name]
   const errorMessage =
-    error &&
-    `${props.input.name.toTitleCase()} ${error.message ||
-      DEFAULT_MESSAGES[error.type]}`
+    validationError &&
+    `${props.input.name.toTitleCase()} ${validationError.message ||
+      DEFAULT_MESSAGES[validationError.type]}`
 
   return (
-    <div className={error ? 'form-field-error' : ''}>
+    <div className={validationError ? 'form-field-error' : ''}>
       <label {...props.label} htmlFor={props.input.name}>
         {props.labelText || props.input.name.toTitleCase()}
       </label>
       {props.children}
-      {error && <span {...props.error}>{errorMessage}</span>}
+      {validationError && <span {...props.error}>{errorMessage}</span>}
     </div>
   )
 }

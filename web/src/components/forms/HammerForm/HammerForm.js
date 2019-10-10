@@ -1,6 +1,8 @@
 import useForm, { FormContext } from 'react-hook-form'
 import ErrorMessage from 'src/components/forms/ErrorMessage'
 
+const FieldErrorContext = React.createContext()
+
 const HammerForm = (props) => {
   const formMethods = useForm(props.validation)
 
@@ -19,9 +21,16 @@ const HammerForm = (props) => {
         />
       )}
 
-      <FormContext {...formMethods}>{props.children}</FormContext>
+      <FieldErrorContext.Provider
+        value={
+          props.error?.graphQLErrors[0]?.extensions?.exception?.messages || {}
+        }
+      >
+        <FormContext {...formMethods}>{props.children}</FormContext>
+      </FieldErrorContext.Provider>
     </form>
   )
 }
 
 export default HammerForm
+export { FieldErrorContext }

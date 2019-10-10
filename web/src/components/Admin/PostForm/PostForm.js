@@ -49,7 +49,7 @@ const PostForm = (props) => {
         error={{ className: CLASS_NAMES.error }}
         validation={{
           required: true,
-          pattern: { value: /^\S+$/, message: 'cannot contain spaces' },
+          // pattern: { value: /^\S+$/, message: 'cannot contain spaces' },
         }}
       />
 
