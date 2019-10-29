@@ -14,3 +14,11 @@ body {
 .form-field-error input[type=text], .form-field-error textarea {
   border-color: #e53e3e;
 }
+
+.h-80 {
+  height: 20rem;
+}
+
+.max-h-80 {
+  max-height: 20rem;
+}
