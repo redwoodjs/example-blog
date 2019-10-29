@@ -18,7 +18,7 @@ const CLASS_NAMES = {
 }
 
 const PostForm = (props) => {
-  const [splashImage, setSplashImage] = useState(null)
+  const [splashImage, setSplashImage] = useState(props.post?.image)
 
   const onSubmit = (data) => {
     console.info(data)
