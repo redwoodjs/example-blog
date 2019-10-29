@@ -1,7 +1,9 @@
+import { useState } from 'react'
 import HammerForm from 'src/components/forms/HammerForm'
 import TextField from 'src/components/forms/TextField'
 import TextAreaField from 'src/components/forms/TextAreaField'
 import Submit from 'src/components/forms/Submit'
+import ReactFilestack from 'filestack-react'
 
 const CLASS_NAMES = {
   label:
@@ -16,17 +18,31 @@ const CLASS_NAMES = {
 }
 
 const PostForm = (props) => {
+  const [splashImage, setSplashImage] = useState(null)
+
   const onSubmit = (data) => {
+    console.info(data)
     const type = document.activeElement.dataset.action
-    props.onSave(data, type)
+    props.onSave(Object.assign(data, { image: splashImage }), type)
     event.preventDefault()
+  }
+
+  const replaceImage = (event) => {
+    event.preventDefault()
+
+    setSplashImage(null)
+  }
+
+  const onFileUpload = (response) => {
+    const upload = response.filesUploaded[0]
+
+    setSplashImage(upload.url)
   }
 
   return (
     <HammerForm
       error={props.error}
       form={{ onSubmit: onSubmit, className: '' }}
-      validation={{ mode: 'onBlur' }}
     >
       <TextField
         input={{
@@ -76,6 +92,42 @@ const PostForm = (props) => {
           required: true,
         }}
       />
+
+      <label className={CLASS_NAMES.label}>Splash Image</label>
+
+      <ReactFilestack
+        apikey={process.env.FILESTACK_API_KEY}
+        onSuccess={onFileUpload}
+        componentDisplayMode={{
+          type: 'immediate',
+        }}
+        actionOptions={{
+          displayMode: 'inline',
+          container: 'embedded',
+          fromSources: ['local_file_system', 'url'],
+        }}
+      />
+
+      <div
+        id="embedded"
+        className={`h-80 ${splashImage ? 'hidden' : ''}`}
+      ></div>
+
+      {splashImage && (
+        <div className="mt-2">
+          <img src={splashImage} alt="Splash image" className="max-h-80" />
+
+          <div className="mt-4">
+            <a
+              href="#"
+              onClick={replaceImage}
+              className={`mt-4 ${CLASS_NAMES.save}`}
+            >
+              Replace Image
+            </a>
+          </div>
+        </div>
+      )}
 
       <div className="flex justify-end mt-4">
         {props.save && (

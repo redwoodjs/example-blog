@@ -4,7 +4,7 @@ import ErrorMessage from 'src/components/forms/ErrorMessage'
 const FieldErrorContext = React.createContext()
 
 const HammerForm = (props) => {
-  const formMethods = useForm(props.validation)
+  const formMethods = props.formMethods || useForm(props.validation)
 
   return (
     <form

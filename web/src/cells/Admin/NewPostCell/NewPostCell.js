@@ -7,6 +7,7 @@ const CREATE_POST = gql`
     $slug: String!
     $author: String!
     $body: String!
+    $image: String
     $postedAt: DateTime
   ) {
     postCreate(
@@ -14,6 +15,7 @@ const CREATE_POST = gql`
       slug: $slug
       author: $author
       body: $body
+      image: $image
       postedAt: $postedAt
     ) {
       id

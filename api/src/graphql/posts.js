@@ -89,6 +89,7 @@ export const postCreate = mutationField('postCreate', {
     slug: stringArg({ required: true }),
     author: stringArg({ required: true }),
     body: stringArg({ required: true }),
+    image: stringArg({ required: false }),
     postedAt: arg({ type: 'DateTime', required: false }),
   },
   async resolve(_root, args, { photon }) {
