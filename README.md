@@ -11,6 +11,7 @@
     * [Enabling Identity on Netlify](#enabling-identity-on-netlify)
     * [Enabling Image Uploads](#enabling-image-uploads)
 * [Architecture](#architecture)
+* [TODO](#todo)
 
 ## Overview
 
@@ -160,4 +161,8 @@ bottom of the form:
 
 Coming soon.
 
-##
+## TODO
+
+* Remove file picker if ENV var not set, with instructions for enabling
+* Add instructions for enabling Authentication
+* In public view don't include posts in Draft state
