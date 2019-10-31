@@ -1,9 +1,29 @@
 import { Link } from 'react-router-dom'
 import moment from 'moment'
+import MarkdownIt from 'markdown-it'
 import TagList from 'src/components/TagList'
 
-const MarkdownIt = require('markdown-it')
 const md = new MarkdownIt()
+
+export const query = gql`
+  query POST($slug: String) {
+    post(slug: $slug) {
+      id
+      title
+      slug
+      author
+      body
+      image
+      postedAt
+      tags {
+        id
+        name
+      }
+    }
+  }
+`
+
+export const Loader = () => <div>Loading...</div>
 
 const Post = ({ post, summary }) => {
   const formattedDate = (date) => {
