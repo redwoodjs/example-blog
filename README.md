@@ -35,6 +35,17 @@ On the tech side:
 * CSS styling via [TailwindCSS](https://tailwindcss.com)
 * Contact forms are handled by [Netlify Forms](https://www.netlify.com/products/forms/)
 
+* [HammerFramework's Example Blog](#hammerframeworks-example-blog)
+
+## Table of Contents
+
+* [Getting Started](#getting-started)
+    * [Local Development](#local-development)
+      * [Disabling Authentication](#disabling-authentication)
+      * [Enabling Identity on Netlify](#enabling-identity-on-netlify)
+      * [Enabling Image Uploads](#enabling-image-uploads)
+* [Architecture](#architecture)
+
 ## Getting Started
 
 ### Local Development
@@ -115,7 +126,7 @@ The popup should refresh and now you'll see a login box. But, we don't have any 
 
 <img src="https://user-images.githubusercontent.com/300/67904814-be383c00-fb2c-11e9-851a-89ccd652811f.png" width="400">
 
-You'll get an email with a link to accept the invite. However, this link won't work: it's trying to go to the Netlify URL, which doesn't have a site on it yet. So after clicking the link and getting an error, change the URL to be localhost:8910 *but make sure to keep the invite token at the end*. For example, if you are sent to
+You'll get an email with a link to accept the invite. However, this link won't work: it's trying to go to the Netlify URL, which doesn't have a site on it yet. So after clicking the link and getting an error, change the URL to be http://localhost:8910 *but make sure to keep the invite token at the end*. For example, if you are sent to
 
     https://nostalgic-dijkstra-23eaba.netlify.com/#invite_token=8-TFgNesyzhIn8LnXv3
 
@@ -139,7 +150,13 @@ Once you have logged into Filestack copy the API key shown at the top right of t
 If you haven't already, copy the `.env.example` file in the root of the blog to a new
 file named `.env`. Edit the `FILESTACK_API_KEY` variable to be equal to the one you
 just copied. Save `.env` and restart your `yarn dev` process. Now when creating a
-new blog post, or editing an existing one, you should see a filepicker towards the
+new blog post http://localhost:8910/admin/new you should see a filepicker towards the
 bottom of the form:
 
 ![New post screenshot](https://user-images.githubusercontent.com/300/67907861-9f3ea780-fb36-11e9-8bca-4e71c38d47e3.png)
+
+## Architecture
+
+Coming soon.
+
+##
