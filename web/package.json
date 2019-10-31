@@ -3,7 +3,7 @@
   "name": "web",
   "version": "0.0.0",
   "dependencies": {
-    "@hammerframework/hammer-web": "^0.0.1-alpha.12.3",
+    "@hammerframework/hammer-web": "^0.0.1-alpha.12.4",
     "@gouch/to-title-case": "^2.2.1",
     "filestack-react": "^3.1.0",
     "markdown-it": "^10.0.0",
