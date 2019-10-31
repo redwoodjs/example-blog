@@ -65,12 +65,12 @@ To access the admin you have two options:
 * Disable authentication
 * Enable the Identity feature on Netlify
 
-### Disabling Authentication
+#### Disabling Authentication
 
 Copy the `.env.example` file to a new file `.env` and edit it, setting the `USE_AUTHENTICATION` variable to `false` instead of `true`. Restart your `yarn dev`
 process and you should now be able to go to http://localhost:8910/admin without a login prompt.
 
-### Enabling Identity on Netlify
+#### Enabling Identity on Netlify
 
 You'll need to create a new site on Netlify so that you can enable Identity and
 give the Identity API Endpoint to your development instance of the blog.
@@ -125,7 +125,7 @@ Rewrite that URL to:
 
 You should see the login popup with a password input to complete your account. Fill it in and submit and now you should get a message saying you are logged in. Head back to the admin http://localhost:8910/admin and you should have access (finally!)
 
-### Enabling Image Uploads
+#### Enabling Image Uploads
 
 The blog uses an external service, [Filestack](https://filestack.com) to handle image
 uploads. If you want to be able to upload images in local development you'll need to
