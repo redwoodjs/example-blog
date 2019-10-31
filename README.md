@@ -2,6 +2,18 @@
 
 ![Hammer Framework Example Blog Screenshot](https://user-images.githubusercontent.com/300/67903394-aced3080-fb28-11e9-85bb-b5fdbb4b6c34.png)
 
+## Table of Contents
+
+* [Overview](#overview)
+* [Getting Started](#getting-started)
+  * [Installation](#installation)
+    * [Disabling Authentication](#disabling-authentication)
+    * [Enabling Identity on Netlify](#enabling-identity-on-netlify)
+    * [Enabling Image Uploads](#enabling-image-uploads)
+* [Architecture](#architecture)
+
+## Overview
+
 Here is a full-featured blog engine written with the Hammer framework. It includes:
 
 * Listing all blog posts with first paragraph summaries and pagination (the homepage)
@@ -15,12 +27,12 @@ The admin includes:
 
 * User authentication
 * Create a new blog post with:
-  * Title
-  * Slug (URL)
-  * Author
-  * Body
-  * Tags
-  * Splash image
+    * Title
+    * Slug (URL)
+    * Author
+    * Body
+    * Tags
+    * Splash image
 * Edit existing blog post
 * Delete a blog post
 * Mark a new post as a Draft and not display it live
@@ -35,20 +47,9 @@ On the tech side:
 * CSS styling via [TailwindCSS](https://tailwindcss.com)
 * Contact forms are handled by [Netlify Forms](https://www.netlify.com/products/forms/)
 
-* [HammerFramework's Example Blog](#hammerframeworks-example-blog)
-
-## Table of Contents
-
-* [Getting Started](#getting-started)
-    * [Local Development](#local-development)
-      * [Disabling Authentication](#disabling-authentication)
-      * [Enabling Identity on Netlify](#enabling-identity-on-netlify)
-      * [Enabling Image Uploads](#enabling-image-uploads)
-* [Architecture](#architecture)
-
 ## Getting Started
 
-### Local Development
+### Installation
 
 Clone the repo:
 
