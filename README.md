@@ -6,13 +6,14 @@ Here is a full-featured blog engine written with the Hammer framework. It includ
 
 * Listing all blog posts with first paragraph summaries and pagination (the homepage)
 * Reading a single, full blog post
-* Searching for blog posts by keyword (simple `LIKE` lookup in SQL)
+* Searching for blog posts by keyword
 * Displaying all posts with a given tag
+* Contact form
+* Fully responsive at various viewport sizes
 
 The admin includes:
 
-* User authentication (login and logout using [Netlify Identity](https://docs.netlify.com/visitor-access/identity/) with username/password or Oauth with GitHub, GitLab and Google)
-* List of all blog posts
+* User authentication
 * Create a new blog post with:
   * Title
   * Slug (URL)
@@ -26,7 +27,13 @@ The admin includes:
 * Publish a post live
 * Unpublish a post (puts it back to DRAFT status)
 
-It uses [TailwindCSS](https://tailwindcss.com) for styling and is fully responsive at different viewport sizes.
+On the tech side:
+
+* Data stored in a SQL database (SQLite locally)
+* User authentication using [Netlify Identity](https://docs.netlify.com/visitor-access/identity/)
+* Image uploads and CDN via [Filestack](https://filestack.com)
+* CSS styling via [TailwindCSS](https://tailwindcss.com)
+* Contact forms are handled by [Netlify Forms](https://www.netlify.com/products/forms/)
 
 ## Getting Started
 
