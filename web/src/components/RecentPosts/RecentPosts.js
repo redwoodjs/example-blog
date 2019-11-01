@@ -1,4 +1,6 @@
-export const postsQuery = gql`
+import { Link } from 'react-router-dom'
+
+export const query = gql`
   {
     posts {
       id
@@ -9,14 +11,14 @@ export const postsQuery = gql`
   }
 `
 
-const { loading: postsLoading, data: postsData } = props.posts
+export const Loader = () => <div>Loading recent posts...</div>
 
-const RecentPosts = () => {
-  return (<h2 className="font-semibold text-indigo-800">Recent Hammers</h2>
-    <ul className="text-sm mt-2">
-      {postsLoading
-        ? 'Loading...'
-        : postsData.posts.map((post) => (
+const RecentPosts = ({ posts = [] }) => {
+  return (
+    <div className="">
+      <h2 className="font-semibold text-indigo-800">Recent Hammers</h2>
+      <ul className="text-sm mt-2">
+        {posts.map((post) => (
           <li key={post.id} className="my-2">
             <Link
               to={`/posts/${post.slug}`}
@@ -26,5 +28,9 @@ const RecentPosts = () => {
             </Link>
           </li>
         ))}
-    </ul>)
+      </ul>
+    </div>
+  )
 }
+
+export default RecentPosts
