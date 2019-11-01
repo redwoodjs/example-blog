@@ -8,7 +8,7 @@ const TextField = (props) => {
     <InputField {...props}>
       <input
         {...props.input}
-        type="text"
+        type={props.input.type || 'text'}
         id={props.input.id || props.input.name}
         ref={register(props.validation)}
       />

@@ -1,7 +1,9 @@
 import { BrowserRouter, Switch, Route } from '@hammerframework/hammer-web'
+import AboutPage from 'src/pages/AboutPage'
 import AdminPostsPage from 'src/pages/admin/PostsPage'
 import AdminNewPostPage from 'src/pages/admin/NewPostPage'
 import AdminEditPostPage from 'src/pages/admin/EditPostPage'
+import ContactPage from 'src/pages/ContactPage'
 import PostPage from 'src/pages/PostPage'
 import PostSummariesPage from 'src/pages/PostSummariesPage'
 import TaggedPostsPage from 'src/pages/TaggedPostsPage'
@@ -24,6 +26,12 @@ const Routes = () => {
 
         <Route path="/" exact>
           <PostSummariesPage />
+        </Route>
+        <Route path="/about" exact>
+          <AboutPage />
+        </Route>
+        <Route path="/contact" exact>
+          <ContactPage />
         </Route>
         <Route path="/posts/:slug">
           <PostPage />

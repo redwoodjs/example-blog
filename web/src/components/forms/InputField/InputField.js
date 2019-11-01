@@ -23,8 +23,10 @@ const InputField = (props) => {
   const validationError = errors[props.input.name]
   const errorMessage =
     validationError &&
-    `${props.input.name.toTitleCase()} ${validationError.message ||
-      DEFAULT_MESSAGES[validationError.type]}`
+    (validationError.message ||
+      `${props.input.name.toTitleCase()} ${
+        DEFAULT_MESSAGES[validationError.type]
+      }`)
 
   return (
     <div className={validationError ? 'form-field-error' : ''}>
