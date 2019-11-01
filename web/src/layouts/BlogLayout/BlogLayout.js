@@ -1,4 +1,4 @@
-import MenuCell from 'src/cells/MenuCell'
+import Menu from 'src/components/Menu'
 
 const BlogLayout = (props) => {
   return (
@@ -39,7 +39,7 @@ const BlogLayout = (props) => {
           </nav>
         </header>
         <main className="flex px-8 pb-8">
-          <MenuCell />
+          <Menu />
           <section className="flex-1 mt-4">{props.children}</section>
         </main>
         <footer className="bg-indigo-600 text-indigo-200 text-sm text-center py-4">
