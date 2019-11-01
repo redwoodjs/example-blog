@@ -5,7 +5,7 @@ datasource sqlite {
 
 generator photonjs {
   provider = "photonjs"
-  output = "../packages/photon"
+  output = "../../packages/photon"
 }
 
 // Define your own models here and run yarn db:save to create

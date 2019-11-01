@@ -6,7 +6,7 @@ import {
   intArg,
   mutationField,
 } from 'nexus'
-import { UserInputError } from 'apollo-server-core'
+import { UserInputError } from '@hammerframework/hammer-api'
 
 const validate = (args) => {
   if (args.slug && !args.slug.match(/^\S+$/)) {
