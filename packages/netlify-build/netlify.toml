@@ -1,0 +1,9 @@
+[build]
+  functions = "./dist/api"
+  publish = "./dist/web"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  force = false
