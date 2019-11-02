@@ -6,11 +6,11 @@
     "@generated/photon": "0.0.0-generated",
     "@hammerframework/hammer-api": "^0.0.1-alpha.12.5",
     "graphql-iso-date": "^3.6.1",
-    "nexus": "v0.12.0-beta.14"
+    "nexus": "v0.12.0-beta.14",
+    "dotenv": "^8.2.0"
   },
   "devDependencies": {
     "@hammerframework/hammer-dev-server": "^0.0.1-alpha.12",
-    "dotenv": "^8.2.0",
     "prisma2": "2.0.0-preview-12"
   },
   "scripts": {
