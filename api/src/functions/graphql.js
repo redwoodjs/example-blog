@@ -7,9 +7,10 @@ import dotenv from 'dotenv'
 import * as posts from 'src/graphql/posts'
 import * as tags from 'src/graphql/tags'
 
+dotenv.config()
+
 export const GQLDateTime = asNexusMethod(GraphQLDateTime, 'datetime')
 const photon = new Photon()
-dotenv.config()
 
 export const handler = server({
   context: {

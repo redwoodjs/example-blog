@@ -11,13 +11,13 @@
   },
   "devDependencies": {
     "@hammerframework/hammer-dev-server": "^0.0.1-alpha.12",
-    "prisma2": "2.0.0-preview-12"
+    "prisma2": "2.0.0-preview015"
   },
   "scripts": {
     "dev": "yarn hammer-dev-server",
     "db:up": "yarn prisma2 lift up && yarn prisma2 generate",
     "db:save": "yarn prisma2 lift save",
     "seed": "node prisma/seeds.js",
-    "build": "NODE_ENV=production yarn workspace api db:up && NODE_ENV=production babel src --out-dir dist"
+    "build": "NODE_ENV=production babel src --out-dir dist"
   }
 }
