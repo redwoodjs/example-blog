@@ -3,14 +3,14 @@
   "name": "api",
   "version": "0.0.0",
   "dependencies": {
+    "@hammerframework/hammer-api": "^0.0.1-alpha.12.5",
     "@generated/photon": "0.0.0-generated",
-    "@hammerframework/hammer-api": "^0.0.1-alpha.12.2",
-    "nexus": "0.12.0-beta.14",
+    "nexus": "v0.12.0-beta.14",
     "graphql-iso-date": "^3.6.1"
   },
   "devDependencies": {
-    "prisma2": "2.0.0-preview014",
-    "@hammerframework/hammer-dev-server": "^0.0.1-alpha.12"
+    "@hammerframework/hammer-dev-server": "^0.0.1-alpha.12",
+    "prisma2": "2.0.0-preview-12"
   },
   "scripts": {
     "dev": "yarn hammer-dev-server",
