@@ -2,13 +2,16 @@ import Menu from 'src/components/Menu'
 
 const BlogLayout = (props) => {
   return (
-    <div className="container mx-auto">
-      <div className="mx-8 bg-white shadow">
-        <header className="flex items-center border-b-4 border-indigo-300 bg-indigo-600 text-white px-8 py-12 ">
+    <div className="max-w-8xl mx-auto">
+      <div className="sm:mx-8">
+        <header className="md:flex flex-wrap items-center border-b-4 border-indigo-300 bg-indigo-600 text-white px-8 py-12 ">
           <div className="flex flex-1">
-            <div className="mt-1">
+            <div className="flex-grow mt-1 text-center md:text-left">
               <h1>
-                <a href="/" className="text-5xl font-semibold leading-none">
+                <a
+                  href="/"
+                  className="text-4xl sm:text-5xl font-semibold leading-none"
+                >
                   Hammer Review
                 </a>
               </h1>
@@ -17,8 +20,8 @@ const BlogLayout = (props) => {
               </h2>
             </div>
           </div>
-          <nav>
-            <ul className="flex">
+          <nav className="flex-grow sm:flex-grow-0 min-h-screenmt-4 mt-4 md:mt-0">
+            <ul className="flex justify-center">
               <li className="mx-4 font-semibold uppercase">
                 <a
                   href="/about"
@@ -38,9 +41,11 @@ const BlogLayout = (props) => {
             </ul>
           </nav>
         </header>
-        <main className="flex px-8 pb-8">
+        <main className="flex items-start">
           <Menu />
-          <section className="flex-1 mt-4">{props.children}</section>
+          <section className="flex-1 pt-4 px-8 bg-white shadow">
+            {props.children}
+          </section>
         </main>
         <footer className="bg-indigo-600 text-indigo-200 text-sm text-center py-4">
           Copyright ©2019 Hammers, Inc.

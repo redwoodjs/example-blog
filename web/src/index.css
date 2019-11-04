@@ -22,3 +22,7 @@ body {
 .max-h-80 {
   max-height: 20rem;
 }
+
+.max-w-8xl {
+  max-width: 88rem;
+}
