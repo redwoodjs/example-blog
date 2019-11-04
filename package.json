@@ -8,7 +8,8 @@
     "packages/**"
   ],
   "devDependencies": {
-    "@hammerframework/hammer-core": "0.0.1-alpha.12",
+    "@hammerframework/hammer-scripts": "^0.0.1-alpha.12.5",
+    "@hammerframework/hammer-cli": "0.0.1-alpha.12.5",
     "@hammerframework/eslint-config-hammer": "0.0.1-alpha.12"
   },
   "eslintConfig": {
@@ -19,8 +20,8 @@
     "open": "open http://localhost:8910",
     "dev:api": "yarn workspace api dev",
     "dev:web": "yarn workspace web dev",
-    "db:up": "yarn workspace api prisma2 lift up && yarn workspace api prisma2 generate",
-    "db:save": "yarn workspace api prisma2 lift save",
+    "db:up": "yarn workspace api db:up",
+    "db:save": "yarn workspace api db:save",
     "lint": "yarn eslint 'web/src/**/*.js' 'api/src/**/*.js'",
     "lint:fix": "yarn eslint --fix 'web/src/**/*.js' 'api/src/**/*.js'"
   }

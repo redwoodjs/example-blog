@@ -20,7 +20,6 @@
     "tailwindcss": "^1.1.2"
   },
   "devDependencies": {
-    "@hammerframework/hammer-core": "^0.0.1-alpha.12",
     "babel-plugin-inline-react-svg": "^1.1.0"
   },
   "scripts": {

@@ -1,5 +1,3 @@
-const path = require("path");
-
 module.exports = {
   extends: "../babel.config.js",
   presets: [
@@ -7,7 +5,7 @@ module.exports = {
       "@babel/preset-env",
       {
         targets: {
-          node: "8.10.0"
+          node: "12.13.0"
         },
         useBuiltIns: "entry",
         corejs: 3
@@ -19,7 +17,7 @@ module.exports = {
       "babel-plugin-module-resolver",
       {
         alias: {
-          src: path.join(__dirname, "src")
+          src: "./src"
         }
       }
     ]
