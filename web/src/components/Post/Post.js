@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import moment from 'moment'
 import MarkdownIt from 'markdown-it'
+import truncate from 'html-truncate'
 import TagList from 'src/components/TagList'
 
 const md = new MarkdownIt()
@@ -10,17 +11,17 @@ const formattedDate = (date) => {
 }
 
 const formattedBody = (post, summary) => {
-  let output = post.body
+  let output = md.render(post.body)
   if (summary) {
-    output = output.split('\n\n').shift()
+    return truncate(output, 500)
   }
-
-  return md.render(output)
+  return output
 }
 
 const Post = ({ post, summary = false }) => {
   return (
     <article className="mt-4 mb-12">
+      {!summary && <img src={post.image} className="mt-1 mb-2 mr-4 w-full" />}
       <header className="flex items-center justify-between">
         <h1 className="text-2xl font-semibold">
           <Link
@@ -33,7 +34,9 @@ const Post = ({ post, summary = false }) => {
         <h2 className="text-sm text-gray-600">by {post.author}</h2>
       </header>
       <div className="mt-2">
-        <img src={post.image} className="float-left mt-1 mr-4 w-48" />
+        {summary && (
+          <img src={post.image} className="float-left mt-1 mr-4 w-48" />
+        )}
         <div
           className="markdown"
           dangerouslySetInnerHTML={{ __html: formattedBody(post, summary) }}

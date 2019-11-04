@@ -5,7 +5,7 @@ import AdminNewPostPage from 'src/pages/admin/NewPostPage'
 import AdminEditPostPage from 'src/pages/admin/EditPostPage'
 import ContactPage from 'src/pages/ContactPage'
 import PostPage from 'src/pages/PostPage'
-import PostSummariesPage from 'src/pages/PostSummariesPage'
+import HomePage from 'src/pages/HomePage'
 import TaggedPostsPage from 'src/pages/TaggedPostsPage'
 import SearchPage from 'src/pages/SearchPage'
 import NotFoundPage from 'src/pages/NotFoundPage'
@@ -25,7 +25,7 @@ const Routes = () => {
         </Route>
 
         <Route path="/" exact>
-          <PostSummariesPage />
+          <HomePage />
         </Route>
         <Route path="/about" exact>
           <AboutPage />
