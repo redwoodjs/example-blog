@@ -13,7 +13,7 @@ export const query = gql`
 
 export const Loader = () => <div>Loading recent posts...</div>
 
-const RecentPosts = ({ posts = [] }) => {
+const RecentPostsCell = ({ posts = [] }) => {
   return (
     <div className="">
       <h2 className="font-semibold text-indigo-800">Recent Hammers</h2>
@@ -33,4 +33,4 @@ const RecentPosts = ({ posts = [] }) => {
   )
 }
 
-export default RecentPosts
+export default RecentPostsCell

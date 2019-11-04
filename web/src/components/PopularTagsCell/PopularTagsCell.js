@@ -11,7 +11,7 @@ export const query = gql`
 
 export const Loader = () => <div>Loading tags...</div>
 
-const PopularTags = ({ tags = [] }) => {
+const PopularTagsCell = ({ tags = [] }) => {
   return (
     <div className="mt-16">
       <h2 className="font-semibold text-indigo-800">Popular Tags</h2>
@@ -22,4 +22,4 @@ const PopularTags = ({ tags = [] }) => {
   )
 }
 
-export default PopularTags
+export default PopularTagsCell

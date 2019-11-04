@@ -5,40 +5,20 @@ import TagList from 'src/components/TagList'
 
 const md = new MarkdownIt()
 
-export const query = gql`
-  query POST($slug: String) {
-    post(slug: $slug) {
-      id
-      title
-      slug
-      author
-      body
-      image
-      postedAt
-      tags {
-        id
-        name
-      }
-    }
-  }
-`
+const formattedDate = (date) => {
+  return moment(date).fromNow()
+}
 
-export const Loader = () => <div>Loading...</div>
-
-const Post = ({ post, summary }) => {
-  const formattedDate = (date) => {
-    return moment(date).fromNow()
+const formattedBody = (post, summary) => {
+  let output = post.body
+  if (summary) {
+    output = output.split('\n\n').shift()
   }
 
-  const formattedBody = (post) => {
-    let output = post.body
-    if (summary) {
-      output = output.split('\n\n').shift()
-    }
+  return md.render(output)
+}
 
-    return md.render(output)
-  }
-
+const Post = ({ post, summary = false }) => {
   return (
     <article className="mt-4 mb-12">
       <header className="flex items-center justify-between">
@@ -56,7 +36,7 @@ const Post = ({ post, summary }) => {
         <img src={post.image} className="float-left mt-1 mr-4 w-48" />
         <div
           className="markdown"
-          dangerouslySetInnerHTML={{ __html: formattedBody(post) }}
+          dangerouslySetInnerHTML={{ __html: formattedBody(post, summary) }}
         ></div>
         {summary && (
           <p className="clearfix">

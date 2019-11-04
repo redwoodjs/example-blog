@@ -1,14 +1,14 @@
 import { useParams } from 'react-router-dom'
 import BlogLayout from 'src/layouts/BlogLayout'
 
-import Post from 'src/components/Post'
+import SinglePostCell from 'src/components/SinglePostCell'
 
 const PostPage = () => {
   const { slug } = useParams()
 
   return (
     <BlogLayout>
-      <Post summary={false} queryOptions={{ variables: { slug } }} />
+      <SinglePostCell queryOptions={{ variables: { slug } }} />
     </BlogLayout>
   )
 }
