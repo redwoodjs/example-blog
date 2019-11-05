@@ -1,4 +1,4 @@
-import TagList from 'src/components/TagList'
+import TagList from 'src/components/Blog/TagList'
 
 export const query = gql`
   {

@@ -1,4 +1,4 @@
-import Post from 'src/components/Post'
+import Post from 'src/components/Blog/Post'
 
 export const query = gql`
   {

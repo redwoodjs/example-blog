@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom'
 
 import BlogLayout from 'src/layouts/BlogLayout'
-import TaggedPostsCell from 'src/components/TaggedPostsCell'
+import TaggedPostsCell from 'src/components/Blog/TaggedPostsCell'
 
 const TaggedPostsPage = () => {
   const { tag } = useParams()

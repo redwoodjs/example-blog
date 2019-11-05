@@ -1,6 +1,6 @@
-import PopularTagsCell from 'src/components/PopularTagsCell'
-import RecentPostsCell from 'src/components/RecentPostsCell'
-import SearchBar from 'src/components/SearchBar'
+import PopularTagsCell from 'src/components/Blog/PopularTagsCell'
+import RecentPostsCell from 'src/components/Blog/RecentPostsCell'
+import SearchBar from 'src/components/Blog/SearchBar'
 
 const Menu = (props) => {
   return (

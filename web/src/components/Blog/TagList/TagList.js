@@ -1,4 +1,4 @@
-import Tag from 'src/components/Tag'
+import Tag from 'src/components/Blog/Tag'
 
 const TagList = ({ tags }) => {
   return tags.map((tag) => (

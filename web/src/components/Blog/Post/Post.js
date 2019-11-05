@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import moment from 'moment'
 import MarkdownIt from 'markdown-it'
 import truncate from 'html-truncate'
-import TagList from 'src/components/TagList'
+import TagList from 'src/components/Blog/TagList'
 
 const md = new MarkdownIt()
 

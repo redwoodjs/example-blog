@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import Menu from 'src/components/Menu'
+import Menu from 'src/components/Blog/Menu'
 import logo from './logo.png'
 
 const BlogLayout = (props) => {
