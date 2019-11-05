@@ -42,10 +42,10 @@ const Post = ({ post, summary = false }) => {
           dangerouslySetInnerHTML={{ __html: formattedBody(post, summary) }}
         ></div>
         {summary && (
-          <p className="clearfix">
+          <p className="clearfix text-center">
             <Link
               to={`/posts/${post.slug}`}
-              className="inline-block mt-4 text-indigo-600 text-sm rounded font-medium hover:bg-indigo-100 rounded"
+              className="inline-block text-right text-indigo-600 hover:text-indigo-800 text-sm bg-indigo-100 hover:bg-transparent px-2 rounded font-medium hover:bg-indigo-100 rounded"
             >
               Continue reading &raquo;
             </Link>
