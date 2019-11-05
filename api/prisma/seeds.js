@@ -71,7 +71,7 @@ async function main() {
         'steel, hardened and tempered to Rc 28-32.  It is 11 ½” long overall with a head ' +
         'that is 1 ½” x 1 ½” x 4”. Striking faces are smooth- ground at a 5 ½” ' +
         'radius, and finished by hand. Designed by Raney Nelson. Made in the United States.',
-      image: 'https://i.imgur.com/s0oSh56.png',
+      image: 'https://cdn.filestackcontent.com/uBtP96HHSsa6Kv6qjgMP',
       tags: {
         connect: [{ id: tags[0].id }, { id: tags[1].id }, { id: tags[3].id }],
       },
@@ -97,7 +97,7 @@ async function main() {
         'attached to the mallet head with a stainless steel tenon.A small brass bead lends ' +
         'just a touch of elegance.These mallets will quickly become a favorite for all but ' +
         'your heaviest striking needs.',
-      image: 'https://i.imgur.com/ItvtYid.png',
+      image: 'https://cdn.filestackcontent.com/joArZLOOQLSwqoGUGpgP',
       tags: {
         connect: [{ id: tags[0].id }, { id: tags[2].id }, { id: tags[3].id }],
       },
@@ -119,7 +119,7 @@ async function main() {
         'So here’s the news: Lie-Nielsen Toolworks is going to begin making this hammer in both steel and brass. I don’t have information on pricing or availability, but who cares? I’m getting a set (or two) the minute they come out.\n\n' +
         'You see, I have a hammer problem. I probably have 20 or more of them, all different. Most of them came into my hands when I wrote about hammers for Woodworking Magazine a few years back, but for some reason I can’t seem to get rid of them.\n\n' +
         'But the Warrington’s size and weight have made it my favorite shop hammer (followed quickly by my 16-ounce Maydole hammer). And soon – thanks to Lie-Nielsen – you are going to be able to see if you agree with my assessment.\n\n',
-      image: 'https://i.imgur.com/9gmb9sd.png',
+      image: 'https://cdn.filestackcontent.com/qep721l3RUCn531EBkU2',
       tags: {
         connect: [{ id: tags[0].id }, { id: tags[1].id }, { id: tags[3].id }],
       },
