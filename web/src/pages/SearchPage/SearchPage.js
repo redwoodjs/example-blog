@@ -1,10 +1,13 @@
-import SearchCell from 'src/cells/SearchCell'
+import { useParams } from 'react-router-dom'
+import SearchCell from 'src/components/Blog/SearchCell'
 import BlogLayout from 'src/layouts/BlogLayout'
 
 const SearchPage = () => {
+  const { term } = useParams()
+
   return (
     <BlogLayout>
-      <SearchCell />
+      <SearchCell queryOptions={{ variables: { term } }} />
     </BlogLayout>
   )
 }
