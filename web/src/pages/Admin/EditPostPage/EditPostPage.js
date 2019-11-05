@@ -1,5 +1,5 @@
 import AdminLayout from 'src/layouts/AdminLayout'
-import EditPostCell from 'src/cells/Admin/EditPostCell'
+import EditPostCell from 'src/components/Admin/EditPostCell'
 
 const EditPostPage = () => {
   return (

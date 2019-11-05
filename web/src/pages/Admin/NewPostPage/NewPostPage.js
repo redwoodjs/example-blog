@@ -1,10 +1,10 @@
 import AdminLayout from 'src/layouts/AdminLayout'
-import AdminNewPostCell from 'src/cells/Admin/NewPostCell'
+import NewPostCell from 'src/components/Admin/NewPostCell'
 
 const NewPostPage = () => {
   return (
     <AdminLayout>
-      <AdminNewPostCell />
+      <NewPostCell />
     </AdminLayout>
   )
 }

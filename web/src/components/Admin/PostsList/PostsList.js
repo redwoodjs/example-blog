@@ -1,17 +1,52 @@
+import { useMutation } from '@hammerframework/hammer-web'
 import { Link } from 'react-router-dom'
 import moment from 'moment'
+
+const UPDATE_POST = gql`
+  mutation POST($id: Int!, $postedAt: DateTime) {
+    postUpdate(id: $id, postedAt: $postedAt) {
+      id
+    }
+  }
+`
+
+const DELETE_POST = gql`
+  mutation POST($id: Int!) {
+    postDelete(id: $id) {
+      id
+    }
+  }
+`
 
 const wordCount = (post) => {
   return post.body.split(' ').length
 }
 
 const PostsList = ({ posts, onHide, onDelete }) => {
+  const [
+    postDelete,
+    { loading: _deleteLoading, error: _deleteError },
+  ] = useMutation(DELETE_POST, {
+    onCompleted: () => {
+      location.reload()
+    },
+  })
+
+  const [
+    postUpdate,
+    { loading: _updateLoading, error: _updateError },
+  ] = useMutation(UPDATE_POST, {
+    onCompleted: () => {
+      location.reload()
+    },
+  })
+
   const onHideClick = (event) => {
     const id = event.target.dataset.id
     const title = event.target.dataset.title
 
     if (confirm(`Are you sure you want to un-publish post "${title}"?`)) {
-      onHide(id)
+      postUpdate({ variables: { id: parseInt(id), postedAt: null } })
     }
   }
 
@@ -20,7 +55,7 @@ const PostsList = ({ posts, onHide, onDelete }) => {
     const title = event.target.dataset.title
 
     if (confirm(`Are you sure you want to delete post "${title}"?`)) {
-      onDelete(id)
+      postDelete({ variables: { id: parseInt(id) } })
     }
   }
 
