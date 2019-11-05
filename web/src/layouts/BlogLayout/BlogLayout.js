@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import Menu from 'src/components/Menu'
 import logo from './logo.png'
 
@@ -8,11 +9,13 @@ const BlogLayout = (props) => {
         <header className="md:flex flex-wrap items-center border-b-4 border-indigo-300 bg-indigo-600 text-white px-8 py-6 ">
           <div className="flex flex-1">
             <div className="flex-grow mt-1 text-center md:text-left">
-              <img
-                className="w-56 inline-block"
-                src={logo}
-                alt="Hammer Review Logo"
-              />
+              <Link to="/">
+                <img
+                  className="w-56 inline-block"
+                  src={logo}
+                  alt="Hammer Review Logo"
+                />
+              </Link>
             </div>
           </div>
           <nav className="flex-grow sm:flex-grow-0 min-h-screenmt-4 mt-4 md:mt-0">

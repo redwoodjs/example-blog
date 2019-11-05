@@ -1,10 +1,14 @@
-import TaggedPostsCell from 'src/cells/TaggedPostsCell'
+import { useParams } from 'react-router-dom'
+
 import BlogLayout from 'src/layouts/BlogLayout'
+import TaggedPostsCell from 'src/components/TaggedPostsCell'
 
 const TaggedPostsPage = () => {
+  const { tag } = useParams()
+
   return (
     <BlogLayout>
-      <TaggedPostsCell />
+      <TaggedPostsCell queryOptions={{ variables: { tag } }} />
     </BlogLayout>
   )
 }

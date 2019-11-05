@@ -1,8 +1,8 @@
 import Post from 'src/components/Post'
 
 export const query = gql`
-  query POST($slug: String) {
-    post(slug: $slug) {
+  query POST($tag: String) {
+    postsByTag(tag: $tag) {
       id
       title
       slug
@@ -20,8 +20,8 @@ export const query = gql`
 
 export const Loader = () => <div>Loading...</div>
 
-const SinglePost = ({ post = {} }) => {
-  return <Post post={post} />
+const TaggedPostsCell = ({ postsByTag: posts }) => {
+  return posts.map((post) => <Post key={post.id} post={post} summary={true} />)
 }
 
-export default SinglePost
+export default TaggedPostsCell

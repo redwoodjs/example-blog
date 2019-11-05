@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom'
-import BlogLayout from 'src/layouts/BlogLayout'
 
+import BlogLayout from 'src/layouts/BlogLayout'
 import SinglePostCell from 'src/components/SinglePostCell'
 
 const PostPage = () => {
