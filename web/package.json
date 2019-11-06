@@ -22,10 +22,14 @@
     "url-loader": "^2.2.0"
   },
   "devDependencies": {
-    "babel-plugin-inline-react-svg": "^1.1.0"
+    "@storybook/addon-actions": "^5.2.5",
+    "@storybook/react": "^5.2.5",
+    "babel-plugin-inline-react-svg": "^1.1.0",
+    "storybook-react-router": "^1.0.8"
   },
   "scripts": {
     "dev": "webpack-dev-server --config config/webpack.dev.js",
-    "build": "webpack --config config/webpack.prod.js"
+    "build": "webpack --config config/webpack.prod.js",
+    "storybook": "start-storybook"
   }
 }
