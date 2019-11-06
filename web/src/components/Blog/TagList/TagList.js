@@ -1,4 +1,6 @@
-import Tag from 'src/components/Blog/Tag'
+import React from 'react'
+
+import Tag from 'src/components/Blog/Tag/Tag'
 
 const TagList = ({ tags }) => {
   return tags.map((tag) => (
