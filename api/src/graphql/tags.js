@@ -1,18 +1,18 @@
-import { objectType, queryField } from 'nexus'
+import { gql } from '@hammerframework/api'
 
-export const Tag = objectType({
-  name: 'Tag',
-  definition(t) {
-    t.int('id')
-    t.string('name')
-  },
-})
+export const schema = gql`
+  type Tag {
+    id: ID!
+    name: String
+  }
 
-export const tagsAll = queryField('tags', {
-  type: Tag,
-  list: true,
-  nullable: true,
-  resolve(_root, _args, { photon }) {
-    return photon.tags.findMany()
+  type Query {
+    tags: [Tag]
+  }
+`
+
+export const resolvers = {
+  Query: {
+    tags: (_root, _args, { photon }) => photon.tags.findMany(),
   },
-})
+}
