@@ -6,8 +6,9 @@ export const schema = gql`
     title: String!
     slug: String!
     body: String!
+    author: String!
     image: String
-    postedAt: DateTime!
+    postedAt: DateTime
     tags: [Tag]
   }
 
@@ -44,11 +45,6 @@ const validate = (args) => {
 }
 
 export const resolvers = {
-  Post: {
-    tags: (post) => {
-      return post.tags()
-    },
-  },
   Query: {
     post: (_root, args, { photon }) => {
       return photon.posts.findOne({ where: args })
