@@ -18,8 +18,10 @@ const ErrorMessage = ({
     <div className={wrapperClassName}>
       <p className={titleClassName}>{rootMessage}</p>
       <ul className={listClassName}>
-        {messages.map((message) => (
-          <li className={listItemClassName}>{message}</li>
+        {messages.map((message, index) => (
+          <li key={index} className={listItemClassName}>
+            {message}
+          </li>
         ))}
       </ul>
     </div>

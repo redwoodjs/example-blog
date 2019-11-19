@@ -3,7 +3,7 @@ import { useMutation } from '@hammerframework/hammer-web'
 import PostForm from 'src/components/Admin/PostForm'
 
 export const query = gql`
-  query POSTS_FIND_BY_ID($id: ID!) {
+  query PostsFindById($id: ID!) {
     postsFindById(id: $id) {
       id
       title
@@ -20,7 +20,7 @@ export const query = gql`
   }
 `
 const UPDATE_POST = gql`
-  mutation POST($id: ID!, $input: PostInput!) {
+  mutation PostsUpdate($id: ID!, $input: PostInput!) {
     postsUpdate(id: $id, input: $input) {
       id
     }

@@ -61,9 +61,13 @@ const Posts = {
     return photon.posts.update({ data: input, where: { id: parseInt(id) } })
   },
 
+  hide: ({ id }) => {
+    return photon.posts.update({ data: { postedAt: null }, where: { id: parseInt(id) } })
+  },
+
   delete: ({ id }) => {
     return photon.posts.delete({
-      where: { parseInt(id) },
+      where: { id: parseInt(id) },
     })
   },
 }

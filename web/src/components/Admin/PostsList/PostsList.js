@@ -2,17 +2,17 @@ import { useMutation } from '@hammerframework/hammer-web'
 import { Link } from 'react-router-dom'
 import moment from 'moment'
 
-const UPDATE_POST = gql`
-  mutation POST($id: Int!, $postedAt: DateTime) {
-    postUpdate(id: $id, postedAt: $postedAt) {
+const POSTS_HIDE = gql`
+  mutation PostsHideMutation($id: ID!) {
+    postsHide(id: $id) {
       id
     }
   }
 `
 
-const DELETE_POST = gql`
-  mutation POST($id: Int!) {
-    postDelete(id: $id) {
+const POSTS_DELETE = gql`
+  mutation PostsDelete($id: ID!) {
+    postsDelete(id: $id) {
       id
     }
   }
@@ -23,19 +23,13 @@ const wordCount = (post) => {
 }
 
 const PostsList = ({ posts, onHide, onDelete }) => {
-  const [
-    postDelete,
-    { loading: _deleteLoading, error: _deleteError },
-  ] = useMutation(DELETE_POST, {
+  const [postsHide] = useMutation(POSTS_HIDE, {
     onCompleted: () => {
       location.reload()
     },
   })
 
-  const [
-    postUpdate,
-    { loading: _updateLoading, error: _updateError },
-  ] = useMutation(UPDATE_POST, {
+  const [postsDelete] = useMutation(POSTS_DELETE, {
     onCompleted: () => {
       location.reload()
     },
@@ -46,7 +40,7 @@ const PostsList = ({ posts, onHide, onDelete }) => {
     const title = event.target.dataset.title
 
     if (confirm(`Are you sure you want to un-publish post "${title}"?`)) {
-      postUpdate({ variables: { id: parseInt(id), postedAt: null } })
+      postsHide({ variables: { id: parseInt(id) } })
     }
   }
 
@@ -55,7 +49,7 @@ const PostsList = ({ posts, onHide, onDelete }) => {
     const title = event.target.dataset.title
 
     if (confirm(`Are you sure you want to delete post "${title}"?`)) {
-      postDelete({ variables: { id: parseInt(id) } })
+      postsDelete({ variables: { id: parseInt(id) } })
     }
   }
 
@@ -65,30 +59,20 @@ const PostsList = ({ posts, onHide, onDelete }) => {
         {posts.map((post) => (
           <tr key={post.id}>
             <td className="py-2">
-              <Link
-                to={`/admin/${post.id}/edit`}
-                className="font-semibold text-indigo-700"
-              >
+              <Link to={`/admin/${post.id}/edit`} className="font-semibold text-indigo-700">
                 {post.title}
               </Link>
               <p className="text-sm text-gray-600">by {post.author}</p>
             </td>
-            <td className="py-2 text-sm text-center">
-              {wordCount(post)} words
-            </td>
+            <td className="py-2 text-sm text-center">{wordCount(post)} words</td>
             <td className="py-2 text-sm text-right">
               {post.postedAt ? (
                 <>
                   <span className="block">
                     Published{' '}
-                    <time dateTime={post.postedAt}>
-                      {moment(post.postedAt).fromNow()}
-                    </time>
+                    <time dateTime={post.postedAt}>{moment(post.postedAt).fromNow()}</time>
                   </span>
-                  <time
-                    className="block text-gray-500"
-                    dateTime={post.postedAt}
-                  >
+                  <time className="block text-gray-500" dateTime={post.postedAt}>
                     {moment(post.postedAt).format('LLLL')}
                   </time>
                 </>
@@ -105,8 +89,7 @@ const PostsList = ({ posts, onHide, onDelete }) => {
                   data-id={post.id}
                   data-title={post.title}
                   className="mr-3 text-indigo-600 hover:underline"
-                  onClick={onHideClick}
-                >
+                  onClick={onHideClick}>
                   Hide
                 </a>
               )}
@@ -115,8 +98,7 @@ const PostsList = ({ posts, onHide, onDelete }) => {
                 data-id={post.id}
                 data-title={post.title}
                 className="text-red-600 hover:underline"
-                onClick={onDeleteClick}
-              >
+                onClick={onDeleteClick}>
                 Delete
               </a>
             </td>

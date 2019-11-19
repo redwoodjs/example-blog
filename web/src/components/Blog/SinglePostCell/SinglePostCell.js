@@ -1,7 +1,7 @@
 import Post from 'src/components/Blog/Post'
 
 export const query = gql`
-  query POST($slug: String) {
+  query POSTS_FIND_BY_SLUG($slug: String) {
     postsFindBySlug(slug: $slug) {
       id
       title
@@ -21,7 +21,12 @@ export const query = gql`
 export const Loader = () => <div>Loading...</div>
 
 const SinglePost = ({ postsFindBySlug: post }) => {
-  return <Post post={post} />
+  return (
+    <>
+      <h1>{post.id}</h1>
+      <Post post={post} />
+    </>
+  )
 }
 
 export default SinglePost

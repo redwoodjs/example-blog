@@ -33,6 +33,7 @@ export const schema = gql`
   type Mutation {
     postsCreate(input: PostInput!): Post
     postsUpdate(id: ID!, input: PostInput!): Post
+    postsHide(id: ID!): Post
     postsDelete(id: ID!): Post
   }
 `
@@ -69,8 +70,12 @@ export const resolvers = {
       return Posts.update(args)
     },
 
+    postsHide: (_root, args) => {
+      return Posts.hide(args)
+    },
+
     postsDelete: (_root, args) => {
-      return Posts.delete(args.id)
+      return Posts.delete(args)
     },
   },
 }
