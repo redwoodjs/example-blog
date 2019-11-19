@@ -15,6 +15,7 @@ export const schema = gql`
 
   type Query {
     postsAll: [Post]
+    postsFindById(id: ID): Post
     postsFindBySlug(slug: String): Post
     postsFindByTag(tag: String): [Post]
     postsSearch(term: String): [Post]
@@ -31,7 +32,7 @@ export const schema = gql`
 
   type Mutation {
     postsCreate(input: PostInput!): Post
-    postsUpdate(input: PostInput!): Post
+    postsUpdate(id: ID!, input: PostInput!): Post
     postsDelete(id: ID!): Post
   }
 `
@@ -40,6 +41,10 @@ export const resolvers = {
   Query: {
     postsAll: () => {
       return Posts.all()
+    },
+
+    postsFindById: (_root, args) => {
+      return Posts.findById(args)
     },
 
     postsFindBySlug: (_root, args) => {

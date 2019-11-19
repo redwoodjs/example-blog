@@ -1,10 +1,10 @@
-import { useParams } from 'react-router-dom'
-import { useQuery, useMutation } from '@hammerframework/hammer-web'
-import EditPost from 'src/components/Admin/EditPost'
+import { useMutation } from '@hammerframework/hammer-web'
 
-const GET_POST = gql`
-  query POST($id: Int) {
-    post(id: $id) {
+import PostForm from 'src/components/Admin/PostForm'
+
+export const query = gql`
+  query POSTS_FIND_BY_ID($id: ID!) {
+    postsFindById(id: $id) {
       id
       title
       slug
@@ -19,39 +19,18 @@ const GET_POST = gql`
     }
   }
 `
-
 const UPDATE_POST = gql`
-  mutation POST(
-    $id: Int!
-    $title: String
-    $slug: String
-    $author: String
-    $body: String
-    $postedAt: DateTime
-  ) {
-    postUpdate(
-      id: $id
-      title: $title
-      slug: $slug
-      author: $author
-      body: $body
-      postedAt: $postedAt
-    ) {
+  mutation POST($id: ID!, $input: PostInput!) {
+    postsUpdate(id: $id, input: $input) {
       id
     }
   }
 `
 
-const EditPostCell = () => {
-  const { id } = useParams()
-  const { loading: getLoading, data: getData } = useQuery(GET_POST, {
-    variables: { id: parseInt(id) },
-  })
+export const Loader = () => <div>Loading...</div>
 
-  const [
-    postUpdate,
-    { loading: updateLoading, error: updateError },
-  ] = useMutation(UPDATE_POST, {
+const EditPostCell = ({ postsFindById: post }) => {
+  const [postsUpdate, { loading: updateLoading, error: updateError }] = useMutation(UPDATE_POST, {
     onCompleted: () => {
       location.href = '/admin'
     },
@@ -61,20 +40,23 @@ const EditPostCell = () => {
     if (type === 'publish') {
       data.postedAt = new Date()
     }
-    postUpdate({ variables: Object.assign(data, { id: parseInt(id) }) })
-  }
-
-  if (getLoading) {
-    return <div>Loading...</div>
+    postsUpdate({ variables: { id: parseInt(post.id), input: data } })
   }
 
   return (
-    <EditPost
-      post={getData.post}
-      onSave={onSave}
-      loading={getLoading && updateLoading}
-      error={updateError}
-    />
+    <div>
+      <h1 className="text-2xl font-semibold text-gray-600">Edit Post {post.id}</h1>
+      <div className="mt-8">
+        <PostForm
+          post={post}
+          save={false}
+          publish="Update"
+          onSave={onSave}
+          error={updateError}
+          loading={updateLoading}
+        />
+      </div>
+    </div>
   )
 }
 

@@ -20,6 +20,13 @@ const Posts = {
     })
   },
 
+  findById: (args) => {
+    return photon.posts.findOne({
+      where: { id: parseInt(args.id) },
+      include: { tags: true },
+    })
+  },
+
   findBySlug: (args) => {
     return photon.posts.findOne({
       where: { slug: args.slug },
@@ -44,19 +51,19 @@ const Posts = {
     })
   },
 
-  create: (input) => {
+  create: ({ input }) => {
     validate(input)
     return photon.posts.create({ data: input })
   },
 
-  update: (input) => {
+  update: ({ id, input }) => {
     validate(input)
-    return photon.posts.update({ data: input, where: { id: input.id } })
+    return photon.posts.update({ data: input, where: { id: parseInt(id) } })
   },
 
-  delete: (id) => {
+  delete: ({ id }) => {
     return photon.posts.delete({
-      where: { id },
+      where: { parseInt(id) },
     })
   },
 }
