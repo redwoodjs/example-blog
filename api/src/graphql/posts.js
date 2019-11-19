@@ -1,4 +1,5 @@
 import { gql, UserInputError } from '@hammerframework/api'
+import posts from 'src/services/posts'
 
 export const schema = gql`
   type Post {
@@ -46,26 +47,20 @@ const validate = (args) => {
 
 export const resolvers = {
   Query: {
-    post: (_root, args, { photon }) => {
-      return photon.posts.findOne({ where: args })
+    posts: (_root, _args) => {
+      return posts.all()
     },
-    posts: (_root, _args, { photon }) => {
-      return photon.posts.findMany({
-        include: { tags: true },
-        orderBy: { postedAt: 'desc' },
-      })
+    post: (_root, args) => {
+      return posts.one(args)
     },
-    postsByTag: (_root, { tag }, { photon }) => {
-      return photon.tags.findOne({ where: { name: tag } }).posts()
+    postsByTag: (_root, { tag }) => {
+      return posts.byTag(tag)
     },
     postsBySearch: (_root, { term }, { photon }) => {
-      return photon.posts.findMany({
-        where: {
-          OR: [{ title: { contains: term } }, { body: { contains: term } }],
-        },
-      })
+      return posts.search(term)
     },
   },
+
   Mutation: {
     postCreate: (_root, { input }, { photon }) => {
       validate(input)
