@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 export const query = gql`
   {
-    posts {
+    postsAll {
       id
       title
       slug
@@ -13,7 +13,7 @@ export const query = gql`
 
 export const Loader = () => <div>Loading recent posts...</div>
 
-const RecentPostsCell = ({ posts = [] }) => {
+const RecentPostsCell = ({ postsAll: posts }) => {
   return (
     <div className="">
       <h2 className="font-semibold text-indigo-800">Recent Hammers</h2>
@@ -22,8 +22,7 @@ const RecentPostsCell = ({ posts = [] }) => {
           <li key={post.id} className="my-2">
             <Link
               to={`/posts/${post.slug}`}
-              className="text-indigo-600 hover:bg-indigo-100 rounded"
-            >
+              className="text-indigo-600 hover:bg-indigo-100 rounded">
               {post.title}
             </Link>
           </li>

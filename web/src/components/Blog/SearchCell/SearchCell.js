@@ -4,7 +4,7 @@ import Post from 'src/components/Blog/Post'
 
 export const query = gql`
   query POST($term: String) {
-    postSearch(term: $term) {
+    postsSearch(term: $term) {
       id
       title
       slug
@@ -22,7 +22,7 @@ export const query = gql`
 
 export const Loader = () => <div>Loading...</div>
 
-const SearchCell = ({ postSearch: posts, variables }) => {
+const SearchCell = ({ postsSearch: posts, variables }) => {
   return (
     <>
       <h2 className="mt-5 text-lg text-indigo-400">
@@ -33,9 +33,7 @@ const SearchCell = ({ postSearch: posts, variables }) => {
       {posts.length ? (
         posts.map((post) => <Post key={post.id} post={post} summary={true} />)
       ) : (
-        <h3 className="mt-4 text-xl text-gray-500">
-          Try a different search term
-        </h3>
+        <h3 className="mt-4 text-xl text-gray-500">Try a different search term</h3>
       )}
     </>
   )

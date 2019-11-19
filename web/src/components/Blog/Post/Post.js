@@ -24,29 +24,22 @@ const Post = ({ post, summary = false }) => {
       {!summary && <img src={post.image} className="mt-1 mb-2 mr-4 w-full" />}
       <header className="flex items-center justify-between">
         <h1 className="text-2xl font-semibold">
-          <Link
-            to={`/posts/${post.slug}`}
-            className="text-indigo-600 hover:bg-indigo-100 rounded"
-          >
+          <Link to={`/posts/${post.slug}`} className="text-indigo-600 hover:bg-indigo-100 rounded">
             {post.title}
           </Link>
         </h1>
         <h2 className="text-sm text-gray-600">by {post.author}</h2>
       </header>
       <div className="mt-2">
-        {summary && (
-          <img src={post.image} className="float-left mt-1 mr-4 w-48" />
-        )}
+        {summary && <img src={post.image} className="float-left mt-1 mr-4 w-48" />}
         <div
           className="markdown"
-          dangerouslySetInnerHTML={{ __html: formattedBody(post, summary) }}
-        ></div>
+          dangerouslySetInnerHTML={{ __html: formattedBody(post, summary) }}></div>
         {summary && (
           <p className="clearfix text-center">
             <Link
               to={`/posts/${post.slug}`}
-              className="inline-block text-right text-indigo-600 hover:text-indigo-800 text-sm bg-indigo-100 hover:bg-transparent px-2 rounded font-medium hover:bg-indigo-100 rounded"
-            >
+              className="inline-block text-right text-indigo-600 hover:text-indigo-800 text-sm bg-indigo-100 hover:bg-transparent px-2 rounded font-medium hover:bg-indigo-100 rounded">
               Continue reading &raquo;
             </Link>
           </p>
@@ -54,9 +47,11 @@ const Post = ({ post, summary = false }) => {
       </div>
       <footer className="flex items-center mt-4 text-xs text-gray-600">
         <time>Posted: {formattedDate(post.postedAt)}</time>
-        <ul className="flex-1 text-right">
-          <TagList tags={post.tags} />
-        </ul>
+        {post.tags && (
+          <ul className="flex-1 text-right">
+            <TagList tags={post.tags} />
+          </ul>
+        )}
       </footer>
     </article>
   )

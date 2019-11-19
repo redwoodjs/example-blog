@@ -2,7 +2,7 @@ import Post from 'src/components/Blog/Post'
 
 export const query = gql`
   {
-    posts {
+    postsAll {
       id
       title
       slug
@@ -27,10 +27,9 @@ const sortedPosts = (posts) => {
     return 0
   })
 }
-const PostSummariesCell = ({ posts }) => {
-  return sortedPosts(posts).map((post) => (
-    <Post key={post.id} post={post} summary={true} />
-  ))
+
+const PostSummariesCell = ({ postsAll: posts }) => {
+  return sortedPosts(posts).map((post) => <Post key={post.id} post={post} summary={true} />)
 }
 
 export default PostSummariesCell

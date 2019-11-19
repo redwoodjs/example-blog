@@ -2,7 +2,7 @@ import Post from 'src/components/Blog/Post'
 
 export const query = gql`
   query POST($slug: String) {
-    post(slug: $slug) {
+    postsFindBySlug(slug: $slug) {
       id
       title
       slug
@@ -20,7 +20,7 @@ export const query = gql`
 
 export const Loader = () => <div>Loading...</div>
 
-const SinglePost = ({ post = {} }) => {
+const SinglePost = ({ postsFindBySlug: post }) => {
   return <Post post={post} />
 }
 

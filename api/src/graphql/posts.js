@@ -1,5 +1,5 @@
-import { gql, UserInputError } from '@hammerframework/api'
-import posts from 'src/services/posts'
+import { gql } from '@hammerframework/api'
+import Posts from 'src/services/posts'
 
 export const schema = gql`
   type Post {
@@ -14,66 +14,58 @@ export const schema = gql`
   }
 
   type Query {
-    post(slug: String, id: ID): Post
-    posts: [Post]
-    postsByTag(tag: String): [Post]
-    postsBySearch(term: String): [Post]
+    postsAll: [Post]
+    postsFindBySlug(slug: String): Post
+    postsFindByTag(tag: String): [Post]
+    postsSearch(term: String): [Post]
   }
 
-  input TodoInput {
+  input PostInput {
     title: String!
     slug: String!
     author: String!
     body: String!
     image: String
-    postedAt: DateTime!
+    postedAt: DateTime
   }
+
   type Mutation {
-    postCreate(input: TodoInput!): Post
-    postUpdate(input: TodoInput!): Post
-    postDelete(id: ID!): Post
+    postsCreate(input: PostInput!): Post
+    postsUpdate(input: PostInput!): Post
+    postsDelete(id: ID!): Post
   }
 `
 
-const validate = (args) => {
-  if (args.slug && !args.slug.match(/^\S+$/)) {
-    throw new UserInputError("Can't create new post", {
-      messages: {
-        slug: ['contains invalid characters (no spaces allowed)'],
-      },
-    })
-  }
-}
-
 export const resolvers = {
   Query: {
-    posts: (_root, _args) => {
-      return posts.all()
+    postsAll: () => {
+      return Posts.all()
     },
-    post: (_root, args) => {
-      return posts.one(args)
+
+    postsFindBySlug: (_root, args) => {
+      return Posts.findBySlug(args)
     },
-    postsByTag: (_root, { tag }) => {
-      return posts.byTag(tag)
+
+    postsFindByTag: (_root, args) => {
+      return Posts.findByTag(args)
     },
-    postsBySearch: (_root, { term }, { photon }) => {
-      return posts.search(term)
+
+    postsSearch: (_root, args) => {
+      return Posts.search(args)
     },
   },
 
   Mutation: {
-    postCreate: (_root, { input }, { photon }) => {
-      validate(input)
-      return photon.posts.create({ data: input })
+    postsCreate: (_root, args) => {
+      return Posts.create(args)
     },
-    postUpdate: (_root, { input }, { photon }) => {
-      validate(input)
-      return photon.posts.update({ data: input, where: { id: input.id } })
+
+    postsUpdate: (_root, args) => {
+      return Posts.update(args)
     },
-    postDelete: (_root, { id }, { photon }) => {
-      return photon.posts.delete({
-        where: { id },
-      })
+
+    postsDelete: (_root, args) => {
+      return Posts.delete(args.id)
     },
   },
 }
