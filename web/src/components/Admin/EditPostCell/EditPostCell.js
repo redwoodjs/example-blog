@@ -19,8 +19,8 @@ export const query = gql`
     }
   }
 `
-const UPDATE_POST = gql`
-  mutation PostsUpdate($id: ID!, $input: PostInput!) {
+const POSTS_UPDATE_MUTATION = gql`
+  mutation PostsUpdateMutation($id: ID!, $input: PostInput!) {
     postsUpdate(id: $id, input: $input) {
       id
     }
@@ -30,11 +30,14 @@ const UPDATE_POST = gql`
 export const Loader = () => <div>Loading...</div>
 
 const EditPostCell = ({ postsFindById: post }) => {
-  const [postsUpdate, { loading: updateLoading, error: updateError }] = useMutation(UPDATE_POST, {
-    onCompleted: () => {
-      location.href = '/admin'
-    },
-  })
+  const [postsUpdate, { loading: updateLoading, error: updateError }] = useMutation(
+    POSTS_UPDATE_MUTATION,
+    {
+      onCompleted: () => {
+        location.href = '/admin'
+      },
+    }
+  )
 
   const onSave = (data, type) => {
     if (type === 'publish') {

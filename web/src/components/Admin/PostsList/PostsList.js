@@ -2,7 +2,7 @@ import { useMutation } from '@hammerframework/hammer-web'
 import { Link } from 'react-router-dom'
 import moment from 'moment'
 
-const POSTS_HIDE = gql`
+const POSTS_HIDE_MUTATION = gql`
   mutation PostsHideMutation($id: ID!) {
     postsHide(id: $id) {
       id
@@ -10,8 +10,8 @@ const POSTS_HIDE = gql`
   }
 `
 
-const POSTS_DELETE = gql`
-  mutation PostsDelete($id: ID!) {
+const POSTS_DELETE_MUTATION = gql`
+  mutation PostsDeleteMutation($id: ID!) {
     postsDelete(id: $id) {
       id
     }
@@ -23,13 +23,13 @@ const wordCount = (post) => {
 }
 
 const PostsList = ({ posts, onHide, onDelete }) => {
-  const [postsHide] = useMutation(POSTS_HIDE, {
+  const [postsHide] = useMutation(POSTS_HIDE_MUTATION, {
     onCompleted: () => {
       location.reload()
     },
   })
 
-  const [postsDelete] = useMutation(POSTS_DELETE, {
+  const [postsDelete] = useMutation(POSTS_DELETE_MUTATION, {
     onCompleted: () => {
       location.reload()
     },
