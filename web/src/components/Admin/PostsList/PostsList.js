@@ -1,4 +1,4 @@
-import { useMutation } from '@hammerframework/hammer-web'
+import { useMutation } from '@hammerframework/web'
 import { Link } from 'react-router-dom'
 import moment from 'moment'
 
@@ -59,20 +59,30 @@ const PostsList = ({ posts, onHide, onDelete }) => {
         {posts.map((post) => (
           <tr key={post.id}>
             <td className="py-2">
-              <Link to={`/admin/${post.id}/edit`} className="font-semibold text-indigo-700">
+              <Link
+                to={`/admin/${post.id}/edit`}
+                className="font-semibold text-indigo-700"
+              >
                 {post.title}
               </Link>
               <p className="text-sm text-gray-600">by {post.author}</p>
             </td>
-            <td className="py-2 text-sm text-center">{wordCount(post)} words</td>
+            <td className="py-2 text-sm text-center">
+              {wordCount(post)} words
+            </td>
             <td className="py-2 text-sm text-right">
               {post.postedAt ? (
                 <>
                   <span className="block">
                     Published{' '}
-                    <time dateTime={post.postedAt}>{moment(post.postedAt).fromNow()}</time>
+                    <time dateTime={post.postedAt}>
+                      {moment(post.postedAt).fromNow()}
+                    </time>
                   </span>
-                  <time className="block text-gray-500" dateTime={post.postedAt}>
+                  <time
+                    className="block text-gray-500"
+                    dateTime={post.postedAt}
+                  >
                     {moment(post.postedAt).format('LLLL')}
                   </time>
                 </>
@@ -89,7 +99,8 @@ const PostsList = ({ posts, onHide, onDelete }) => {
                   data-id={post.id}
                   data-title={post.title}
                   className="mr-3 text-indigo-600 hover:underline"
-                  onClick={onHideClick}>
+                  onClick={onHideClick}
+                >
                   Hide
                 </a>
               )}
@@ -98,7 +109,8 @@ const PostsList = ({ posts, onHide, onDelete }) => {
                 data-id={post.id}
                 data-title={post.title}
                 className="text-red-600 hover:underline"
-                onClick={onDeleteClick}>
+                onClick={onDeleteClick}
+              >
                 Delete
               </a>
             </td>

@@ -1,6 +1,6 @@
 import PostsList from 'src/components/Admin/PostsList'
 
-export const query = gql`
+export const QUERY = gql`
   {
     postsAll {
       id
@@ -18,10 +18,8 @@ export const query = gql`
   }
 `
 
-export const Loader = () => <div>Loading...</div>
+export const Loading = () => <div>Loading...</div>
 
-const PostsCell = ({ postsAll: posts }) => {
+export const Success = ({ postsAll: posts }) => {
   return <PostsList posts={posts} />
 }
-
-export default PostsCell

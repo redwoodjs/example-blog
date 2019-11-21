@@ -1,8 +1,10 @@
 import Post from 'src/components/Blog/Post'
 
-export const query = gql`
+export const beforeQuery = ({ tag }) => ({ variables: { tag } })
+
+export const QUERY = gql`
   query POST($tag: String) {
-    postsFindByTag(tag: $tag) {
+    posts: postsFindByTag(tag: $tag) {
       id
       title
       slug
@@ -18,10 +20,8 @@ export const query = gql`
   }
 `
 
-export const Loader = () => <div>Loading...</div>
+export const Loading = () => <div>Loading...</div>
 
-const TaggedPostsCell = ({ postsFindByTag: posts }) => {
+export const Success = ({ posts }) => {
   return posts.map((post) => <Post key={post.id} post={post} summary={true} />)
 }
-
-export default TaggedPostsCell

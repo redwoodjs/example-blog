@@ -1,8 +1,8 @@
 import Post from 'src/components/Blog/Post'
 
-export const query = gql`
+export const QUERY = gql`
   {
-    postsAll {
+    posts: postsAll {
       id
       title
       slug
@@ -18,7 +18,7 @@ export const query = gql`
   }
 `
 
-export const Loader = () => <div>Loading...</div>
+export const Loading = () => <div>Loading...</div>
 
 const sortedPosts = (posts) => {
   return posts.sort((a, b) => {
@@ -28,8 +28,8 @@ const sortedPosts = (posts) => {
   })
 }
 
-const PostSummariesCell = ({ postsAll: posts }) => {
-  return sortedPosts(posts).map((post) => <Post key={post.id} post={post} summary={true} />)
+export const Success = ({ posts }) => {
+  return sortedPosts(posts).map((post) => (
+    <Post key={post.id} post={post} summary={true} />
+  ))
 }
-
-export default PostSummariesCell
