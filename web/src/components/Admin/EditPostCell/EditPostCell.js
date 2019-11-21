@@ -2,8 +2,8 @@ import { useMutation } from '@hammerframework/web'
 import PostForm from 'src/components/Admin/PostForm'
 
 export const QUERY = gql`
-  query PostsFindById($id: ID!) {
-    postsFindById(id: $id) {
+  query FIND_POST_BY_ID($id: ID!) {
+    post: findPostById(id: $id) {
       id
       title
       slug
@@ -18,9 +18,9 @@ export const QUERY = gql`
     }
   }
 `
-const POSTS_UPDATE_MUTATION = gql`
-  mutation PostsUpdateMutation($id: ID!, $input: PostInput!) {
-    postsUpdate(id: $id, input: $input) {
+const UPDATE_POST_MUTATION = gql`
+  mutation UpdatePost($id: ID!, $input: PostInput!) {
+    updatePost(id: $id, input: $input) {
       id
     }
   }
@@ -28,11 +28,11 @@ const POSTS_UPDATE_MUTATION = gql`
 
 export const Loading = () => <div>Loading...</div>
 
-export const Success = ({ postsFindById: post }) => {
+export const Success = ({ post }) => {
   const [
-    postsUpdate,
+    updatePost,
     { loading: updateLoading, error: updateError },
-  ] = useMutation(POSTS_UPDATE_MUTATION, {
+  ] = useMutation(UPDATE_POST_MUTATION, {
     onCompleted: () => {
       location.href = '/admin'
     },
@@ -42,7 +42,7 @@ export const Success = ({ postsFindById: post }) => {
     if (type === 'publish') {
       data.postedAt = new Date()
     }
-    postsUpdate({ variables: { id: parseInt(post.id), input: data } })
+    updatePost({ variables: { id: parseInt(post.id), input: data } })
   }
 
   return (

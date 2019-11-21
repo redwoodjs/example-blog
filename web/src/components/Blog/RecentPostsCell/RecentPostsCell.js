@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 export const QUERY = gql`
   {
-    posts: postsAll {
+    posts: allPosts {
       id
       title
       slug

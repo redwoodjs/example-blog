@@ -14,27 +14,27 @@ const validate = (input) => {
 }
 
 const Posts = {
-  all: (args) => {
+  allPosts: () => {
     return photon.posts.findMany({
       include: { tags: true },
     })
   },
 
-  findById: (args) => {
+  findPostById: ({ id }) => {
     return photon.posts.findOne({
-      where: { id: parseInt(args.id) },
+      where: { id: parseInt(id) },
       include: { tags: true },
     })
   },
 
-  findBySlug: (args) => {
+  findPostBySlug: ({ slug }) => {
     return photon.posts.findOne({
-      where: { slug: args.slug },
+      where: { slug: slug },
       include: { tags: true },
     })
   },
 
-  findByTag: ({ tag }) => {
+  findPostsByTag: ({ tag }) => {
     return photon.tags
       .findOne({
         where: { name: tag },
@@ -42,7 +42,7 @@ const Posts = {
       .posts({ include: { tags: true } })
   },
 
-  search: ({ term }) => {
+  searchPosts: ({ term }) => {
     return photon.posts.findMany({
       where: {
         OR: [{ title: { contains: term } }, { body: { contains: term } }],
@@ -51,21 +51,21 @@ const Posts = {
     })
   },
 
-  create: ({ input }) => {
+  createPost: ({ input }) => {
     validate(input)
     return photon.posts.create({ data: input })
   },
 
-  update: ({ id, input }) => {
+  updatePost: ({ id, input }) => {
     validate(input)
     return photon.posts.update({ data: input, where: { id: parseInt(id) } })
   },
 
-  hide: ({ id }) => {
+  hidePost: ({ id }) => {
     return photon.posts.update({ data: { postedAt: null }, where: { id: parseInt(id) } })
   },
 
-  delete: ({ id }) => {
+  deletePost: ({ id }) => {
     return photon.posts.delete({
       where: { id: parseInt(id) },
     })

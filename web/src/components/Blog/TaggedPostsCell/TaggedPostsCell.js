@@ -4,7 +4,7 @@ export const beforeQuery = ({ tag }) => ({ variables: { tag } })
 
 export const QUERY = gql`
   query POST($tag: String) {
-    posts: postsFindByTag(tag: $tag) {
+    posts: findPostsByTag(tag: $tag) {
       id
       title
       slug

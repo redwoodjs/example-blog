@@ -2,7 +2,7 @@ import Post from 'src/components/Blog/Post'
 
 export const QUERY = gql`
   {
-    posts: postsAll {
+    posts: allPosts {
       id
       title
       slug

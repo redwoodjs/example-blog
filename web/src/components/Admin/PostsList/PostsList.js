@@ -2,17 +2,17 @@ import { useMutation } from '@hammerframework/web'
 import { Link } from 'react-router-dom'
 import moment from 'moment'
 
-const POSTS_HIDE_MUTATION = gql`
-  mutation PostsHideMutation($id: ID!) {
-    postsHide(id: $id) {
+const HIDE_POST_MUTATION = gql`
+  mutation HidePostMutation($id: ID!) {
+    hidePost(id: $id) {
       id
     }
   }
 `
 
-const POSTS_DELETE_MUTATION = gql`
-  mutation PostsDeleteMutation($id: ID!) {
-    postsDelete(id: $id) {
+const DELETE_POST_MUTATION = gql`
+  mutation DeletePostMutation($id: ID!) {
+    deletePost(id: $id) {
       id
     }
   }
@@ -22,14 +22,14 @@ const wordCount = (post) => {
   return post.body.split(' ').length
 }
 
-const PostsList = ({ posts, onHide, onDelete }) => {
-  const [postsHide] = useMutation(POSTS_HIDE_MUTATION, {
+const PostsList = ({ posts }) => {
+  const [hidePost] = useMutation(HIDE_POST_MUTATION, {
     onCompleted: () => {
       location.reload()
     },
   })
 
-  const [postsDelete] = useMutation(POSTS_DELETE_MUTATION, {
+  const [deletePost] = useMutation(DELETE_POST_MUTATION, {
     onCompleted: () => {
       location.reload()
     },
@@ -40,7 +40,7 @@ const PostsList = ({ posts, onHide, onDelete }) => {
     const title = event.target.dataset.title
 
     if (confirm(`Are you sure you want to un-publish post "${title}"?`)) {
-      postsHide({ variables: { id: parseInt(id) } })
+      hidePost({ variables: { id: parseInt(id) } })
     }
   }
 
@@ -49,7 +49,7 @@ const PostsList = ({ posts, onHide, onDelete }) => {
     const title = event.target.dataset.title
 
     if (confirm(`Are you sure you want to delete post "${title}"?`)) {
-      postsDelete({ variables: { id: parseInt(id) } })
+      deletePost({ variables: { id: parseInt(id) } })
     }
   }
 

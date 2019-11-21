@@ -2,7 +2,7 @@ import PostsList from 'src/components/Admin/PostsList'
 
 export const QUERY = gql`
   {
-    postsAll {
+    posts: allPosts {
       id
       title
       slug
@@ -20,6 +20,6 @@ export const QUERY = gql`
 
 export const Loading = () => <div>Loading...</div>
 
-export const Success = ({ postsAll: posts }) => {
+export const Success = ({ posts }) => {
   return <PostsList posts={posts} />
 }

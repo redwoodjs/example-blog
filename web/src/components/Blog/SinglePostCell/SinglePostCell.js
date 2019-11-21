@@ -1,12 +1,14 @@
 import Post from 'src/components/Blog/Post'
 
+import PostsCell from 'src/components/Admin/PostsCell'
+
 export const beforeQuery = ({ slug }) => ({
   variables: { slug },
 })
 
 export const QUERY = gql`
   query POSTS_FIND_BY_SLUG($slug: String) {
-    post: postsFindBySlug(slug: $slug) {
+    post: findPostBySlug(slug: $slug) {
       id
       title
       slug
@@ -27,7 +29,6 @@ export const Loading = () => <div>Loading...</div>
 export const Success = ({ post }) => {
   return (
     <>
-      <h1>{post.id}</h1>
       <Post post={post} />
     </>
   )

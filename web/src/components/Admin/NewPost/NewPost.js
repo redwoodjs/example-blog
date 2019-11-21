@@ -1,16 +1,16 @@
 import { useMutation } from '@hammerframework/web'
 import PostForm from 'src/components/Admin/PostForm'
 
-const POSTS_CREATE_MUTATION = gql`
-  mutation PostsCreateMutation($input: PostInput!) {
-    postsCreate(input: $input) {
+const CREATE_POST_MUTATION = gql`
+  mutation CreatePostMutation($input: PostInput!) {
+    createPost(input: $input) {
       id
     }
   }
 `
 
 const NewPost = () => {
-  const [postsCreate, { loading, error }] = useMutation(POSTS_CREATE_MUTATION, {
+  const [createPost, { loading, error }] = useMutation(CREATE_POST_MUTATION, {
     onCompleted: () => {
       location.href = '/admin'
     },
@@ -20,7 +20,7 @@ const NewPost = () => {
     if (type === 'publish') {
       data.postedAt = new Date()
     }
-    postsCreate({ variables: { input: data } })
+    createPost({ variables: { input: data } })
   }
 
   return (

@@ -5,7 +5,7 @@ export const beforeQuery = ({ term }) => ({ variables: { term } })
 
 export const QUERY = gql`
   query POST($term: String) {
-    posts: postsSearch(term: $term) {
+    posts: searchPosts(term: $term) {
       id
       title
       slug
