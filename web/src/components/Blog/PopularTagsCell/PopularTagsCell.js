@@ -1,6 +1,6 @@
 import TagList from 'src/components/Blog/TagList'
 
-export const query = gql`
+export const QUERY = gql`
   {
     tags {
       id
@@ -9,9 +9,9 @@ export const query = gql`
   }
 `
 
-export const Loader = () => <div>Loading tags...</div>
+export const Loading = () => <div>Loading tags...</div>
 
-const PopularTagsCell = ({ tags = [] }) => {
+export const Success = ({ tags = [] }) => {
   return (
     <div className="mt-16">
       <h2 className="font-semibold text-indigo-800">Popular Tags</h2>
@@ -21,5 +21,3 @@ const PopularTagsCell = ({ tags = [] }) => {
     </div>
   )
 }
-
-export default PopularTagsCell

@@ -1,4 +1,4 @@
-import { useMutation } from '@hammerframework/hammer-web'
+import { useMutation } from '@hammerframework/web'
 import { Link } from 'react-router-dom'
 import moment from 'moment'
 

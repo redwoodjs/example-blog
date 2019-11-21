@@ -1,5 +1,6 @@
-import PostSummariesCell from 'src/components/Blog/PostSummariesCell'
 import BlogLayout from 'src/layouts/BlogLayout'
+
+import PostSummariesCell from 'src/components/Blog/PostSummariesCell'
 
 const PostSummariesPage = () => {
   return (

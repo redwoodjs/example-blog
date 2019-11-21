@@ -1,10 +1,9 @@
-import { useMutation } from '@hammerframework/hammer-web'
-
+import { useMutation } from '@hammerframework/web'
 import PostForm from 'src/components/Admin/PostForm'
 
-export const query = gql`
-  query FindPostById($id: ID!) {
-    findPostById(id: $id) {
+export const QUERY = gql`
+  query FIND_POST_BY_ID($id: ID!) {
+    post: findPostById(id: $id) {
       id
       title
       slug
@@ -20,16 +19,16 @@ export const query = gql`
   }
 `
 const UPDATE_POST_MUTATION = gql`
-  mutation UpdatePostMutation($id: ID!, $input: PostInput!) {
+  mutation UpdatePost($id: ID!, $input: PostInput!) {
     updatePost(id: $id, input: $input) {
       id
     }
   }
 `
 
-export const Loader = () => <div>Loading...</div>
+export const Loading = () => <div>Loading...</div>
 
-const EditPostCell = ({ findPostById: post }) => {
+export const Success = ({ post }) => {
   const [
     updatePost,
     { loading: updateLoading, error: updateError },
@@ -64,5 +63,3 @@ const EditPostCell = ({ findPostById: post }) => {
     </div>
   )
 }
-
-export default EditPostCell

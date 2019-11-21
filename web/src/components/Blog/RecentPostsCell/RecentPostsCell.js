@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 
-export const query = gql`
+export const QUERY = gql`
   {
-    allPosts {
+    posts: allPosts {
       id
       title
       slug
@@ -11,9 +11,9 @@ export const query = gql`
   }
 `
 
-export const Loader = () => <div>Loading recent posts...</div>
+export const Loading = () => <div>Loading recent posts...</div>
 
-const RecentPostsCell = ({ allPosts: posts }) => {
+export const Success = ({ posts }) => {
   return (
     <div className="">
       <h2 className="font-semibold text-indigo-800">Recent Hammers</h2>
@@ -32,5 +32,3 @@ const RecentPostsCell = ({ allPosts: posts }) => {
     </div>
   )
 }
-
-export default RecentPostsCell

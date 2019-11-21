@@ -19,7 +19,7 @@ module.exports = {
     new webpack.ProvidePlugin({
       React: 'react',
       PropTypes: 'prop-types',
-      gql: ['@hammerframework/hammer-web', 'gql'],
+      gql: ['@hammerframework/web', 'gql'],
     }),
     new webpack.DefinePlugin({
       '__HAMMER__.apiProxyPath': JSON.stringify(hammerConfig.web.apiProxyPath),
@@ -90,5 +90,14 @@ module.exports = {
         exclude: /node_modules/,
       }),
     ],
+    alias: {
+      // https://www.styled-components.com/docs/faqs#duplicated-module-in-node_modules
+      'styled-components': path.resolve(
+        hammerConfig.baseDir,
+        'node_modules',
+        'styled-components'
+      ),
+      react: path.resolve(hammerConfig.baseDir, 'node_modules', 'react'),
+    },
   },
 }

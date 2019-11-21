@@ -1,4 +1,4 @@
-import { withCell } from '@hammerframework/hammer-web'
+import { withCell } from '@hammerframework/web'
 
 import * as cell from './RecentPostsCell'
 

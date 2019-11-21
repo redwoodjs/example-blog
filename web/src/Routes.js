@@ -1,4 +1,4 @@
-import { BrowserRouter, Switch, Route } from '@hammerframework/hammer-web'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import AboutPage from 'src/pages/AboutPage'
 import AdminPostsPage from 'src/pages/admin/PostsPage'
 import AdminNewPostPage from 'src/pages/admin/NewPostPage'

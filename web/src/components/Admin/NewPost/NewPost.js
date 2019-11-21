@@ -1,4 +1,4 @@
-import { useMutation } from '@hammerframework/hammer-web'
+import { useMutation } from '@hammerframework/web'
 import PostForm from 'src/components/Admin/PostForm'
 
 const CREATE_POST_MUTATION = gql`

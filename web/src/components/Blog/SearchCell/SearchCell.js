@@ -1,10 +1,11 @@
-import { useParams } from 'react-router-dom'
 import gql from 'graphql-tag'
 import Post from 'src/components/Blog/Post'
 
-export const query = gql`
+export const beforeQuery = ({ term }) => ({ variables: { term } })
+
+export const QUERY = gql`
   query POST($term: String) {
-    searchPosts(term: $term) {
+    posts: searchPosts(term: $term) {
       id
       title
       slug
@@ -20,9 +21,9 @@ export const query = gql`
   }
 `
 
-export const Loader = () => <div>Loading...</div>
+export const Loading = () => <div>Loading...</div>
 
-const SearchCell = ({ searchPosts: posts, variables }) => {
+export const Success = ({ posts, variables }) => {
   return (
     <>
       <h2 className="mt-5 text-lg text-indigo-400">
@@ -40,5 +41,3 @@ const SearchCell = ({ searchPosts: posts, variables }) => {
     </>
   )
 }
-
-export default SearchCell
