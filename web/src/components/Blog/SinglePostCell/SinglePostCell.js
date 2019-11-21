@@ -1,8 +1,9 @@
 import Post from 'src/components/Blog/Post'
+import PostsCell from 'src/components/Admin/PostsCell'
 
 export const query = gql`
   query POSTS_FIND_BY_SLUG($slug: String) {
-    postsFindBySlug(slug: $slug) {
+    findPostBySlug(slug: $slug) {
       id
       title
       slug
@@ -20,10 +21,9 @@ export const query = gql`
 
 export const Loader = () => <div>Loading...</div>
 
-const SinglePost = ({ postsFindBySlug: post }) => {
+const SinglePost = ({ findPostBySlug: post }) => {
   return (
     <>
-      <h1>{post.id}</h1>
       <Post post={post} />
     </>
   )

@@ -3,8 +3,8 @@ import { useMutation } from '@hammerframework/hammer-web'
 import PostForm from 'src/components/Admin/PostForm'
 
 export const query = gql`
-  query PostsFindById($id: ID!) {
-    postsFindById(id: $id) {
+  query FindPostById($id: ID!) {
+    findPostById(id: $id) {
       id
       title
       slug
@@ -19,9 +19,9 @@ export const query = gql`
     }
   }
 `
-const POSTS_UPDATE_MUTATION = gql`
-  mutation PostsUpdateMutation($id: ID!, $input: PostInput!) {
-    postsUpdate(id: $id, input: $input) {
+const UPDATE_POST_MUTATION = gql`
+  mutation UpdatePostMutation($id: ID!, $input: PostInput!) {
+    updatePost(id: $id, input: $input) {
       id
     }
   }
@@ -29,26 +29,28 @@ const POSTS_UPDATE_MUTATION = gql`
 
 export const Loader = () => <div>Loading...</div>
 
-const EditPostCell = ({ postsFindById: post }) => {
-  const [postsUpdate, { loading: updateLoading, error: updateError }] = useMutation(
-    POSTS_UPDATE_MUTATION,
-    {
-      onCompleted: () => {
-        location.href = '/admin'
-      },
-    }
-  )
+const EditPostCell = ({ findPostById: post }) => {
+  const [
+    updatePost,
+    { loading: updateLoading, error: updateError },
+  ] = useMutation(UPDATE_POST_MUTATION, {
+    onCompleted: () => {
+      location.href = '/admin'
+    },
+  })
 
   const onSave = (data, type) => {
     if (type === 'publish') {
       data.postedAt = new Date()
     }
-    postsUpdate({ variables: { id: parseInt(post.id), input: data } })
+    updatePost({ variables: { id: parseInt(post.id), input: data } })
   }
 
   return (
     <div>
-      <h1 className="text-2xl font-semibold text-gray-600">Edit Post {post.id}</h1>
+      <h1 className="text-2xl font-semibold text-gray-600">
+        Edit Post {post.id}
+      </h1>
       <div className="mt-8">
         <PostForm
           post={post}

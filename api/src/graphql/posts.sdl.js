@@ -16,7 +16,7 @@ export const schema = gql`
   type Query {
     allPosts: [Post]
     findPostById(id: ID): Post
-    findBySlug(slug: String): Post
+    findPostBySlug(slug: String): Post
     findPostsByTag(tag: String): [Post]
     searchPosts(term: String): [Post]
   }
@@ -38,46 +38,44 @@ export const schema = gql`
   }
 `
 
-with (Posts) {
-  export const resolvers = {
-    Query: {
-      allPosts: () => {
-        return allPosts()
-      },
-
-      findPostById: (args) => {
-        return findPostById(args)
-      },
-
-      findPostBySlug: (args) => {
-        return findPostBySlug(args)
-      },
-
-      findPostsByTag: (args) => {
-        return findPostsByTag(args)
-      },
-
-      searchPosts: (args) => {
-        return searchPosts(args)
-      },
+export const resolvers = {
+  Query: {
+    allPosts: () => {
+      return Posts.allPosts()
     },
 
-    Mutation: {
-      createPost: (args) => {
-        return createPost(args)
-      },
-
-      updatePost: (args, { context }) => {
-        return updatePost(args, context)
-      },
-
-      hidePost: (args) => {
-        return hidePost(args)
-      },
-
-      deletePost: (args) => {
-        return deletePost(args)
-      },
+    findPostById: (_root, args) => {
+      return Posts.findPostById(args)
     },
-  }
+
+    findPostBySlug: (_root, args) => {
+      return Posts.findPostBySlug(args)
+    },
+
+    findPostsByTag: (_root, args) => {
+      return Posts.findPostsByTag(args)
+    },
+
+    searchPosts: (_root, args) => {
+      return Posts.searchPosts(args)
+    },
+  },
+
+  Mutation: {
+    createPost: (_root, args) => {
+      return Posts.createPost(args)
+    },
+
+    updatePost: (_root, args) => {
+      return Posts.updatePost(args)
+    },
+
+    hidePost: (_root, args) => {
+      return Posts.hidePost(args)
+    },
+
+    deletePost: (_root, args) => {
+      return Posts.deletePost(args)
+    },
+  },
 }
