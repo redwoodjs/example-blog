@@ -13,12 +13,17 @@ export const schema = gql`
     tags: [Tag]
   }
 
+  type RecordCount {
+    count: Int
+  }
+
   type Query {
-    allPosts: [Post]
+    allPosts(page: Int, limit: Int): [Post]
     findPostById(id: ID): Post
     findPostBySlug(slug: String): Post
     findPostsByTag(tag: String): [Post]
     searchPosts(term: String): [Post]
+    postsCount(page: Int): RecordCount
   }
 
   input PostInput {
@@ -40,8 +45,8 @@ export const schema = gql`
 
 export const resolvers = {
   Query: {
-    allPosts: () => {
-      return Posts.allPosts()
+    allPosts: (_root, args) => {
+      return Posts.allPosts(args)
     },
 
     findPostById: (_root, args) => {
@@ -58,6 +63,12 @@ export const resolvers = {
 
     searchPosts: (_root, args) => {
       return Posts.searchPosts(args)
+    },
+
+    postsCount: (_root, args) => {
+      const count = Posts.postsCount(args)
+      console.info(count)
+      return count
     },
   },
 

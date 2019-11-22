@@ -1,8 +1,15 @@
 import Post from 'src/components/Blog/Post'
 
+const PER_PAGE = 5
+
+export const beforeQuery = ({ page }) => {
+  page = page ? parseInt(page) : 1
+  return { variables: { page: page, limit: PER_PAGE } }
+}
+
 export const QUERY = gql`
-  {
-    posts: allPosts {
+  query POSTS_COUNT($page: Int, $limit: Int) {
+    posts: allPosts(page: $page, limit: $limit) {
       id
       title
       slug

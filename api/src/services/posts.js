@@ -14,9 +14,14 @@ const validate = (input) => {
 }
 
 const Posts = {
-  allPosts: () => {
+  allPosts: ({ page = 1, limit = 5, order = { postedAt: 'desc' } }) => {
+    const offset = (page - 1) * limit
+
     return photon.posts.findMany({
       include: { tags: true },
+      first: limit,
+      skip: offset,
+      orderBy: order,
     })
   },
 
@@ -51,6 +56,10 @@ const Posts = {
     })
   },
 
+  postsCount: ({ page }) => {
+    return photon.posts.count()
+  },
+
   createPost: ({ input }) => {
     validate(input)
     return photon.posts.create({ data: input })
@@ -62,7 +71,10 @@ const Posts = {
   },
 
   hidePost: ({ id }) => {
-    return photon.posts.update({ data: { postedAt: null }, where: { id: parseInt(id) } })
+    return photon.posts.update({
+      data: { postedAt: null },
+      where: { id: parseInt(id) },
+    })
   },
 
   deletePost: ({ id }) => {

@@ -42,7 +42,7 @@ const BlogLayout = (props) => {
         </header>
         <main className="flex items-start">
           <Menu />
-          <section className="flex-1 pt-4 px-8 bg-white shadow">
+          <section className="flex-1 py-4 px-8 bg-white shadow">
             {props.children}
           </section>
         </main>
