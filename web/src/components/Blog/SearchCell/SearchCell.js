@@ -4,7 +4,7 @@ import Post from 'src/components/Blog/Post'
 export const beforeQuery = ({ term }) => ({ variables: { term } })
 
 export const QUERY = gql`
-  query POST($term: String) {
+  query SearchPosts($term: String) {
     posts: searchPosts(term: $term) {
       id
       title
