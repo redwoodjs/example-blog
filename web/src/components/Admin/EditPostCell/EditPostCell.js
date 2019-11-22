@@ -26,6 +26,10 @@ const UPDATE_POST_MUTATION = gql`
   }
 `
 
+export const beforeQuery = ({ id }) => {
+  return { variables: { id } }
+}
+
 export const Loading = () => <div>Loading...</div>
 
 export const Success = ({ post }) => {

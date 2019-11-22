@@ -8,7 +8,7 @@ const EditPostPage = () => {
 
   return (
     <AdminLayout>
-      <EditPostCell queryOptions={{ variables: { id } }} />
+      <EditPostCell id={id} />
     </AdminLayout>
   )
 }
