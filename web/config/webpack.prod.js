@@ -1,8 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
-const merge = require("webpack-merge");
+const config = require('@hammerframework/scripts/config/webpack.config')
 
-const common = require("./webpack.common.js");
-
-module.exports = merge(common, {
-  mode: "production"
-});
+module.exports = config('production')
