@@ -63,8 +63,10 @@ Install dependencies:
 
 Create a local SQLite database and seed it with a few blog posts:
 
+    cd api
     yarn db:up
-    yarn workspace api seed
+    cd ..
+    yarn workspace api db:seed
 
 Now you should be able to start a development server:
 
