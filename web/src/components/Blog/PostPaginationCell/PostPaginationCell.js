@@ -17,6 +17,10 @@ export const QUERY = gql`
 export const Loading = () => <div>Loading...</div>
 
 export const Success = ({ page, perPage, postsCount: count }) => {
+  if (count <= perPage) {
+    return null
+  }
+
   const items = []
   for (let i = 0; i < Math.ceil(count.count / perPage); i++) {
     items.push(

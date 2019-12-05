@@ -1,4 +1,5 @@
 import Post from 'src/components/Blog/Post'
+import PostPaginationCell from 'src/components/Blog/PostPaginationCell'
 
 export const beforeQuery = ({ page, perPage }) => {
   console.info('page in query', page)
@@ -34,8 +35,13 @@ const sortedPosts = (posts) => {
   })
 }
 
-export const Success = ({ posts }) => {
-  return sortedPosts(posts).map((post) => (
-    <Post key={post.id} post={post} summary={true} />
-  ))
+export const Success = ({ posts, page, perPage }) => {
+  return (
+    <>
+      {sortedPosts(posts).map((post) => (
+        <Post key={post.id} post={post} summary={true} />
+      ))}
+      <PostPaginationCell page={page} perPage={perPage} />
+    </>
+  )
 }
