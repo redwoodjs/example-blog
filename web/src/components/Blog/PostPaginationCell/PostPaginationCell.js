@@ -7,39 +7,28 @@ const CSS = {
 }
 
 export const QUERY = gql`
-  query POSTS_COUNT($page: Int) {
-    count: postsCount(page: $page) {
+  {
+    postsCount {
       count
     }
   }
 `
 
-export const beforeQuery = ({ page }) => {
-  return { variables: { page: parseInt(page) } }
-}
-
 export const Loading = () => <div>Loading...</div>
 
-export const Success = ({ page }) => {
-  console.info(page)
-  return (
-    <ul className="list-none text-center">
-      <li className={CSS.page}>
+export const Success = ({ page, perPage, postsCount: count }) => {
+  const items = []
+  for (let i = 0; i < Math.ceil(count.count / perPage); i++) {
+    items.push(
+      <li key={i} className={CSS.page}>
         <Link
-          to={routes.home()}
-          className={page === 1 ? CSS.activeLink : CSS.link}
+          to={routes.home({ page: i + 1 })}
+          className={page === i + 1 ? CSS.activeLink : CSS.link}
         >
-          1
+          {i + 1}
         </Link>
       </li>
-      <li className={CSS.page}>
-        <Link
-          to={routes.home({ page: 2 })}
-          className={page === 2 ? CSS.activeLink : CSS.link}
-        >
-          2
-        </Link>
-      </li>
-    </ul>
-  )
+    )
+  }
+  return <ul className="list-none text-center">{items}</ul>
 }

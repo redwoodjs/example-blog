@@ -1,11 +1,9 @@
 import Post from 'src/components/Blog/Post'
 
-const PER_PAGE = 5
-
-export const beforeQuery = ({ page }) => {
+export const beforeQuery = ({ page, perPage }) => {
   console.info('page in query', page)
   page = page ? parseInt(page) : 1
-  return { variables: { page: page, limit: PER_PAGE } }
+  return { variables: { page: page, limit: perPage } }
 }
 
 export const QUERY = gql`

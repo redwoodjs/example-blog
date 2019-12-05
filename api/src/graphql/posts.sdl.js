@@ -23,7 +23,7 @@ export const schema = gql`
     findPostBySlug(slug: String): Post
     findPostsByTag(tag: String): [Post]
     searchPosts(term: String): [Post]
-    postsCount(page: Int): RecordCount
+    postsCount: RecordCount
   }
 
   input PostInput {
@@ -65,10 +65,8 @@ export const resolvers = {
       return Posts.searchPosts(args)
     },
 
-    postsCount: (_root, args) => {
-      const count = Posts.postsCount(args)
-      console.info(count)
-      return count
+    postsCount: async (_root, args) => {
+      return await Posts.postsCount(args)
     },
   },
 

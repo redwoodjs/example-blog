@@ -56,8 +56,8 @@ const Posts = {
     })
   },
 
-  postsCount: ({ page }) => {
-    return photon.posts.count()
+  postsCount: async ({ page }) => {
+    return { count: await photon.posts.count() }
   },
 
   createPost: ({ input }) => {
