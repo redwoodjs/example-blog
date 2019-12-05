@@ -1,4 +1,4 @@
-import { Link } from 'src/lib/HammerRouter'
+import { Link, routes } from 'src/lib/HammerRouter'
 
 export const QUERY = gql`
   {
@@ -21,7 +21,7 @@ export const Success = ({ posts }) => {
         {posts.map((post) => (
           <li key={post.id} className="my-2">
             <Link
-              to={`/posts/${post.slug}`}
+              to={routes.post({ slug: post.slug })}
               className="text-indigo-600 hover:bg-indigo-100 rounded"
             >
               {post.title}

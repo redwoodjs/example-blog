@@ -11,14 +11,6 @@ import NotFoundPage from 'src/pages/NotFoundPage'
 
 import { Router, Route } from 'src/lib/HammerRouter'
 
-// const Routes = () => {
-//   return (
-//     <Router>
-//       <Route path="/" page={HomePage} />
-//     </Router>
-//   )
-// }
-
 const Routes = () => {
   return (
     <Router>
@@ -38,49 +30,5 @@ const Routes = () => {
     </Router>
   )
 }
-
-// const Routes = () => {
-//   return (
-//     <BrowserRouter>
-//       <Switch>
-//         <Route path="/admin" exact>
-//           <AdminPostsPage />
-//         </Route>
-//         <Route path="/admin/new">
-//           <AdminNewPostPage />
-//         </Route>
-//         <Route path="/admin/:id/edit">
-//           <AdminEditPostPage />
-//         </Route>
-
-//         <Route path="/" exact>
-//           <HomePage />
-//         </Route>
-//         <Route path="/page/:page" exact>
-//           <HomePage />
-//         </Route>
-//         <Route path="/about" exact>
-//           <AboutPage />
-//         </Route>
-//         <Route path="/contact" exact>
-//           <ContactPage />
-//         </Route>
-//         <Route path="/posts/:slug">
-//           <PostPage />
-//         </Route>
-//         <Route path="/tags/:tag">
-//           <TaggedPostsPage />
-//         </Route>
-//         <Route path="/search/:term">
-//           <SearchPage />
-//         </Route>
-
-//         <Route>
-//           <NotFoundPage />
-//         </Route>
-//       </Switch>
-//     </BrowserRouter>
-//   )
-// }
 
 export default Routes

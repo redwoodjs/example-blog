@@ -59,8 +59,39 @@ export const Router = (props) => (
 
 const ParamsContext = createNamedContext('Params', {})
 
-export const RouterImpl = ({ pathname, children }) => {
+// The first time the routes are loaded, iterate through them and create the named
+// route functions.
+
+let namedRoutes = {}
+let namedRoutesDone = false
+
+const mapNamedRoutes = (routes) => {
+  for (let route of routes) {
+    const { path, name, notfound } = route.props
+    if (notfound) {
+      continue
+    }
+    namedRoutes[name] = (args = {}) => {
+      let newPath = path
+      Object.keys(args).forEach((key) => {
+        newPath = newPath.replace(`:${key}`, args[key])
+      })
+      return newPath
+    }
+  }
+  namedRoutesDone = true
+}
+
+export const routes = namedRoutes
+
+// The guts of the router implementation.
+
+const RouterImpl = ({ pathname, children }) => {
   const routes = React.Children.toArray(children)
+  if (!namedRoutesDone) {
+    mapNamedRoutes(routes)
+  }
+
   let NotFoundPage
 
   for (let route of routes) {
