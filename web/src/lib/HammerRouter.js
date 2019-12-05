@@ -61,8 +61,14 @@ const ParamsContext = createNamedContext('Params', {})
 
 export const RouterImpl = ({ pathname, children }) => {
   const routes = React.Children.toArray(children)
+  let NotFoundPage
+
   for (let route of routes) {
-    const { path, page: Page } = route.props
+    const { path, page: Page, notfound } = route.props
+    if (notfound) {
+      NotFoundPage = Page
+      continue
+    }
     const matches = Array.from(pathname.matchAll(rePath(path)))
     if (matches.length > 0) {
       const pathProps = matches[0].groups
@@ -73,7 +79,12 @@ export const RouterImpl = ({ pathname, children }) => {
       )
     }
   }
-  return <div>404</div>
+
+  return (
+    <ParamsContext.Provider value={{}}>
+      <NotFoundPage />
+    </ParamsContext.Provider>
+  )
 }
 
 export const Route = () => {
