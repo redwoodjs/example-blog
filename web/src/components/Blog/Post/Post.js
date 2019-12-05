@@ -3,7 +3,7 @@ import MarkdownIt from 'markdown-it'
 import truncate from 'html-truncate'
 import TagList from 'src/components/Blog/TagList'
 
-import { Link } from 'src/lib/HammerRouter'
+import { Link, routes } from 'src/lib/HammerRouter'
 
 const md = new MarkdownIt()
 
@@ -26,7 +26,7 @@ const Post = ({ post, summary = false }) => {
       <header className="flex items-center justify-between">
         <h1 className="text-2xl font-semibold">
           <Link
-            to={`/posts/${post.slug}`}
+            to={routes.post({ slug: post.slug })}
             className="text-indigo-600 hover:bg-indigo-100 rounded"
           >
             {post.title}
@@ -45,7 +45,7 @@ const Post = ({ post, summary = false }) => {
         {summary && (
           <p className="clearfix text-center">
             <Link
-              to={`/posts/${post.slug}`}
+              to={routes.post({ slug: post.slug })}
               className="inline-block text-right text-indigo-600 hover:text-indigo-800 text-sm bg-indigo-100 hover:bg-transparent px-2 rounded font-medium hover:bg-indigo-100 rounded"
             >
               Continue reading &raquo;

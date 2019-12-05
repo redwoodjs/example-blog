@@ -1,5 +1,5 @@
 import { useMutation } from '@hammerframework/web'
-import { Link } from 'react-router-dom'
+import { Link, routes } from 'src/lib/HammerRouter'
 import moment from 'moment'
 
 const HIDE_POST_MUTATION = gql`
@@ -60,7 +60,7 @@ const PostsList = ({ posts }) => {
           <tr key={post.id}>
             <td className="py-2">
               <Link
-                to={`/admin/${post.id}/edit`}
+                to={routes.adminEdit({ id: post.id })}
                 className="font-semibold text-indigo-700"
               >
                 {post.title}

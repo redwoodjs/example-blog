@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom'
+import { useParams } from 'src/lib/HammerRouter'
 
 import AdminLayout from 'src/layouts/AdminLayout'
 import EditPostCell from 'src/components/Admin/EditPostCell'

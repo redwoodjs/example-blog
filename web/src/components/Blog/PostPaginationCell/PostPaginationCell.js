@@ -1,4 +1,4 @@
-import { NavLink } from 'src/lib/HammerRouter'
+import { Link, routes } from 'src/lib/HammerRouter'
 
 const CSS = {
   page: 'inline-block mx-1 text-indigo-400',
@@ -20,33 +20,25 @@ export const beforeQuery = ({ page }) => {
 
 export const Loading = () => <div>Loading...</div>
 
-export const Success = (props) => {
-  console.info(props)
+export const Success = ({ page }) => {
+  console.info(page)
   return (
     <ul className="list-none text-center">
       <li className={CSS.page}>
-        <NavLink
-          to="/"
-          className={CSS.link}
-          activeClassName={CSS.activeLink}
-          isActive={(match, location) => {
-            return location.search === '' || location.search.match(`page=1`)
-          }}
+        <Link
+          to={routes.home()}
+          className={page === 1 ? CSS.activeLink : CSS.link}
         >
           1
-        </NavLink>
+        </Link>
       </li>
       <li className={CSS.page}>
-        <NavLink
-          to="/?page=2"
-          className={CSS.link}
-          activeClassName={CSS.activeLink}
-          isActive={(match, location) => {
-            return location.search.match(`page=2`)
-          }}
+        <Link
+          to={routes.home({ page: 2 })}
+          className={page === 2 ? CSS.activeLink : CSS.link}
         >
           2
-        </NavLink>
+        </Link>
       </li>
     </ul>
   )

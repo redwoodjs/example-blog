@@ -3,6 +3,7 @@ import Post from 'src/components/Blog/Post'
 const PER_PAGE = 5
 
 export const beforeQuery = ({ page }) => {
+  console.info('page in query', page)
   page = page ? parseInt(page) : 1
   return { variables: { page: page, limit: PER_PAGE } }
 }
