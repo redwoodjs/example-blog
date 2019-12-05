@@ -1,5 +1,6 @@
-import { Link } from 'react-router-dom'
 import Menu from 'src/components/Blog/Menu'
+
+import { Link } from 'src/lib/HammerRouter'
 
 import logo from './logo.png'
 

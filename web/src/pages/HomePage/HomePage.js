@@ -1,16 +1,12 @@
-import { useLocation } from 'react-router-dom'
 import BlogLayout from 'src/layouts/BlogLayout'
 
 import PostSummariesCell from 'src/components/Blog/PostSummariesCell'
 import PostPaginationCell from 'src/components/Blog/PostPaginationCell'
+import { useParams } from 'src/lib/HammerRouter'
 
-function useQuery() {
-  return new URLSearchParams(useLocation().search)
-}
-
-const PostSummariesPage = () => {
-  const query = useQuery()
-  const page = query.get('page') || 1
+const HomePage = () => {
+  let { page } = useParams()
+  page = page || 1
 
   return (
     <BlogLayout>
@@ -20,4 +16,4 @@ const PostSummariesPage = () => {
   )
 }
 
-export default PostSummariesPage
+export default HomePage

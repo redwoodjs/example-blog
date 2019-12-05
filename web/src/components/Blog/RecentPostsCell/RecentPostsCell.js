@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link } from 'src/lib/HammerRouter'
 
 export const QUERY = gql`
   {

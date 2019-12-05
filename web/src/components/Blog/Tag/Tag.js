@@ -1,5 +1,6 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+
+import { Link } from 'src/lib/HammerRouter'
 
 const Tag = ({ name }) => {
   return (

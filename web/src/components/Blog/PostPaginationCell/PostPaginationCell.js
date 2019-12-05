@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink } from 'src/lib/HammerRouter'
 
 const CSS = {
   page: 'inline-block mx-1 text-indigo-400',
