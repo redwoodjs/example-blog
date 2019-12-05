@@ -1,6 +1,6 @@
-import { useParams } from 'react-router-dom'
 import BlogLayout from 'src/layouts/BlogLayout'
 
+import { useParams } from 'src/lib/HammerRouter'
 import TaggedPostsCell from 'src/components/Blog/TaggedPostsCell'
 
 const TaggedPostsPage = () => {

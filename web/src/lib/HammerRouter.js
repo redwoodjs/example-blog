@@ -1,3 +1,5 @@
+import { useContext } from 'react'
+
 const rePath = (path) => {
   const withParams = path.replace(/:([^\/]+)/g, '(?<$1>[^/]+)')
   const fullString = `^${withParams}$`
@@ -55,6 +57,8 @@ export const Router = (props) => (
   </Location>
 )
 
+const ParamsContext = createNamedContext('Params', {})
+
 export const RouterImpl = ({ pathname, children }) => {
   const routes = React.Children.toArray(children)
   for (let route of routes) {
@@ -62,7 +66,11 @@ export const RouterImpl = ({ pathname, children }) => {
     const matches = Array.from(pathname.matchAll(rePath(path)))
     if (matches.length > 0) {
       const pathProps = matches[0].groups
-      return <Page {...pathProps} />
+      return (
+        <ParamsContext.Provider value={pathProps || {}}>
+          <Page {...pathProps} />
+        </ParamsContext.Provider>
+      )
     }
   }
   return <div>404</div>
@@ -77,5 +85,6 @@ export const Link = ({ to, ...rest }) => <a href={to} {...rest} />
 export const NavLink = ({ to, ...rest }) => <a href={to} {...rest} />
 
 export const useParams = () => {
-  return {}
+  const params = useContext(ParamsContext)
+  return params
 }
