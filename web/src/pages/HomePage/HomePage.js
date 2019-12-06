@@ -11,7 +11,7 @@ const HomePage = () => {
 
   return (
     <BlogLayout>
-      <PostSummariesCell page={page} perPage={POSTS_PER_PAGE} />
+      <PostSummariesCell page={parseInt(page)} perPage={POSTS_PER_PAGE} />
     </BlogLayout>
   )
 }
