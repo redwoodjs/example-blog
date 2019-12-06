@@ -65,8 +65,8 @@ export const resolvers = {
       return Posts.searchPosts(args)
     },
 
-    postsCount: async (_root, args) => {
-      return await Posts.postsCount(args)
+    postsCount: (_root, args) => {
+      return Posts.postsCount(args)
     },
   },
 
