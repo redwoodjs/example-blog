@@ -100,12 +100,11 @@ const mapNamedRoutes = (routes) => {
         }
       })
 
-      let outputPath = newPath
       if (queryParams.length) {
-        outputPath += `?${queryParams.join('&')}`
+        newPath += `?${queryParams.join('&')}`
       }
 
-      return outputPath
+      return newPath
     }
   }
   namedRoutesDone = true
