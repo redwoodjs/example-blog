@@ -90,10 +90,22 @@ const mapNamedRoutes = (routes) => {
     }
     namedRoutes[name] = (args = {}) => {
       let newPath = path
+      const queryParams = []
+
       Object.keys(args).forEach((key) => {
-        newPath = newPath.replace(`:${key}`, args[key])
+        if (newPath.match(`:${key}`)) {
+          newPath = newPath.replace(`:${key}`, args[key])
+        } else {
+          queryParams.push(`${key}=${args[key]}`)
+        }
       })
-      return newPath
+
+      let outputPath = newPath
+      if (queryParams.length) {
+        outputPath += `?${queryParams.join('&')}`
+      }
+
+      return outputPath
     }
   }
   namedRoutesDone = true
