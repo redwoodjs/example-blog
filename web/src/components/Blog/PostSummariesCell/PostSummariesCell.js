@@ -1,26 +1,28 @@
 import Post from 'src/components/Blog/Post'
-import PostPaginationCell from 'src/components/Blog/PostPaginationCell'
+import Pagination from 'src/components/Blog/Pagination'
 
 export const beforeQuery = ({ page, perPage }) => {
-  console.info('page in query', page)
   page = page ? parseInt(page) : 1
   return { variables: { page: page, limit: perPage } }
 }
 
 export const QUERY = gql`
-  query POSTS_COUNT($page: Int, $limit: Int) {
-    posts: allPosts(page: $page, limit: $limit) {
-      id
-      title
-      slug
-      author
-      body
-      image
-      postedAt
-      tags {
+  query POSTS($page: Int, $limit: Int) {
+    allPosts(page: $page, limit: $limit) {
+      posts {
         id
-        name
+        title
+        slug
+        author
+        body
+        image
+        postedAt
+        tags {
+          id
+          name
+        }
       }
+      count
     }
   }
 `
@@ -35,13 +37,13 @@ const sortedPosts = (posts) => {
   })
 }
 
-export const Success = ({ posts, page, perPage }) => {
+export const Success = ({ allPosts, page, perPage }) => {
   return (
     <>
-      {sortedPosts(posts).map((post) => (
+      {sortedPosts(allPosts.posts).map((post) => (
         <Post key={post.id} post={post} summary={true} />
       ))}
-      <PostPaginationCell page={page} perPage={perPage} />
+      <Pagination count={allPosts.count} page={page} perPage={perPage} />
     </>
   )
 }

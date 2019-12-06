@@ -14,15 +14,18 @@ const validate = (input) => {
 }
 
 const Posts = {
-  allPosts: ({ page = 1, limit = 5, order = { postedAt: 'desc' } }) => {
+  allPosts: async ({ page = 1, limit = 100, order = { postedAt: 'desc' } }) => {
     const offset = (page - 1) * limit
 
-    return photon.posts.findMany({
-      include: { tags: true },
-      first: limit,
-      skip: offset,
-      orderBy: order,
-    })
+    return {
+      posts: photon.posts.findMany({
+        include: { tags: true },
+        first: limit,
+        skip: offset,
+        orderBy: order,
+      }),
+      count: photon.posts.count(),
+    }
   },
 
   findPostById: ({ id }) => {

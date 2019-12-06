@@ -1,24 +1,26 @@
 import { Link, routes } from 'src/lib/HammerRouter'
 
 export const QUERY = gql`
-  {
-    posts: allPosts {
-      id
-      title
-      slug
-      postedAt
+  query POSTS {
+    allPosts {
+      posts {
+        id
+        title
+        slug
+        postedAt
+      }
     }
   }
 `
 
 export const Loading = () => <div>Loading recent posts...</div>
 
-export const Success = ({ posts }) => {
+export const Success = ({ allPosts }) => {
   return (
     <div className="">
       <h2 className="font-semibold text-indigo-800">Recent Hammers</h2>
       <ul className="text-sm mt-2">
-        {posts.map((post) => (
+        {allPosts.posts.map((post) => (
           <li key={post.id} className="my-2">
             <Link
               to={routes.post({ slug: post.slug })}
