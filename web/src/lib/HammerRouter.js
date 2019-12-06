@@ -6,6 +6,20 @@ const rePath = (path) => {
   return fullString
 }
 
+const parseSearch = (search) => {
+  if (search === '') {
+    return {}
+  }
+  const searchPart = search.substring(1)
+  const pairs = searchPart.split('&')
+  const searchProps = {}
+  pairs.forEach((pair) => {
+    const keyval = pair.split('=')
+    searchProps[keyval[0]] = keyval[1] || ''
+  })
+  return searchProps
+}
+
 const createNamedContext = (name, defaultValue) => {
   const Ctx = React.createContext(defaultValue)
   Ctx.displayName = name
@@ -28,16 +42,19 @@ const Location = ({ children }) => (
 
 class LocationProvider extends React.Component {
   static defaultProps = {
-    pathname: window.location.pathname,
+    location: window.location,
   }
 
   constructor(props) {
     super(props)
     this.state = {
-      context: {
-        pathname: this.props.pathname,
-      },
+      context: this.getContext(),
     }
+  }
+
+  getContext() {
+    const { pathname, search, hash } = this.props.location
+    return { pathname, search, hash }
   }
 
   render() {
@@ -86,7 +103,7 @@ export const routes = namedRoutes
 
 // The guts of the router implementation.
 
-const RouterImpl = ({ pathname, children }) => {
+const RouterImpl = ({ pathname, search, children }) => {
   const routes = React.Children.toArray(children)
   if (!namedRoutesDone) {
     mapNamedRoutes(routes)
@@ -102,9 +119,11 @@ const RouterImpl = ({ pathname, children }) => {
     }
     const matches = Array.from(pathname.matchAll(rePath(path)))
     if (matches.length > 0) {
-      const pathProps = matches[0].groups
+      const pathProps = matches[0].groups || {}
+      const searchProps = parseSearch(search)
+      const allProps = { ...pathProps, ...searchProps }
       return (
-        <ParamsContext.Provider value={pathProps || {}}>
+        <ParamsContext.Provider value={allProps}>
           <Page {...pathProps} />
         </ParamsContext.Provider>
       )
