@@ -1,6 +1,8 @@
 import BlogLayout from 'src/layouts/BlogLayout'
 import {
   HammerForm,
+  FieldError,
+  Label,
   TextField,
   TextAreaField,
   Submit,
@@ -9,6 +11,8 @@ import {
 const CSS = {
   label:
     'block mt-6 uppercase text-sm font-semibold tracking-wider text-gray-500',
+  labelError:
+    'block mt-6 uppercase text-sm font-semibold tracking-wider text-red-600',
   input:
     'block mt-2 w-full p-2 border text-lg text-gray-900 rounded focus:outline-none focus:border-indigo-300',
   error: 'block mt-1 font-semibold uppercase text-xs text-red-600',
@@ -41,23 +45,29 @@ const ContactPage = () => {
             netlify: 'true',
           }}
         >
+          <Label
+            name="name"
+            className={CSS.label}
+            errorClassName={CSS.labelError}
+          />
           <TextField
-            input={{
-              name: 'name',
-              className: CSS.input,
-            }}
-            label={{ className: CSS.label }}
-            error={{ className: CSS.error }}
+            name="name"
+            className={CSS.input}
             validation={{ required: true }}
           />
+          <FieldError
+            name="name"
+            className="block mt-1 font-semibold uppercase text-xs text-red-600"
+          />
 
+          <Label
+            name="email"
+            className={CSS.label}
+            errorClassName={CSS.labelError}
+          />
           <TextField
-            input={{
-              name: 'email',
-              className: CSS.input,
-            }}
-            label={{ className: CSS.label }}
-            error={{ className: CSS.error }}
+            name="email"
+            className={CSS.input}
             validation={{
               required: true,
               pattern: {
@@ -66,18 +76,29 @@ const ContactPage = () => {
               },
             }}
           />
+          <FieldError
+            name="email"
+            className="block mt-1 font-semibold uppercase text-xs text-red-600"
+          />
 
+          <Label
+            name="body"
+            text="Message"
+            className={CSS.label}
+            errorClassName={CSS.labelError}
+          />
           <TextAreaField
-            input={{
-              name: 'body',
-              className: `${CSS.input} h-64`,
-            }}
-            label={{ className: CSS.label }}
-            error={{ className: CSS.error }}
+            name="body"
+            className={`${CSS.input} h-64`}
             validation={{
-              required: true,
+              required: 'You gotta write something!',
             }}
           />
+          <FieldError
+            name="body"
+            className="block mt-1 font-semibold uppercase text-xs text-red-600"
+          />
+
           <div className="mt-4 text-right">
             <Submit className={CSS.submit}>Submit</Submit>
           </div>
