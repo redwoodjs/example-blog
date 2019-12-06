@@ -63,14 +63,40 @@ const HammerForm = (props) => {
   )
 }
 
+const Label = (props) => {
+  const { errors } = useFormContext()
+  const validationError = errors[props.name]
+  const { className, errorClassName, ...tagProps } = props
+  tagProps.className = validationError
+    ? props.errorClassName || props.className
+    : props.className
+
+  return (
+    <label htmlFor={props.name} {...tagProps}>
+      {props.text || props.name.toTitleCase()}
+    </label>
+  )
+}
+
+const FieldError = (props) => {
+  const { errors } = useFormContext()
+  const validationError = errors[props.name]
+  const errorMessage =
+    validationError &&
+    (validationError.message ||
+      `${props.name.toTitleCase()} ${DEFAULT_MESSAGES[validationError.type]}`)
+
+  return validationError ? <span {...props}>{errorMessage}</span> : null
+}
+
 const HiddenField = (props) => {
   const { register } = useFormContext()
 
   return (
     <input
-      {...props.input}
+      {...props}
       type="hidden"
-      id={props.input.id || props.input.name}
+      id={props.id || props.name}
       ref={register()}
     />
   )
@@ -87,27 +113,21 @@ const DEFAULT_MESSAGES = {
 }
 
 const InputField = (props) => {
-  const { watch, errors, setError, clearError } = useFormContext()
+  const { errors, setError } = useFormContext()
   const fieldErrorsContext = useContext(FieldErrorContext)
-  const contextError = fieldErrorsContext[props.input.name]
+  const contextError = fieldErrorsContext[props.name]
   if (contextError) {
-    setError(props.input.name, 'server', contextError)
+    setError(props.name, 'server', contextError)
   }
-  const validationError = errors[props.input.name]
+  const validationError = errors[props.name]
   const errorMessage =
     validationError &&
     (validationError.message ||
-      `${props.input.name.toTitleCase()} ${
-        DEFAULT_MESSAGES[validationError.type]
-      }`)
+      `${props.name.toTitleCase()} ${DEFAULT_MESSAGES[validationError.type]}`)
 
   return (
     <div className={validationError ? 'form-field-error' : ''}>
-      <label {...props.label} htmlFor={props.input.name}>
-        {props.labelText || props.input.name.toTitleCase()}
-      </label>
       {props.children}
-      {validationError && <span {...props.error}>{errorMessage}</span>}
     </div>
   )
 }
@@ -118,8 +138,8 @@ const TextAreaField = (props) => {
   return (
     <InputField {...props}>
       <textarea
-        {...props.input}
-        id={props.input.id || props.input.name}
+        {...props}
+        id={props.id || props.name}
         ref={register(props.validation)}
       />
     </InputField>
@@ -132,9 +152,9 @@ const TextField = (props) => {
   return (
     <InputField {...props}>
       <input
-        {...props.input}
-        type={props.input.type || 'text'}
-        id={props.input.id || props.input.name}
+        {...props}
+        type={props.type || 'text'}
+        id={props.id || props.name}
         ref={register(props.validation)}
       />
     </InputField>
@@ -153,6 +173,8 @@ export {
   HammerForm,
   FieldErrorContext,
   ErrorMessage,
+  FieldError,
+  Label,
   HiddenField,
   InputField,
   TextAreaField,
