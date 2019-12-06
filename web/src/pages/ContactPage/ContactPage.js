@@ -1,8 +1,10 @@
 import BlogLayout from 'src/layouts/BlogLayout'
-import HammerForm from 'src/components/forms/HammerForm'
-import TextField from 'src/components/forms/TextField'
-import TextAreaField from 'src/components/forms/TextAreaField'
-import Submit from 'src/components/forms/Submit'
+import {
+  HammerForm,
+  TextField,
+  TextAreaField,
+  Submit,
+} from 'src/lib/HammerForm'
 
 const CSS = {
   label:
