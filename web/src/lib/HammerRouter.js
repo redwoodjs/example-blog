@@ -1,11 +1,53 @@
+// This is Hammer's routing mechanism. It takes inspiration from both Ruby on
+// Rails' routing approach and from both React Router and Reach Router (the
+// latter of which has closely inspired some of this code).
+
 import { useContext } from 'react'
 
-const rePath = (path) => {
+// Convert the given path (from the path specified in the Route) into
+// a regular expression that will match any named parameters.
+//
+// path - The path as specified in the <Route ... />.
+//
+// Examples:
+//
+//   reRoute('/blog/:year/:month/:day')
+const reRoute = (path) => {
   const withParams = path.replace(/:([^\/]+)/g, '(?<$1>[^/]+)')
   const fullString = `^${withParams}$`
   return fullString
 }
 
+// Determine if the given route is a match for the given pathname. If so,
+// extract any named params and return them in an object.
+//
+// route    - The route path as specified in the <Route path={...} />
+// pathname - The pathname from the window.location.
+//
+// Examples:
+//
+//   matchPath('/blog/:year/:month/:day', '/blog/2019/12/07')
+//   => { match: true, params: { year: '2019', month: '12', day: '07' }}
+//
+//   matchPath('/about', '/')
+//   => { match: false }
+const matchPath = (route, pathname) => {
+  const matches = Array.from(pathname.matchAll(reRoute(route)))
+  if (matches.length > 0) {
+    const params = matches[0].groups || {}
+    return { match: true, params }
+  } else {
+    return { match: false }
+  }
+}
+
+// Parse the given search string into key/value pairs and return them in an
+// object.
+//
+// Examples:
+//
+//   parseSearch('?key1=val1&key2=val2')
+//   => { key1: 'val1', key2: 'val2' }
 const parseSearch = (search) => {
   if (search === '') {
     return {}
@@ -20,6 +62,7 @@ const parseSearch = (search) => {
   return searchProps
 }
 
+// Create a React Context with the given name.
 const createNamedContext = (name, defaultValue) => {
   const Ctx = React.createContext(defaultValue)
   Ctx.displayName = name
@@ -152,14 +195,13 @@ const RouterImpl = ({ pathname, search, children }) => {
       NotFoundPage = Page
       continue
     }
-    const matches = Array.from(pathname.matchAll(rePath(path)))
-    if (matches.length > 0) {
-      const pathProps = matches[0].groups || {}
-      const searchProps = parseSearch(search)
-      const allProps = { ...pathProps, ...searchProps }
+    const { match, params: pathParams } = matchPath(path, pathname)
+    if (match) {
+      const searchParams = parseSearch(search)
+      const allParams = { ...pathParams, ...searchParams }
       return (
-        <ParamsContext.Provider value={allProps}>
-          <Page {...pathProps} />
+        <ParamsContext.Provider value={allParams}>
+          <Page {...allParams} />
         </ParamsContext.Provider>
       )
     }
