@@ -1,6 +1,6 @@
 import Menu from 'src/components/Blog/Menu'
 
-import { Link, routes } from 'src/lib/HammerRouter'
+import { Link, NavLink, routes } from 'src/lib/HammerRouter'
 
 import logo from './logo.png'
 
@@ -23,20 +23,20 @@ const BlogLayout = (props) => {
           <nav className="flex-grow sm:flex-grow-0 min-h-screenmt-4 mt-4 md:mt-0">
             <ul className="flex justify-center">
               <li className="mx-4 font-semibold uppercase">
-                <a
-                  href={routes.about()}
+                <NavLink
+                  to={routes.about()}
                   className="text-indigo-200 hover:text-indigo-800"
                 >
                   About
-                </a>
+                </NavLink>
               </li>
               <li className="mx-4 font-semibold uppercase">
-                <a
-                  href={routes.contact()}
+                <NavLink
+                  to={routes.contact()}
                   className="text-indigo-200 hover:text-indigo-800"
                 >
                   Contact
-                </a>
+                </NavLink>
               </li>
             </ul>
           </nav>

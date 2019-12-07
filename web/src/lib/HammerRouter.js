@@ -40,6 +40,24 @@ const Location = ({ children }) => (
   </LocationContext.Consumer>
 )
 
+const createHistory = () => {
+  const listeners = []
+
+  return {
+    listen: (listener) => {
+      listeners.push(listener)
+    },
+    navigate: (to) => {
+      window.history.pushState({}, null, to)
+      listeners.forEach((listener) => listener())
+    },
+  }
+}
+
+const gHistory = createHistory()
+
+export const navigate = gHistory.navigate
+
 class LocationProvider extends React.Component {
   static defaultProps = {
     location: window.location,
@@ -55,6 +73,12 @@ class LocationProvider extends React.Component {
   getContext() {
     const { pathname, search, hash } = this.props.location
     return { pathname, search, hash }
+  }
+
+  componentDidMount() {
+    gHistory.listen(() => {
+      this.setState(() => ({ context: this.getContext() }))
+    })
   }
 
   render() {
@@ -152,9 +176,29 @@ export const Route = () => {
   return null
 }
 
-export const Link = ({ to, ...rest }) => <a href={to} {...rest} />
+export const Link = ({ to, ...rest }) => (
+  <a
+    href={to}
+    {...rest}
+    onClick={(event) => {
+      event.preventDefault()
+      console.log(to)
+      navigate(to)
+    }}
+  />
+)
 
-export const NavLink = ({ to, ...rest }) => <a href={to} {...rest} />
+export const NavLink = ({ to, ...rest }) => (
+  <a
+    href={to}
+    {...rest}
+    onClick={(event) => {
+      event.preventDefault()
+      console.log(to)
+      navigate(to)
+    }}
+  />
+)
 
 export const useParams = () => {
   const params = useContext(ParamsContext)
