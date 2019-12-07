@@ -15,6 +15,8 @@ const CSS = {
     'block mt-6 uppercase text-sm font-semibold tracking-wider text-red-600',
   input:
     'block mt-2 w-full p-2 border text-lg text-gray-900 rounded focus:outline-none focus:border-indigo-300',
+  inputError:
+    'block mt-2 w-full p-2 border text-lg text-gray-900 rounded focus:outline-none border-red-600',
   error: 'block mt-1 font-semibold uppercase text-xs text-red-600',
   submit:
     'px-6 py-2 bg-indigo-700 text-white text-sm rounded uppercase font-bold tracking-wider',
@@ -25,8 +27,7 @@ const EMAIL_REGEX = new RegExp(
 
 const ContactPage = () => {
   const onSubmit = (data) => {
-    console.info(arguments)
-    console.info(data)
+    alert(`Name: ${data.name}\nEmail: ${data.email}\nMessage: ${data.body}`)
     return true
   }
 
@@ -53,6 +54,7 @@ const ContactPage = () => {
           <TextField
             name="name"
             className={CSS.input}
+            errorClassName={CSS.inputError}
             validation={{ required: true }}
           />
           <FieldError
@@ -68,6 +70,7 @@ const ContactPage = () => {
           <TextField
             name="email"
             className={CSS.input}
+            errorClassName={CSS.inputError}
             validation={{
               required: true,
               pattern: {
@@ -90,6 +93,7 @@ const ContactPage = () => {
           <TextAreaField
             name="body"
             className={`${CSS.input} h-64`}
+            errorClassName={`${CSS.inputError} h-64`}
             validation={{
               required: 'You gotta write something!',
             }}

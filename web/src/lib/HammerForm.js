@@ -2,6 +2,50 @@ import useForm, { FormContext, useFormContext } from 'react-hook-form'
 import { useContext } from 'react'
 import '@gouch/to-title-case'
 
+const DEFAULT_MESSAGES = {
+  required: 'is required',
+  pattern: 'is not formatted correctly',
+  minLength: 'is too short',
+  maxLength: 'is too long',
+  min: 'is too high',
+  max: 'is too low',
+  validate: 'is not valid',
+}
+
+// Massages a hash of props depending on whether the given named field has
+// any errors on it
+
+const inputTagProps = (props) => {
+  const { errors, setError } = useFormContext()
+
+  // Check for errors from server and set on field if present
+
+  const fieldErrorsContext = useContext(FieldErrorContext)
+  const contextError = fieldErrorsContext[props.name]
+  if (contextError) {
+    setError(props.name, 'server', contextError)
+  }
+
+  // any errors on this field
+  const validationError = errors[props.name]
+
+  // get `errorClassName` out of props and set className to it if there are
+  // errors on the field
+  const { errorClassName, ...tagProps } = props
+  if (validationError && errorClassName) {
+    tagProps.className = errorClassName
+  }
+
+  return tagProps
+}
+
+// Context for keeping track of errors from the server
+
+const FieldErrorContext = React.createContext()
+
+// Big error message at the top of the page explaining everything that's wrong
+// with the form fields in this form
+
 const ErrorMessage = ({
   error,
   wrapperClassName,
@@ -32,7 +76,7 @@ const ErrorMessage = ({
   )
 }
 
-const FieldErrorContext = React.createContext()
+// Renders a containing <form> tag with required contexts
 
 const HammerForm = (props) => {
   const formMethods = props.formMethods || useForm(props.validation)
@@ -63,13 +107,11 @@ const HammerForm = (props) => {
   )
 }
 
+// Renders a <label> tag that can be styled differently if errors are present
+// on the related fields
+
 const Label = (props) => {
-  const { errors } = useFormContext()
-  const validationError = errors[props.name]
-  const { className, errorClassName, ...tagProps } = props
-  tagProps.className = validationError
-    ? props.errorClassName || props.className
-    : props.className
+  const tagProps = inputTagProps(props)
 
   return (
     <label htmlFor={props.name} {...tagProps}>
@@ -77,6 +119,9 @@ const Label = (props) => {
     </label>
   )
 }
+
+// Renders a <span> with a validation error message if there is an error on this
+// field
 
 const FieldError = (props) => {
   const { errors } = useFormContext()
@@ -88,6 +133,8 @@ const FieldError = (props) => {
 
   return validationError ? <span {...props}>{errorMessage}</span> : null
 }
+
+// Renders an <input type="hidden"> field
 
 const HiddenField = (props) => {
   const { register } = useFormContext()
@@ -102,64 +149,38 @@ const HiddenField = (props) => {
   )
 }
 
-const DEFAULT_MESSAGES = {
-  required: 'is required',
-  pattern: 'is not formatted correctly',
-  minLength: 'is too short',
-  maxLength: 'is too long',
-  min: 'is too high',
-  max: 'is too low',
-  validate: 'is not valid',
-}
-
-const InputField = (props) => {
-  const { errors, setError } = useFormContext()
-  const fieldErrorsContext = useContext(FieldErrorContext)
-  const contextError = fieldErrorsContext[props.name]
-  if (contextError) {
-    setError(props.name, 'server', contextError)
-  }
-  const validationError = errors[props.name]
-  const errorMessage =
-    validationError &&
-    (validationError.message ||
-      `${props.name.toTitleCase()} ${DEFAULT_MESSAGES[validationError.type]}`)
-
-  return (
-    <div className={validationError ? 'form-field-error' : ''}>
-      {props.children}
-    </div>
-  )
-}
+// Renders a <textarea> field
 
 const TextAreaField = (props) => {
   const { register } = useFormContext()
+  const tagProps = inputTagProps(props)
 
   return (
-    <InputField {...props}>
-      <textarea
-        {...props}
-        id={props.id || props.name}
-        ref={register(props.validation)}
-      />
-    </InputField>
+    <textarea
+      {...tagProps}
+      id={props.id || props.name}
+      ref={register(props.validation)}
+    />
   )
 }
+
+// Renders an <input type="text"> field
 
 const TextField = (props) => {
   const { register } = useFormContext()
+  const tagProps = inputTagProps(props)
 
   return (
-    <InputField {...props}>
-      <input
-        {...props}
-        type={props.type || 'text'}
-        id={props.id || props.name}
-        ref={register(props.validation)}
-      />
-    </InputField>
+    <input
+      {...tagProps}
+      type={props.type || 'text'}
+      id={props.id || props.name}
+      ref={register(props.validation)}
+    />
   )
 }
+
+// Renders a <button type="submit">
 
 const Submit = (props) => {
   return (
@@ -176,7 +197,6 @@ export {
   FieldError,
   Label,
   HiddenField,
-  InputField,
   TextAreaField,
   TextField,
   Submit,
