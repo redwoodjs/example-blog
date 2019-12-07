@@ -46,6 +46,9 @@ const createHistory = () => {
   return {
     listen: (listener) => {
       listeners.push(listener)
+      window.addEventListener('popstate', () => {
+        listener()
+      })
     },
     navigate: (to) => {
       window.history.pushState({}, null, to)
