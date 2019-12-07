@@ -182,23 +182,26 @@ export const Link = ({ to, ...rest }) => (
     {...rest}
     onClick={(event) => {
       event.preventDefault()
-      console.log(to)
       navigate(to)
     }}
   />
 )
 
-export const NavLink = ({ to, ...rest }) => (
-  <a
-    href={to}
-    {...rest}
-    onClick={(event) => {
-      event.preventDefault()
-      console.log(to)
-      navigate(to)
-    }}
-  />
-)
+export const NavLink = ({ to, className, activeClassName, ...rest }) => {
+  const context = useContext(LocationContext)
+  const theClassName = to === context.pathname ? activeClassName : className
+  return (
+    <a
+      href={to}
+      className={theClassName}
+      {...rest}
+      onClick={(event) => {
+        event.preventDefault()
+        navigate(to)
+      }}
+    />
+  )
+}
 
 export const useParams = () => {
   const params = useContext(ParamsContext)
