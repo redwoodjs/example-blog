@@ -66,11 +66,8 @@ class LocationProvider extends React.Component {
     location: window.location,
   }
 
-  constructor(props) {
-    super(props)
-    this.state = {
-      context: this.getContext(),
-    }
+  state = {
+    context: this.getContext(),
   }
 
   getContext() {
