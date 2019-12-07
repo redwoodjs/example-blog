@@ -40,11 +40,10 @@ const ContactPage = () => {
         </p>
 
         <HammerForm
-          form={{
-            onSubmit: onSubmit,
-            className: 'mt-8 max-w-lg mx-auto',
-            netlify: 'true',
-          }}
+          name="contact"
+          onSubmit={onSubmit}
+          className="mt-8 max-w-lg mx-auto"
+          netlify=""
         >
           <Label
             name="name"

@@ -80,13 +80,14 @@ const ErrorMessage = ({
 
 const HammerForm = (props) => {
   const formMethods = props.formMethods || useForm(props.validation)
+  const { error: errorProps, ...formProps } = props
 
   return (
     <form
-      {...props.form}
-      onSubmit={formMethods.handleSubmit(props.form.onSubmit)}
+      {...formProps}
+      onSubmit={formMethods.handleSubmit(formProps.onSubmit)}
     >
-      {props.error && (
+      {errorProps && (
         <ErrorMessage
           error={props.error}
           wrapperClassName="p-4 bg-red-100 text-red-700 border border-red-300 rounded mb-4"
