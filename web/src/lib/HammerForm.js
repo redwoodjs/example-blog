@@ -79,17 +79,16 @@ const ErrorMessage = ({
 // Renders a containing <form> tag with required contexts
 
 const HammerForm = (props) => {
-  const formMethods = props.formMethods || useForm(props.validation)
-  const { error: errorProps, ...formProps } = props
+  // deconstruct some props we care about and keep the remaining `formProps` to
+  // pass to the <form> tag
+  let { error: errorProps, formMethods, onSubmit, ...formProps } = props
+  formMethods = formMethods || useForm(props.validation)
 
   return (
-    <form
-      {...formProps}
-      onSubmit={formMethods.handleSubmit(formProps.onSubmit)}
-    >
+    <form {...formProps} onSubmit={formMethods.handleSubmit(onSubmit)}>
       {errorProps && (
         <ErrorMessage
-          error={props.error}
+          error={errorProps}
           wrapperClassName="p-4 bg-red-100 text-red-700 border border-red-300 rounded mb-4"
           titleClassName="font-semibold"
           listClassName="list-disc list-inside"

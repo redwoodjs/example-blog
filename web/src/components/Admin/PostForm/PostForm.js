@@ -41,10 +41,7 @@ const PostForm = (props) => {
   }
 
   return (
-    <HammerForm
-      error={props.error}
-      form={{ onSubmit: onSubmit, className: '' }}
-    >
+    <HammerForm onSubmit={onSubmit} className="" error={props.error}>
       <TextField
         input={{
           name: 'title',
