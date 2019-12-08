@@ -13,9 +13,8 @@ import { useContext } from 'react'
 //
 //   reRoute('/blog/:year/:month/:day')
 const reRoute = (path) => {
-  const withParams = path.replace(/:([^\/]+)/g, '(?<$1>[^/]+)')
-  const fullString = `^${withParams}$`
-  return fullString
+  const withCaptures = path.replace(/:([^\/]+)/g, '(?<$1>[^/]+)')
+  return `^${withCaptures}$`
 }
 
 // Determine if the given route is a match for the given pathname. If so,
@@ -149,16 +148,46 @@ const ParamsContext = createNamedContext('Params', {})
 let namedRoutes = {}
 let namedRoutesDone = false
 
+// Validate a path to make sure it follows the router's rules. If any problems
+// are found, a descriptive Error will be thrown, as problems with routes are
+// critical enough to be considered fatal.
+const validatePath = (path) => {
+  // Check that path begins with a slash.
+  if (path[0] !== '/') {
+    throw new Error('Route path does not begin with a slash: "' + path + '"')
+  }
+
+  // Check for duplicate named params.
+  const matches = path.matchAll(/:([^\/]+)/g)
+  let memo = {}
+  for (const match of matches) {
+    const param = match[0]
+    if (memo[param]) {
+      throw new Error('Route path contains duplicate parameter: "' + path + '"')
+    } else {
+      memo[match[0]] = true
+    }
+  }
+}
+
 const mapNamedRoutes = (routes) => {
   for (let route of routes) {
     const { path, name, notfound } = route.props
+
+    // Skip the notfound route.
     if (notfound) {
       continue
     }
+
+    // Check for issues with the path.
+    validatePath(path)
+
+    // Create the named route function for this route.
     namedRoutes[name] = (args = {}) => {
       let newPath = path
       const queryParams = []
 
+      // Replace the named params (and remember the unnamed ones).
       Object.keys(args).forEach((key) => {
         if (newPath.match(`:${key}`)) {
           newPath = newPath.replace(`:${key}`, args[key])
@@ -167,6 +196,7 @@ const mapNamedRoutes = (routes) => {
         }
       })
 
+      // Append any unnamed params as search params.
       if (queryParams.length) {
         newPath += `?${queryParams.join('&')}`
       }
@@ -174,6 +204,8 @@ const mapNamedRoutes = (routes) => {
       return newPath
     }
   }
+
+  // Only need to do this once.
   namedRoutesDone = true
 }
 
