@@ -1,4 +1,6 @@
 import { gql } from '@hammerframework/api'
+
+import { services } from 'src/services'
 import Posts from 'src/services/posts'
 
 export const schema = gql`
@@ -45,48 +47,17 @@ export const schema = gql`
 
 export const resolvers = {
   Query: {
-    allPosts: (_root, args) => {
-      return Posts.allPosts(args)
-    },
-
-    findPostById: (_root, args) => {
-      return Posts.findPostById(args)
-    },
-
-    findPostBySlug: (_root, args) => {
-      return Posts.findPostBySlug(args)
-    },
-
-    findPostsByTag: (_root, args) => {
-      return Posts.findPostsByTag(args)
-    },
-
-    searchPosts: (_root, args) => {
-      return Posts.searchPosts(args)
-    },
-
-    postsCount: (_root, args) => {
-      const count = Posts.postsCount(args)
-      console.info(count)
-      return count
-    },
+    allPosts: services.posts.allPosts,
+    findPostById: services.posts.findPostById,
+    findPostBySlug: services.posts.findPostBySlug,
+    findPostsByTag: services.posts.findPostsByTag,
+    searchPosts: services.posts.searchPosts,
+    postsCount: services.posts.postsCount,
   },
-
   Mutation: {
-    createPost: (_root, args) => {
-      return Posts.createPost(args)
-    },
-
-    updatePost: (_root, args) => {
-      return Posts.updatePost(args)
-    },
-
-    hidePost: (_root, args) => {
-      return Posts.hidePost(args)
-    },
-
-    deletePost: (_root, args) => {
-      return Posts.deletePost(args)
-    },
+    createPost: services.posts.createPost,
+    updatePost: services.posts.updatePost,
+    hidePost: services.posts.hidePost,
+    deletePost: services.posts.deletePost,
   },
 }
