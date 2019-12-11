@@ -222,20 +222,29 @@ const RouterImpl = ({ pathname, search, children }) => {
   let NotFoundPage
 
   for (let route of routes) {
-    const { path, page: Page, notfound } = route.props
+    const { path, page: Page, redirect, notfound } = route.props
     if (notfound) {
       NotFoundPage = Page
       continue
     }
     const { match, params: pathParams } = matchPath(path, pathname)
     if (match) {
-      const searchParams = parseSearch(search)
-      const allParams = { ...pathParams, ...searchParams }
-      return (
-        <ParamsContext.Provider value={allParams}>
-          <Page {...allParams} />
-        </ParamsContext.Provider>
-      )
+      if (redirect) {
+        navigate(redirect)
+        return (
+          <RouterImpl pathname={redirect} search={search}>
+            {children}
+          </RouterImpl>
+        )
+      } else {
+        const searchParams = parseSearch(search)
+        const allParams = { ...pathParams, ...searchParams }
+        return (
+          <ParamsContext.Provider value={allParams}>
+            <Page {...allParams} />
+          </ParamsContext.Provider>
+        )
+      }
     }
   }
 
