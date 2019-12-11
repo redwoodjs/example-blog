@@ -1044,10 +1044,10 @@
   resolved "https://registry.yarnpkg.com/@gouch/to-title-case/-/to-title-case-2.2.1.tgz#44a1de1bb02351d6a0d92ec1a325000158423874"
   integrity sha512-i/Hj91LfiE2pxYdIT0Ttdc/fIzdBwojDNQe6S6/N/Uf3xMmn0lWO+iLkAd84zs/NUGfTLsMUacDZzSy6N4jkcw==
 
-"@hammerframework/api@^0.0.1-alpha.13.2":
-  version "0.0.1-alpha.13.2"
-  resolved "https://registry.yarnpkg.com/@hammerframework/api/-/api-0.0.1-alpha.13.2.tgz#d0db6053cd45242cd2a31605c4d7e7d795b65784"
-  integrity sha512-KT+ucYAlQ8/lT2SvsaNoriwWB5zrN4fzWvgEV57uFgDBqW6DQSLMpoS8KTFUXI79FOvNnOd5f/J4qxxHaDLfMQ==
+"@hammerframework/api@^0.0.1-alpha.14":
+  version "0.0.1-alpha.14"
+  resolved "https://registry.yarnpkg.com/@hammerframework/api/-/api-0.0.1-alpha.14.tgz#0a108dc369d3636a466edeb5bcfc5bdc20f3cdf6"
+  integrity sha512-XQ+W+O77HL4CfKsX7w0dsxD3x0DgxMdYe9xHfsFuz2VzJVhbso3RhE/+ZIIM78iXAst3nImnwRl9dyrOZ7+y8w==
   dependencies:
     "@hammerframework/hammer-core" "^0.0.1-alpha.12.5"
     "@types/graphql-iso-date" "^3.3.3"
@@ -1057,6 +1057,7 @@
     graphql "^14.5.8"
     graphql-iso-date "^3.6.1"
     graphql-tools "4.0.6"
+    immer "^5.0.1"
     lodash.merge "^4.6.2"
 
 "@hammerframework/eslint-config-hammer@0.0.1-alpha.12":
@@ -6857,6 +6858,11 @@ image-size@^0.7.4:
   resolved "https://registry.yarnpkg.com/image-size/-/image-size-0.7.5.tgz#269f357cf5797cb44683dfa99790e54c705ead04"
   integrity sha512-Hiyv+mXHfFEP7LzUL/llg9RwFxxY+o9N3JVLIeG5E7iFIFAalxvRU9UZthBdYDEVnzHMgjnKJPPpay5BWf1g9g==
 
+immer@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/immer/-/immer-5.0.1.tgz#1a1184fa758f68f1b5573db840825fb5164cceca"
+  integrity sha512-KFHV1ivrBmPCVRhjy9oBooypnPfJ876NTrWXMNoUhXFAaWWAViVqZ4l6HxPST52qcN82qqsR38/pCGYRWP5W7w==
+
 import-fresh@^3.0.0:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/import-fresh/-/import-fresh-3.2.1.tgz#633ff618506e793af5ac91bf48b72677e15cbe66"
@@ -8692,13 +8698,6 @@ netlify@^2.4.8:
     through2-filter "^3.0.0"
     through2-map "^3.0.0"
     util.promisify "^1.0.0"
-
-nexus@v0.12.0-beta.14:
-  version "0.12.0-beta.14"
-  resolved "https://registry.yarnpkg.com/nexus/-/nexus-0.12.0-beta.14.tgz#541a0d41ce92cfa1a54d3199e9048fc92c3fc36a"
-  integrity sha512-jWHi+j9YhTwZZ0n82STJRNoU+HfrnrNGIw1sZs0c/9iscr1ewwpeQ7Lo+so0fIaboErAz47CHVcAn1BSr8kiLg==
-  dependencies:
-    tslib "^1.9.3"
 
 nice-try@^1.0.4:
   version "1.0.5"
