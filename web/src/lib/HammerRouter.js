@@ -184,16 +184,27 @@ const mapNamedRoutes = (routes) => {
 
     // Create the named route function for this route.
     namedRoutes[name] = (args = {}) => {
-      let newPath = path
-      const queryParams = []
+      // Split the path apart and replace named parameters with those sent in,
+      // then join it back together.
+      const parts = path.split('/')
+      let newPath = parts
+        .map((part) => {
+          if (part[0] === ':') {
+            const paramName = part.substr(1, part.length - 1)
+            const arg = args[paramName]
+            if (arg) {
+              delete args[paramName]
+              return arg
+            }
+          }
+          return part
+        })
+        .join('/')
 
-      // Replace the named params (and remember the unnamed ones).
+      // Prepare any unnamed params to be be appended as search params.
+      const queryParams = []
       Object.keys(args).forEach((key) => {
-        if (newPath.match(`:${key}`)) {
-          newPath = newPath.replace(`:${key}`, args[key])
-        } else {
-          queryParams.push(`${key}=${args[key]}`)
-        }
+        queryParams.push(`${key}=${args[key]}`)
       })
 
       // Append any unnamed params as search params.
