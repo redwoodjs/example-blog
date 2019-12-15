@@ -170,6 +170,45 @@ const validatePath = (path) => {
   }
 }
 
+// Take a given route path and replace any named parameters with those in the
+// given args object. Any extra params not used in the path will be appended
+// as key=value pairs in the search part.
+//
+// Examples:
+//     replaceParams('/tags/:tag', { tag: 'code', extra: 'foo' })
+//     => '/tags/code?extra=foo
+const replaceParams = (path, args = {}) => {
+  // Split the path apart and replace named parameters with those sent in,
+  // then join it back together.
+  const parts = path.split('/')
+  let newPath = parts
+    .map((part) => {
+      if (part[0] === ':') {
+        const paramName = part.substr(1, part.length - 1)
+        const arg = args[paramName]
+        if (arg) {
+          delete args[paramName]
+          return arg
+        }
+      }
+      return part
+    })
+    .join('/')
+
+  // Prepare any unnamed params to be be appended as search params.
+  const queryParams = []
+  Object.keys(args).forEach((key) => {
+    queryParams.push(`${key}=${args[key]}`)
+  })
+
+  // Append any unnamed params as search params.
+  if (queryParams.length) {
+    newPath += `?${queryParams.join('&')}`
+  }
+
+  return newPath
+}
+
 const mapNamedRoutes = (routes) => {
   for (let route of routes) {
     const { path, name, notfound } = route.props
@@ -183,37 +222,7 @@ const mapNamedRoutes = (routes) => {
     validatePath(path)
 
     // Create the named route function for this route.
-    namedRoutes[name] = (args = {}) => {
-      // Split the path apart and replace named parameters with those sent in,
-      // then join it back together.
-      const parts = path.split('/')
-      let newPath = parts
-        .map((part) => {
-          if (part[0] === ':') {
-            const paramName = part.substr(1, part.length - 1)
-            const arg = args[paramName]
-            if (arg) {
-              delete args[paramName]
-              return arg
-            }
-          }
-          return part
-        })
-        .join('/')
-
-      // Prepare any unnamed params to be be appended as search params.
-      const queryParams = []
-      Object.keys(args).forEach((key) => {
-        queryParams.push(`${key}=${args[key]}`)
-      })
-
-      // Append any unnamed params as search params.
-      if (queryParams.length) {
-        newPath += `?${queryParams.join('&')}`
-      }
-
-      return newPath
-    }
+    namedRoutes[name] = (args = {}) => replaceParams(path, args)
   }
 
   // Only need to do this once.
@@ -240,16 +249,17 @@ const RouterImpl = ({ pathname, search, children }) => {
     }
     const { match, params: pathParams } = matchPath(path, pathname)
     if (match) {
+      const searchParams = parseSearch(search)
+      const allParams = { ...pathParams, ...searchParams }
       if (redirect) {
-        navigate(redirect)
+        const newPath = replaceParams(redirect, pathParams)
+        navigate(newPath)
         return (
-          <RouterImpl pathname={redirect} search={search}>
+          <RouterImpl pathname={newPath} search={search}>
             {children}
           </RouterImpl>
         )
       } else {
-        const searchParams = parseSearch(search)
-        const allParams = { ...pathParams, ...searchParams }
         return (
           <ParamsContext.Provider value={allParams}>
             <Page {...allParams} />
