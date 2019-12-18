@@ -1,12 +1,12 @@
 datasource hammerDatasource {
-  provider = env("PRISMA_DS_PROVIDER") // sqlite
+  provider = "sqlite"
   url = env("PRISMA_DS_URL") // "file:./dev.db"
 }
 
 generator photonjs {
   provider = "photonjs"
   output = "../../packages/photon"
-  binaryTargets = ["darwin", "linux-glibc-libssl1.0.2"]
+  binaryTargets = ["darwin", "debian-openssl-1.0.x"]
 }
 
 // Define your own models here and run yarn db:save to create
