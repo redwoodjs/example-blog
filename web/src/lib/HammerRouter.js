@@ -11,9 +11,9 @@ import { useContext } from 'react'
 //
 // Examples:
 //
-//   reRoute('/blog/:year/:month/:day')
+//   reRoute('/blog/{year}/{month}/{day}')
 const reRoute = (path) => {
-  const withCaptures = path.replace(/:([^\/]+)/g, '(?<$1>[^/]+)')
+  const withCaptures = path.replace(/\{([^}]+)\}/g, '(?<$1>[^/]+)')
   return `^${withCaptures}$`
 }
 
@@ -25,7 +25,7 @@ const reRoute = (path) => {
 //
 // Examples:
 //
-//   matchPath('/blog/:year/:month/:day', '/blog/2019/12/07')
+//   matchPath('/blog/{year}/{month}/{day}', '/blog/2019/12/07')
 //   => { match: true, params: { year: '2019', month: '12', day: '07' }}
 //
 //   matchPath('/about', '/')
@@ -158,7 +158,7 @@ const validatePath = (path) => {
   }
 
   // Check for duplicate named params.
-  const matches = path.matchAll(/:([^\/]+)/g)
+  const matches = path.matchAll(/\{([^}]+)\}/g)
   let memo = {}
   for (const match of matches) {
     const param = match[0]
@@ -175,7 +175,7 @@ const validatePath = (path) => {
 // as key=value pairs in the search part.
 //
 // Examples:
-//     replaceParams('/tags/:tag', { tag: 'code', extra: 'foo' })
+//     replaceParams('/tags/{tag}', { tag: 'code', extra: 'foo' })
 //     => '/tags/code?extra=foo
 const replaceParams = (path, args = {}) => {
   // Split the path apart and replace named parameters with those sent in,
@@ -183,8 +183,8 @@ const replaceParams = (path, args = {}) => {
   const parts = path.split('/')
   let newPath = parts
     .map((part) => {
-      if (part[0] === ':') {
-        const paramName = part.substr(1, part.length - 1)
+      if (part[0] === '{' && part[part.length - 1] === '}') {
+        const paramName = part.substr(1, part.length - 2)
         const arg = args[paramName]
         if (arg) {
           delete args[paramName]
