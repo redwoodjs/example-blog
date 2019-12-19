@@ -4,6 +4,7 @@ dist
 yarn-error.log
 .env
 dist/
+schema.graphql
 
 # api
 dev.db
@@ -15,3 +16,4 @@ packages/photon/index.d.ts
 
 # Local Netlify folder
 .netlify
+
