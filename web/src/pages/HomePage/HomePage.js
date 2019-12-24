@@ -1,7 +1,7 @@
 import BlogLayout from 'src/layouts/BlogLayout'
 
+import { useParams } from '@hammerframework/router'
 import PostSummariesCell from 'src/components/Blog/PostSummariesCell'
-import { useParams } from 'src/lib/HammerRouter'
 
 const POSTS_PER_PAGE = 5
 

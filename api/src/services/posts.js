@@ -1,5 +1,5 @@
 import { UserInputError } from '@hammerframework/api'
-import { Photon } from '@generated/photon'
+import { Photon } from '@prisma/photon'
 
 const photon = new Photon()
 

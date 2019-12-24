@@ -2,8 +2,7 @@ import moment from 'moment'
 import MarkdownIt from 'markdown-it'
 import truncate from 'html-truncate'
 import TagList from 'src/components/Blog/TagList'
-
-import { Link, routes } from 'src/lib/HammerRouter'
+import { Link, routes } from '@hammerframework/router'
 
 const md = new MarkdownIt()
 

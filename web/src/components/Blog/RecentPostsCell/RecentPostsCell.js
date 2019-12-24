@@ -1,4 +1,4 @@
-import { Link, routes } from 'src/lib/HammerRouter'
+import { Link, routes } from '@hammerframework/router'
 
 export const QUERY = gql`
   query POSTS {

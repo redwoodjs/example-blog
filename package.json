@@ -1,16 +1,15 @@
 {
   "private": true,
   "name": "example-blog",
-  "version": "0.0.1-alpha.12",
+  "version": "0.0.1-alpha.14",
   "workspaces": [
     "api",
     "web",
     "packages/**"
   ],
   "devDependencies": {
-    "@hammerframework/scripts": "^0.0.1-alpha.13",
-    "@hammerframework/hammer-cli": "0.0.1-alpha.12.5",
-    "@hammerframework/eslint-config-hammer": "0.0.1-alpha.12"
+    "@hammerframework/scripts": "^0.0.1-alpha.14",
+    "@hammerframework/eslint-config-hammer": "0.0.1-alpha.14"
   },
   "eslintConfig": {
     "extends": "@hammerframework/eslint-config-hammer"

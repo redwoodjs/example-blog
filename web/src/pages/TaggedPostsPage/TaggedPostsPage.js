@@ -1,6 +1,6 @@
 import BlogLayout from 'src/layouts/BlogLayout'
 
-import { useParams } from 'src/lib/HammerRouter'
+import { useParams } from '@hammerframework/router'
 import TaggedPostsCell from 'src/components/Blog/TaggedPostsCell'
 
 const TaggedPostsPage = () => {

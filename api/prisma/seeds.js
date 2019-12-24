@@ -1,9 +1,7 @@
 /* eslint-disable no-console */
-const dotenv = require('dotenv')
-const { Photon } = require('@generated/photon')
+const { Photon } = require('@prisma/photon')
 const photon = new Photon()
 
-dotenv.config()
 
 async function asyncForEach(array, callback) {
   for (let index = 0; index < array.length; index++) {

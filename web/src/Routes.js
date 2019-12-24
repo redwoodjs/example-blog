@@ -1,3 +1,4 @@
+import { Router, Route } from '@hammerframework/router'
 import AboutPage from 'src/pages/AboutPage'
 import AdminPostsPage from 'src/pages/admin/PostsPage'
 import AdminNewPostPage from 'src/pages/admin/NewPostPage'
@@ -8,8 +9,6 @@ import HomePage from 'src/pages/HomePage'
 import TaggedPostsPage from 'src/pages/TaggedPostsPage'
 import SearchPage from 'src/pages/SearchPage'
 import NotFoundPage from 'src/pages/NotFoundPage'
-
-import { Router, Route } from 'src/lib/HammerRouter'
 
 const Routes = () => {
   return (
