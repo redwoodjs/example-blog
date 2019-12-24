@@ -1,35 +1,34 @@
-datasource sqlite {
-  url = "file:dev.db"
+datasource hammerDatasource {
   provider = "sqlite"
+  url = "***"
 }
 
 generator photonjs {
   provider = "photonjs"
-  output = "../generated/photon"
 }
 
 // Define your own models here and run yarn db:save to create
 // migrations for them.
 
 model Post {
-  id Int @id
+  id Int @id @default(autoincrement())
   title String
-  slug String
+  slug String @unique
   author String
   body String
   image String?
   tags Tag[]
-  postedAt DateTime
+  postedAt DateTime?
 }
 
 model Tag {
-  id Int @id
-  name String
+  id Int @id @default(autoincrement())
+  name String @unique
   posts Post[]
 }
 
 model User {
-  id Int @id
+  id Int @id @default(autoincrement())
   name String?
   email String @unique
   isAdmin Boolean @default(false)

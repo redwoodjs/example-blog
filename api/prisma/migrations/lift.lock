@@ -3,9 +3,4 @@
 # lift lockfile v1
 # Read more about conflict resolution here: TODO
 
-20190829094449-add-user
-20190927094527-add-post-and-tag
-20190927100556-add-post-author
-20190927134833-remove-default-posted-at
-20190927144906-add-unique-constraints
-20191008133139-postedat_nullable
+20191224161649-initial-migratioin
