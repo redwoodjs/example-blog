@@ -1,4 +1,4 @@
-import { useParams } from 'src/lib/HammerRouter'
+import { useParams } from '@hammerframework/router'
 
 import AdminLayout from 'src/layouts/AdminLayout'
 import EditPostCell from 'src/components/Admin/EditPostCell'

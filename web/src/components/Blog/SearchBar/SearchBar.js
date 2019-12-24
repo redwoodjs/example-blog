@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { useParams } from 'src/lib/HammerRouter'
+import { useParams } from '@hammerframework/router'
 
 const SearchBar = () => {
   const { term } = useParams()

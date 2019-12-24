@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Link, routes } from 'src/lib/HammerRouter'
+import { Link, routes } from '@hammerframework/router'
 
 const Tag = ({ name }) => {
   return (

@@ -1,6 +1,6 @@
 import BlogLayout from 'src/layouts/BlogLayout'
 
-import { useParams } from 'src/lib/HammerRouter'
+import { useParams } from '@hammerframework/router'
 import SinglePostCell from 'src/components/Blog/SinglePostCell'
 
 const PostPage = () => {

@@ -1,5 +1,5 @@
 import { useMutation } from '@hammerframework/web'
-import { Link, routes } from 'src/lib/HammerRouter'
+import { Link, routes } from '@hammerframework/router'
 import moment from 'moment'
 
 const HIDE_POST_MUTATION = gql`
