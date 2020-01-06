@@ -1,4 +1,4 @@
-import { Link, routes } from '@hammerframework/router'
+import { Link, routes } from '@redwoodjs/router'
 
 export const QUERY = gql`
   query POSTS {

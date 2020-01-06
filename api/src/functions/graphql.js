@@ -1,4 +1,4 @@
-import { server, makeMergedSchema } from '@hammerframework/api'
+import { server, makeMergedSchema } from '@redwoodjs/api'
 
 import * as posts from 'src/graphql/posts.sdl'
 import * as tags from 'src/graphql/tags.sdl'

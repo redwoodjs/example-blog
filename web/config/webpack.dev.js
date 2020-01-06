@@ -1,3 +1,3 @@
-const config = require('@hammerframework/scripts/config/webpackDevServer.config')
+const config = require('@redwoodjs/scripts/config/webpackDevServer.config')
 
 module.exports = config

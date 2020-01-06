@@ -1,6 +1,6 @@
 import BlogLayout from 'src/layouts/BlogLayout'
 
-import { useParams } from '@hammerframework/router'
+import { useParams } from '@redwoodjs/router'
 import PostSummariesCell from 'src/components/Blog/PostSummariesCell'
 
 const POSTS_PER_PAGE = 5

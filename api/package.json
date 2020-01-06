@@ -3,15 +3,15 @@
   "name": "api",
   "version": "0.0.0",
   "dependencies": {
-    "@hammerframework/api": "^0.0.1-alpha.14",
+    "@redwoodjs/api": "^0.0.1-alpha.16",
     "@prisma/photon": "2.0.0-preview019"
   },
   "devDependencies": {
-    "@hammerframework/hammer-dev-server": "^0.0.1-alpha.14",
+    "@redwoodjs/dev-server": "^0.0.1-alpha.16",
     "prisma2": "2.0.0-preview019"
   },
   "scripts": {
-    "dev": "yarn hammer-dev-server",
+    "dev": "yarn dev-server",
     "db:up": "yarn prisma2 lift up && yarn prisma2 generate",
     "db:save": "yarn prisma2 lift save",
     "db:seed": "node prisma/seeds.js",

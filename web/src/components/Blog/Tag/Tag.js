@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Link, routes } from '@hammerframework/router'
+import { Link, routes } from '@redwoodjs/router'
 
 const Tag = ({ name }) => {
   return (

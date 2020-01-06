@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { useParams } from '@hammerframework/router'
+import { useParams } from '@redwoodjs/router'
 
 const SearchBar = () => {
   const { term } = useParams()

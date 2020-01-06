@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import netlifyIdentity from 'netlify-identity-widget'
-import { Link, routes } from '@hammerframework/router'
+import { Link, routes } from '@redwoodjs/router'
 
 const AdminLayout = (props) => {
   const [currentUser, setCurrentUser] = useState(netlifyIdentity.currentUser())

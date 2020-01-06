@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom'
-import { HammerProvider } from '@hammerframework/web'
+import { RedwoodProvider } from '@redwoodjs/web'
 import netlifyIdentity from 'netlify-identity-widget'
 import FatalErrorPage from 'src/pages/FatalErrorPage'
 
@@ -15,9 +15,9 @@ if (process.env.USE_AUTHENTICATION === 'true') {
 
 ReactDOM.render(
   <FatalErrorBoundary page={FatalErrorPage}>
-    <HammerProvider>
+    <RedwoodProvider>
       <Routes />
-    </HammerProvider>
+    </RedwoodProvider>
   </FatalErrorBoundary>,
   document.getElementById('hammer-app')
 )

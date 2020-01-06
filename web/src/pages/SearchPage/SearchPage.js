@@ -1,6 +1,6 @@
 import BlogLayout from 'src/layouts/BlogLayout'
 
-import { useParams } from '@hammerframework/router'
+import { useParams } from '@redwoodjs/router'
 import SearchCell from 'src/components/Blog/SearchCell'
 
 const SearchPage = () => {

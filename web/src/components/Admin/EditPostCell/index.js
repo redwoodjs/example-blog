@@ -1,4 +1,4 @@
-import { withCell } from '@hammerframework/web'
+import { withCell } from '@redwoodjs/web'
 
 import * as cell from './EditPostCell'
 

@@ -1,6 +1,6 @@
 import BlogLayout from 'src/layouts/BlogLayout'
 
-import { useParams } from '@hammerframework/router'
+import { useParams } from '@redwoodjs/router'
 import SinglePostCell from 'src/components/Blog/SinglePostCell'
 
 const PostPage = () => {

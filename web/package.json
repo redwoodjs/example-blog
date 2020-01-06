@@ -4,8 +4,8 @@
   "version": "0.0.0",
   "dependencies": {
     "@gouch/to-title-case": "^2.2.1",
-    "@hammerframework/web": "^0.0.1-alpha.14",
-    "@hammerframework/router": "^0.0.1-alpha.14.1",
+    "@redwoodjs/web": "^0.0.1-alpha.16",
+    "@redwoodjs/router": "^0.0.1-alpha.16",
     "filestack-react": "^3.1.0",
     "html-truncate": "^1.2.2",
     "markdown-it": "^10.0.0",
@@ -20,7 +20,7 @@
     "tailwindcss": "^1.1.2"
   },
   "devDependencies": {
-    "@hammerframework/scripts": "0.0.1-alpha.14"
+    "@redwoodjs/scripts": "0.0.1-alpha.16"
   },
   "scripts": {
     "dev": "webpack-dev-server --config config/webpack.dev.js",

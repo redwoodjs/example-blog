@@ -1,6 +1,6 @@
 import Menu from 'src/components/Blog/Menu'
 
-import { Link, NavLink, routes } from '@hammerframework/router'
+import { Link, NavLink, routes } from '@redwoodjs/router'
 
 import logo from './logo.png'
 

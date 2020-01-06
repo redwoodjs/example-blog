@@ -1,4 +1,4 @@
-import { Router, Route } from '@hammerframework/router'
+import { Router, Route } from '@redwoodjs/router'
 import AboutPage from 'src/pages/AboutPage'
 import AdminPostsPage from 'src/pages/admin/PostsPage'
 import AdminNewPostPage from 'src/pages/admin/NewPostPage'

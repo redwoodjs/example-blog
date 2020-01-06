@@ -1,4 +1,4 @@
-import { UserInputError } from '@hammerframework/api'
+import { UserInputError } from '@redwoodjs/api'
 import { Photon } from '@prisma/photon'
 
 const photon = new Photon()

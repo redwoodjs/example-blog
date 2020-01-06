@@ -1,4 +1,4 @@
-import { gql } from '@hammerframework/api'
+import { gql } from '@redwoodjs/api'
 
 export const schema = gql`
   type Tag {

@@ -1,4 +1,4 @@
-import { useMutation } from '@hammerframework/web'
+import { useMutation } from '@redwoodjs/web'
 import PostForm from 'src/components/Admin/PostForm'
 
 const CREATE_POST_MUTATION = gql`

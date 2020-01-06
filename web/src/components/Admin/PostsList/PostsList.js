@@ -1,5 +1,5 @@
-import { useMutation } from '@hammerframework/web'
-import { Link, routes } from '@hammerframework/router'
+import { useMutation } from '@redwoodjs/web'
+import { Link, routes } from '@redwoodjs/router'
 import moment from 'moment'
 
 const HIDE_POST_MUTATION = gql`

@@ -2,7 +2,7 @@ import moment from 'moment'
 import MarkdownIt from 'markdown-it'
 import truncate from 'html-truncate'
 import TagList from 'src/components/Blog/TagList'
-import { Link, routes } from '@hammerframework/router'
+import { Link, routes } from '@redwoodjs/router'
 
 const md = new MarkdownIt()
 
