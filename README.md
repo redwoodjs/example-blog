@@ -1,6 +1,6 @@
-## HammerFramework's Example Blog
+## RedwoodJS Example Blog
 
-![Hammer Framework Example Blog Screenshot](https://user-images.githubusercontent.com/300/67903394-aced3080-fb28-11e9-85bb-b5fdbb4b6c34.png)
+![RedwoodJS Example Blog Screenshot](https://user-images.githubusercontent.com/300/67903394-aced3080-fb28-11e9-85bb-b5fdbb4b6c34.png)
 
 ## Table of Contents
 
@@ -15,7 +15,7 @@
 
 ## Overview
 
-Here is a full-featured blog engine written with the Hammer framework. It includes:
+Here is a full-featured blog engine written with RedwoodJS. It includes:
 
 * Listing all blog posts with first paragraph summaries and pagination (the homepage)
 * Reading a single, full blog post
@@ -54,7 +54,7 @@ On the tech side:
 
 Clone the repo:
 
-    git clone https://github.com/hammerframework/example-blog.git
+    git clone https://github.com/redwoodjs/example-blog.git
     cd example-blog
 
 Install dependencies:
@@ -63,10 +63,8 @@ Install dependencies:
 
 Create a local SQLite database and seed it with a few blog posts:
 
-    cd api
     yarn db:up
-    cd ..
-    yarn workspace api db:seed
+    yarn db:seed
 
 Now you should be able to start a development server:
 
