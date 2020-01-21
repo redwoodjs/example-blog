@@ -1,14 +1,4 @@
 import { Router, Route } from '@redwoodjs/router'
-import AboutPage from 'src/pages/AboutPage'
-import AdminPostsPage from 'src/pages/admin/PostsPage'
-import AdminNewPostPage from 'src/pages/admin/NewPostPage'
-import AdminEditPostPage from 'src/pages/admin/EditPostPage'
-import ContactPage from 'src/pages/ContactPage'
-import PostPage from 'src/pages/PostPage'
-import HomePage from 'src/pages/HomePage'
-import TaggedPostsPage from 'src/pages/TaggedPostsPage'
-import SearchPage from 'src/pages/SearchPage'
-import NotFoundPage from 'src/pages/NotFoundPage'
 
 const Routes = () => {
   return (
@@ -28,8 +18,6 @@ const Routes = () => {
       <Route path="/posts/{slug}" page={PostPage} name="post" />
       <Route path="/tags/{tag}" page={TaggedPostsPage} name="tag" />
       <Route path="/search/{term}" page={SearchPage} name="search" />
-
-      <Route notfound page={NotFoundPage} />
     </Router>
   )
 }
