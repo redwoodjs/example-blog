@@ -1,7 +1,5 @@
 import Post from 'src/components/Blog/Post'
 
-import PostsCell from 'src/components/Admin/PostsCell'
-
 export const beforeQuery = ({ slug }) => ({
   variables: { slug },
 })

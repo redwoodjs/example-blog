@@ -1,5 +1,4 @@
 import Menu from 'src/components/Blog/Menu'
-
 import { Link, NavLink, routes } from '@redwoodjs/router'
 
 import logo from './logo.png'

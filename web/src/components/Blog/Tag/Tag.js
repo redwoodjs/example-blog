@@ -1,5 +1,4 @@
 import React from 'react'
-
 import { Link, routes } from '@redwoodjs/router'
 
 const Tag = ({ name }) => {

@@ -59,7 +59,7 @@ const Posts = {
     })
   },
 
-  postsCount: ({ page }) => {
+  postsCount: () => {
     return photon.posts.count().then((count) => ({ count }))
   },
 

@@ -1,5 +1,4 @@
 import { useParams } from '@redwoodjs/router'
-
 import AdminLayout from 'src/layouts/AdminLayout'
 import EditPostCell from 'src/components/Admin/EditPostCell'
 

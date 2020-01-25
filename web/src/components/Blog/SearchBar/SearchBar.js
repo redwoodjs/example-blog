@@ -1,5 +1,4 @@
 import { useState } from 'react'
-
 import { useParams } from '@redwoodjs/router'
 
 const SearchBar = () => {

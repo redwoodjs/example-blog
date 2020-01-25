@@ -19,7 +19,6 @@ const EMAIL_REGEX = new RegExp(
 
 const ContactPage = () => {
   const onSubmit = (data) => {
-    console.info(arguments)
     console.info(data)
     return true
   }

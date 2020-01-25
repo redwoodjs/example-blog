@@ -1,5 +1,4 @@
 import BlogLayout from 'src/layouts/BlogLayout'
-
 import { useParams } from '@redwoodjs/router'
 import PostSummariesCell from 'src/components/Blog/PostSummariesCell'
 
