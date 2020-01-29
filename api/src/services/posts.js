@@ -13,78 +13,82 @@ const validate = (input) => {
   }
 }
 
-const Posts = {
-  allPosts: async ({ page = 1, limit = 100, order = { postedAt: 'desc' } }) => {
-    const offset = (page - 1) * limit
+//const Posts = {
+export const allPosts = async ({
+  page = 1,
+  limit = 100,
+  order = { postedAt: 'desc' },
+}) => {
+  const offset = (page - 1) * limit
 
-    return {
-      posts: photon.posts.findMany({
-        include: { tags: true },
-        first: limit,
-        skip: offset,
-        orderBy: order,
-      }),
-      count: photon.posts.count(),
-    }
-  },
-
-  findPostById: ({ id }) => {
-    return photon.posts.findOne({
-      where: { id: parseInt(id) },
+  return {
+    posts: photon.posts.findMany({
       include: { tags: true },
-    })
-  },
-
-  findPostBySlug: ({ slug }) => {
-    return photon.posts.findOne({
-      where: { slug: slug },
-      include: { tags: true },
-    })
-  },
-
-  findPostsByTag: ({ tag }) => {
-    return photon.tags
-      .findOne({
-        where: { name: tag },
-      })
-      .posts({ include: { tags: true } })
-  },
-
-  searchPosts: ({ term }) => {
-    return photon.posts.findMany({
-      where: {
-        OR: [{ title: { contains: term } }, { body: { contains: term } }],
-      },
-      include: { tags: true },
-    })
-  },
-
-  postsCount: () => {
-    return photon.posts.count().then((count) => ({ count }))
-  },
-
-  createPost: ({ input }) => {
-    validate(input)
-    return photon.posts.create({ data: input })
-  },
-
-  updatePost: ({ id, input }) => {
-    validate(input)
-    return photon.posts.update({ data: input, where: { id: parseInt(id) } })
-  },
-
-  hidePost: ({ id }) => {
-    return photon.posts.update({
-      data: { postedAt: null },
-      where: { id: parseInt(id) },
-    })
-  },
-
-  deletePost: ({ id }) => {
-    return photon.posts.delete({
-      where: { id: parseInt(id) },
-    })
-  },
+      first: limit,
+      skip: offset,
+      orderBy: order,
+    }),
+    count: photon.posts.count(),
+  }
 }
 
-export default Posts
+export const findPostById = ({ id }) => {
+  return photon.posts.findOne({
+    where: { id: parseInt(id) },
+    include: { tags: true },
+  })
+}
+
+export const findPostBySlug = ({ slug }) => {
+  return photon.posts.findOne({
+    where: { slug: slug },
+    include: { tags: true },
+  })
+}
+
+export const findPostsByTag = ({ tag }) => {
+  return photon.tags
+    .findOne({
+      where: { name: tag },
+    })
+    .posts({ include: { tags: true } })
+}
+
+export const searchPosts = ({ term }) => {
+  return photon.posts.findMany({
+    where: {
+      OR: [{ title: { contains: term } }, { body: { contains: term } }],
+    },
+    include: { tags: true },
+  })
+}
+
+export const postsCount = () => {
+  return photon.posts.count().then((count) => ({ count }))
+}
+
+export const createPost = ({ input }) => {
+  validate(input)
+  return photon.posts.create({ data: input })
+}
+
+export const updatePost = ({ id, input }) => {
+  validate(input)
+  return photon.posts.update({ data: input, where: { id: parseInt(id) } })
+}
+
+export const hidePost = ({ id }) => {
+  return photon.posts.update({
+    data: { postedAt: null },
+    where: { id: parseInt(id) },
+  })
+}
+
+export const deletePost = ({ id }) => {
+  return photon.posts.delete({
+    where: { id: parseInt(id) },
+  })
+}
+//}
+
+//export default Posts
