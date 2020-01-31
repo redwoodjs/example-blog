@@ -63,12 +63,12 @@ Install dependencies:
 
 Create a local SQLite database and seed it with a few blog posts:
 
-    yarn db:up
-    yarn db:seed
+    yarn redwood db up
+    yarn redwood db seed
 
 Now you should be able to start a development server:
 
-    yarn dev
+    yarn redwood dev
 
 Assuming everything worked, open a browser to http://localhost:8910 and you should
 be seeing the homepage (similar to the screenshot above).
