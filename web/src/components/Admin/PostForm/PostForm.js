@@ -1,15 +1,23 @@
 import { useState } from 'react'
-import HammerForm from 'src/components/forms/HammerForm'
-import TextField from 'src/components/forms/TextField'
-import TextAreaField from 'src/components/forms/TextAreaField'
-import Submit from 'src/components/forms/Submit'
+import {
+  RedwoodForm,
+  TextField,
+  TextAreaField,
+  Submit,
+  Label,
+  FieldError,
+} from '@redwoodjs/web'
 import ReactFilestack from 'filestack-react'
 
-const CLASS_NAMES = {
+const CSS = {
   label:
     'block mt-6 uppercase text-sm font-semibold tracking-wider text-gray-500',
+  labelError:
+    'block mt-6 uppercase text-sm font-semibold tracking-wider text-red-700',
   input:
     'block mt-2 w-full p-2 border text-lg text-gray-900 rounded focus:outline-none focus:border-indigo-300',
+  inputError:
+    'block mt-2 w-full p-2 border border-red-500 text-lg text-red-700 rounded focus:outline-none focus:border-red-700',
   error: 'block mt-1 font-semibold uppercase text-xs text-red-600',
   save:
     'px-6 py-2 bg-gray-400 text-gray-600 text-sm rounded mr-4 uppercase font-bold tracking-wide',
@@ -34,65 +42,72 @@ const PostForm = (props) => {
 
   const onFileUpload = (response) => {
     const upload = response.filesUploaded[0]
-
+    console.info(response)
     setSplashImage(upload.url)
   }
 
   return (
-    <HammerForm
-      error={props.error}
-      form={{ onSubmit: onSubmit, className: '' }}
-    >
+    <RedwoodForm error={props.error} onSubmit={onSubmit}>
+      <Label
+        name="title"
+        className={CSS.label}
+        errorClassName={CSS.labelError}
+      />
       <TextField
-        input={{
-          name: 'title',
-          defaultValue: props.post?.title,
-          className: CLASS_NAMES.input,
-        }}
-        label={{ className: CLASS_NAMES.label }}
-        error={{ className: CLASS_NAMES.error }}
+        name="title"
+        defaultValue={props.post?.title}
+        className={CSS.input}
+        errorClassName={CSS.inputError}
         validation={{ required: true }}
       />
+      <FieldError name="title" className={CSS.error} />
 
+      <Label
+        name="slug"
+        className={CSS.label}
+        errorClassName={CSS.labelError}
+      />
       <TextField
-        input={{
-          name: 'slug',
-          defaultValue: props.post?.slug,
-          className: CLASS_NAMES.input,
-        }}
-        label={{ className: CLASS_NAMES.label }}
-        error={{ className: CLASS_NAMES.error }}
+        name="slug"
+        defaultValue={props.post?.slug}
+        className={CSS.input}
+        errorClassName={CSS.inputError}
         validation={{
           required: true,
-          // pattern: { value: /^\S+$/, message: 'cannot contain spaces' },
+          pattern: { value: /^\S+$/, message: 'cannot contain spaces' },
         }}
       />
+      <FieldError name="slug" className={CSS.error} />
 
+      <Label
+        name="author"
+        className={CSS.label}
+        errorClassName={CSS.labelError}
+      />
       <TextField
-        input={{
-          name: 'author',
-          defaultValue: props.post?.author,
-          className: CLASS_NAMES.input,
-        }}
-        label={{ className: CLASS_NAMES.label }}
-        error={{ className: CLASS_NAMES.error }}
+        name="author"
+        defaultValue={props.post?.author}
+        className={CSS.input}
+        errorClassName={CSS.inputError}
         validation={{ required: true }}
       />
+      <FieldError name="author" className={CSS.error} />
 
+      <Label
+        name="body"
+        className={CSS.label}
+        errorClassName={CSS.labelError}
+      />
       <TextAreaField
-        input={{
-          name: 'body',
-          defaultValue: props.post?.body,
-          className: `${CLASS_NAMES.input} h-64`,
-        }}
-        label={{ className: CLASS_NAMES.label }}
-        error={{ className: CLASS_NAMES.error }}
-        validation={{
-          required: true,
-        }}
+        name="body"
+        defaultValue={props.post?.body}
+        className={CSS.input + ' h-64'}
+        errorClassName={CSS.inputError + ' h-64'}
+        validation={{ required: true }}
       />
+      <FieldError name="body" className={CSS.error} />
 
-      <label className={CLASS_NAMES.label}>Splash Image</label>
+      <label className={CSS.label}>Splash Image</label>
 
       <ReactFilestack
         apikey={process.env.FILESTACK_API_KEY}
@@ -117,11 +132,7 @@ const PostForm = (props) => {
           <img src={splashImage} alt="Splash image" className="max-h-80" />
 
           <div className="mt-4">
-            <a
-              href="#"
-              onClick={replaceImage}
-              className={`mt-4 ${CLASS_NAMES.save}`}
-            >
+            <a href="#" onClick={replaceImage} className={`mt-4 ${CSS.save}`}>
               Replace Image
             </a>
           </div>
@@ -133,7 +144,7 @@ const PostForm = (props) => {
           <Submit
             data-action="save"
             disabled={props.loading}
-            className={CLASS_NAMES.save}
+            className={CSS.save}
           >
             Save
           </Submit>
@@ -141,12 +152,12 @@ const PostForm = (props) => {
         <Submit
           data-action="publish"
           disabled={props.loading}
-          className={CLASS_NAMES.publish}
+          className={CSS.publish}
         >
           {props.publish || 'Publish'}
         </Submit>
       </div>
-    </HammerForm>
+    </RedwoodForm>
   )
 }
 

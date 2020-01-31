@@ -1,15 +1,23 @@
 import BlogLayout from 'src/layouts/BlogLayout'
-import HammerForm from 'src/components/forms/HammerForm'
-import TextField from 'src/components/forms/TextField'
-import TextAreaField from 'src/components/forms/TextAreaField'
-import Submit from 'src/components/forms/Submit'
+import {
+  RedwoodForm,
+  TextField,
+  TextAreaField,
+  Submit,
+  Label,
+  FieldError,
+} from '@redwoodjs/web'
 
 const CSS = {
   label:
     'block mt-6 uppercase text-sm font-semibold tracking-wider text-gray-500',
+  labelError:
+    'block mt-6 uppercase text-sm font-semibold tracking-wider text-red-700',
   input:
     'block mt-2 w-full p-2 border text-lg text-gray-900 rounded focus:outline-none focus:border-indigo-300',
-  error: 'block mt-1 font-semibold uppercase text-xs text-red-600',
+  inputError:
+    'block mt-2 w-full p-2 border border-red-500 text-lg text-red-500 rounded focus:outline-none focus:border-red-700',
+  error: 'block mt-1 font-semibold uppercase text-xs text-red-700',
   submit:
     'px-6 py-2 bg-indigo-700 text-white text-sm rounded uppercase font-bold tracking-wider',
 }
@@ -31,30 +39,37 @@ const ContactPage = () => {
           our reviews? Send us a message!
         </p>
 
-        <HammerForm
-          form={{
-            onSubmit: onSubmit,
-            className: 'mt-8 max-w-lg mx-auto',
-            netlify: 'true',
-          }}
+        <RedwoodForm
+          onSubmit={onSubmit}
+          className="mt-8 max-w-lg mx-auto"
+          netlify="true"
         >
+          <Label
+            name="name"
+            className={CSS.label}
+            errorClassName={CSS.labelError}
+          >
+            Name
+          </Label>
           <TextField
-            input={{
-              name: 'name',
-              className: CSS.input,
-            }}
-            label={{ className: CSS.label }}
-            error={{ className: CSS.error }}
+            name="name"
+            className={CSS.input}
+            errorClassName={CSS.inputError}
             validation={{ required: true }}
           />
+          <FieldError name="name" className={CSS.error} />
 
+          <Label
+            name="email"
+            className={CSS.label}
+            errorClassName={CSS.labelError}
+          >
+            Email
+          </Label>
           <TextField
-            input={{
-              name: 'email',
-              className: CSS.input,
-            }}
-            label={{ className: CSS.label }}
-            error={{ className: CSS.error }}
+            name="email"
+            className={CSS.input}
+            errorClassName={CSS.inputError}
             validation={{
               required: true,
               pattern: {
@@ -63,22 +78,27 @@ const ContactPage = () => {
               },
             }}
           />
+          <FieldError name="email" className={CSS.error} />
 
+          <Label
+            name="body"
+            className={CSS.label}
+            errorClassName={CSS.labelError}
+          >
+            Message
+          </Label>
           <TextAreaField
-            input={{
-              name: 'body',
-              className: `${CSS.input} h-64`,
-            }}
-            label={{ className: CSS.label }}
-            error={{ className: CSS.error }}
-            validation={{
-              required: true,
-            }}
+            name="body"
+            className={CSS.input + ' h-48'}
+            errorClassName={CSS.inputError + ' h-48'}
+            validation={{ required: true }}
           />
+          <FieldError name="body" className={CSS.error} />
+
           <div className="mt-4 text-right">
             <Submit className={CSS.submit}>Submit</Submit>
           </div>
-        </HammerForm>
+        </RedwoodForm>
       </main>
     </BlogLayout>
   )
