@@ -946,10 +946,10 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^13.0.0"
 
-"@prisma/photon@2.0.0-preview019":
-  version "2.0.0-preview019"
-  resolved "https://registry.yarnpkg.com/@prisma/photon/-/photon-2.0.0-preview019.tgz#cd083628f668fbdc4ab8f7d15cd8a33b83a997a3"
-  integrity sha512-fAqVbg2nxzk2B5h6Z6BgsApD3iRbWGMDKTsa8WDtH3fsrZc07HbGGc9HM5kNYUAPAKYSWJCr7no2W+c8Q87sRQ==
+"@prisma/client@2.0.0-preview021":
+  version "2.0.0-preview021"
+  resolved "https://registry.yarnpkg.com/@prisma/client/-/client-2.0.0-preview021.tgz#7205345e3faa09278f3de104bb8af60e063420ad"
+  integrity sha512-pKU6p1r5gBwmQ6fa+zy6hQ/IAw6AsUWQ1VRZ9xy6i1zidsvGDzbSFzihqI9aBXB0ed0sdbijiGcujsG2tHBTYw==
 
 "@protobufjs/aspromise@^1.1.1", "@protobufjs/aspromise@^1.1.2":
   version "1.1.2"
@@ -6272,10 +6272,10 @@ pretty-hrtime@^1.0.3:
   resolved "https://registry.yarnpkg.com/pretty-hrtime/-/pretty-hrtime-1.0.3.tgz#b7e3ea42435a4c9b2759d99e0f201eb195802ee1"
   integrity sha1-t+PqQkNaTJsnWdmeDyAesZWALuE=
 
-prisma2@2.0.0-preview019:
-  version "2.0.0-preview019"
-  resolved "https://registry.yarnpkg.com/prisma2/-/prisma2-2.0.0-preview019.tgz#d0d2bafad041071fa59400eb04e41b21de68aac6"
-  integrity sha512-G/+3ZqcEfO0Sn93Z8BoErIXLhMI7xKMOhfbLeNjso7/n3o4MiRmjO5sS3dFkxHc/VBlyTjJFtNyMOsgAkiP6ng==
+prisma2@2.0.0-preview021:
+  version "2.0.0-preview021"
+  resolved "https://registry.yarnpkg.com/prisma2/-/prisma2-2.0.0-preview021.tgz#3d27b7f1e2ac519ba0851e0bcc92eb5da1460e50"
+  integrity sha512-Llj0U+t4kWrC75U2ReDFRQkch/nwfDtO94k71UcNa/88ABjE03uwgw3EbSke7GB5VOl0nXUKRlzEAyk5SS3jqA==
 
 private@^0.1.6:
   version "0.1.8"

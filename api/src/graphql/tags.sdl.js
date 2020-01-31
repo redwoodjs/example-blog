@@ -10,9 +10,3 @@ export const schema = gql`
     tags: [Tag]
   }
 `
-
-export const resolvers = {
-  Query: {
-    tags: (_root, _args, { photon }) => photon.tags.findMany(),
-  },
-}
