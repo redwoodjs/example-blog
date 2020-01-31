@@ -4,7 +4,7 @@ datasource hammerDatasource {
 }
 
 generator photonjs {
-  provider = "photonjs"
+  provider = "prisma-client-js"
 }
 
 // Define your own models here and run yarn db:save to create
