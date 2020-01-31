@@ -3,18 +3,11 @@
   "name": "api",
   "version": "0.0.0",
   "dependencies": {
-    "@redwoodjs/api": "^0.0.1-alpha.22",
+    "@redwoodjs/api": "^0.0.1-alpha.23",
     "@prisma/client": "2.0.0-preview021"
   },
   "devDependencies": {
-    "@redwoodjs/dev-server": "^0.0.1-alpha.22",
+    "@redwoodjs/dev-server": "^0.0.1-alpha.23",
     "prisma2": "2.0.0-preview021"
-  },
-  "scripts": {
-    "dev": "yarn dev-server",
-    "db:up": "yarn prisma2 migrate up --experimental && yarn prisma2 generate",
-    "db:save": "yarn prisma2 lift save",
-    "db:seed": "node prisma/seeds.js",
-    "build": "NODE_ENV=production babel src --out-dir dist"
   }
 }

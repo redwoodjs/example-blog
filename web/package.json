@@ -4,8 +4,8 @@
   "version": "0.0.0",
   "dependencies": {
     "@gouch/to-title-case": "^2.2.1",
-    "@redwoodjs/web": "^0.0.1-alpha.22",
-    "@redwoodjs/router": "^0.0.1-alpha.22",
+    "@redwoodjs/web": "^0.0.1-alpha.23",
+    "@redwoodjs/router": "^0.0.1-alpha.23",
     "filestack-react": "^3.1.0",
     "html-truncate": "^1.2.2",
     "markdown-it": "^10.0.0",
@@ -20,11 +20,6 @@
     "tailwindcss": "^1.1.2"
   },
   "devDependencies": {
-    "@redwoodjs/scripts": "0.0.1-alpha.22"
-  },
-  "scripts": {
-    "dev": "webpack-dev-server --config config/webpack.dev.js",
-    "build": "webpack --config config/webpack.prod.js",
-    "storybook": "start-storybook"
+    "@redwoodjs/scripts": "0.0.1-alpha.23"
   }
 }
