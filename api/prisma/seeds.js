@@ -1,7 +1,6 @@
 /* eslint-disable no-console */
-const { Photon } = require('@prisma/photon')
-const photon = new Photon()
-
+const { PrismaClient } = require('@prisma/client')
+const prisma = new PrismaClient()
 
 async function asyncForEach(array, callback) {
   for (let index = 0; index < array.length; index++) {
@@ -32,7 +31,7 @@ async function main() {
 
   await asyncForEach(tagData, async (tag) => {
     tags.push(
-      await photon.tags.create({
+      await prisma.tag.create({
         data: tag,
       })
     )
@@ -178,7 +177,7 @@ async function main() {
   await asyncForEach(postData, async (post) => {
     console.log(`Creating ${post.title}...`)
     posts.push(
-      await photon.posts.create({
+      await prisma.post.create({
         data: post,
       })
     )
@@ -190,5 +189,5 @@ async function main() {
 main()
   .catch((e) => console.error(e))
   .finally(async () => {
-    await photon.disconnect()
+    await prisma.disconnect()
   })

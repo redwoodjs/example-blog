@@ -1,7 +1,7 @@
 import { UserInputError } from '@redwoodjs/api'
-import { Photon } from '@prisma/photon'
+import { PrismaClient } from '@prisma/client'
 
-const photon = new Photon()
+const prisma = new PrismaClient()
 
 const validate = (input) => {
   if (input.slug && !input.slug.match(/^\S+$/)) {
@@ -22,32 +22,32 @@ export const allPosts = async ({
   const offset = (page - 1) * limit
 
   return {
-    posts: photon.posts.findMany({
+    posts: prisma.post.findMany({
       include: { tags: true },
       first: limit,
       skip: offset,
       orderBy: order,
     }),
-    count: photon.posts.count(),
+    count: prisma.post.count(),
   }
 }
 
 export const findPostById = ({ id }) => {
-  return photon.posts.findOne({
+  return prisma.post.findOne({
     where: { id: parseInt(id) },
     include: { tags: true },
   })
 }
 
 export const findPostBySlug = ({ slug }) => {
-  return photon.posts.findOne({
+  return prisma.post.findOne({
     where: { slug: slug },
     include: { tags: true },
   })
 }
 
 export const findPostsByTag = ({ tag }) => {
-  return photon.tags
+  return prisma.tag
     .findOne({
       where: { name: tag },
     })
@@ -55,7 +55,7 @@ export const findPostsByTag = ({ tag }) => {
 }
 
 export const searchPosts = ({ term }) => {
-  return photon.posts.findMany({
+  return prisma.post.findMany({
     where: {
       OR: [{ title: { contains: term } }, { body: { contains: term } }],
     },
@@ -64,31 +64,28 @@ export const searchPosts = ({ term }) => {
 }
 
 export const postsCount = () => {
-  return photon.posts.count().then((count) => ({ count }))
+  return prisma.post.count().then((count) => ({ count }))
 }
 
 export const createPost = ({ input }) => {
   validate(input)
-  return photon.posts.create({ data: input })
+  return prisma.post.create({ data: input })
 }
 
 export const updatePost = ({ id, input }) => {
   validate(input)
-  return photon.posts.update({ data: input, where: { id: parseInt(id) } })
+  return prisma.post.update({ data: input, where: { id: Number(id) } })
 }
 
 export const hidePost = ({ id }) => {
-  return photon.posts.update({
+  return prisma.post.update({
     data: { postedAt: null },
     where: { id: parseInt(id) },
   })
 }
 
 export const deletePost = ({ id }) => {
-  return photon.posts.delete({
-    where: { id: parseInt(id) },
+  return prisma.post.delete({
+    where: { id: Number(id) },
   })
 }
-//}
-
-//export default Posts
