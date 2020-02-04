@@ -1,4 +1,4 @@
-import importAll from '@redwoodjs/core/dist/importAll.macro'
+import importAll from '@redwoodjs/api/importAll.macro'
 import { server, makeMergedSchema, makeServices } from '@redwoodjs/api'
 
 const schemas = importAll('api', 'graphql')

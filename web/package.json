@@ -18,8 +18,5 @@
     "react-router-dom": "^5.1.2",
     "styled-components": "^4.4.1",
     "tailwindcss": "^1.1.2"
-  },
-  "devDependencies": {
-    "@redwoodjs/scripts": "0.0.1-alpha.23"
   }
 }
