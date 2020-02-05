@@ -1314,10 +1314,10 @@
   dependencies:
     core-js "3.6.4"
 
-"@redwoodjs/scripts@^0.0.1-alpha.25":
-  version "0.0.1-alpha.25"
-  resolved "https://registry.yarnpkg.com/@redwoodjs/scripts/-/scripts-0.0.1-alpha.25.tgz#a9d23ff5f9b351367bfbe2ab9d7a950bba06dc27"
-  integrity sha512-gU844XwMNNpRDwz0823NGHU8msJJgzIqrUXu60lvpRMNvXc0Lqltm4rcK16Yg0C523wvwL9/qx/HrOmeEoHDuQ==
+"@redwoodjs/scripts@^0.0.1-alpha.25.0.3":
+  version "0.0.1-alpha.25.0.3"
+  resolved "https://registry.yarnpkg.com/@redwoodjs/scripts/-/scripts-0.0.1-alpha.25.0.3.tgz#2fab5bf077b0a740cb1fdbbf1326dbb7c0bfdc21"
+  integrity sha512-YsVZoiY6/kYss6FA7dzKzTdLRk80hfbsxXVUzuGgf+vRGefj2D1X36LHmq/R2ZfvggpkqlfBKfgkeePnXWS9bA==
   dependencies:
     "@babel/cli" "^7.8.4"
     "@babel/core" "^7.8.4"
