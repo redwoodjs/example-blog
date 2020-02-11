@@ -7,7 +7,7 @@ export const beforeQuery = ({ page, perPage }) => {
 }
 
 export const QUERY = gql`
-  query POSTS($page: Int, $limit: Int) {
+  query ALL_POSTS_PAGED($page: Int, $limit: Int) {
     allPosts(page: $page, limit: $limit) {
       posts {
         id
