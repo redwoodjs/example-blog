@@ -8,9 +8,11 @@ const BlogLayout = (props) => {
   return (
     <div className="max-w-8xl mx-auto">
       <PageLoadingContext.Consumer>
-        {(context) => {
+        {({ loading }) => {
+          // for some reason this doesn't change to loading.
+          console.log('isLoading', loading)
           return (
-            context && (
+            loading && (
               <div className="fixed inset-0 z-50 overflow-auto bg-black opacity-25 flex">
                 <Spinner className="w-32 h-32 bg-white p-8 rounded-md relative m-auto" />
               </div>
@@ -18,6 +20,7 @@ const BlogLayout = (props) => {
           )
         }}
       </PageLoadingContext.Consumer>
+
       <div className="sm:mx-8">
         <header className="md:flex flex-wrap items-center border-b-4 border-indigo-300 bg-indigo-600 text-white px-8 py-6 ">
           <div className="flex flex-1">
