@@ -1,7 +1,7 @@
 import PostsList from 'src/components/Admin/PostsList'
 
 export const QUERY = gql`
-  query POSTS {
+  query ALL_POSTS {
     allPosts {
       posts {
         id

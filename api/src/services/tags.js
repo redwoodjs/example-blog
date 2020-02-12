@@ -1,5 +1,5 @@
 import { PrismaClient } from '@prisma/client'
 
-const prisma = new PrismaClient()
+const db = new PrismaClient()
 
-export const tags = () => prisma.tag.findMany()
+export const tags = () => db.tag.findMany()

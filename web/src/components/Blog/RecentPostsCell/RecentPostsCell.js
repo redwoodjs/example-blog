@@ -1,7 +1,7 @@
 import { Link, routes } from '@redwoodjs/router'
 
 export const QUERY = gql`
-  query POSTS {
+  query ALL_POSTS_RECENT {
     allPosts {
       posts {
         id

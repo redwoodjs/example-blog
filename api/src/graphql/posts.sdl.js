@@ -1,7 +1,5 @@
 import { gql } from '@redwoodjs/api'
 
-import Posts from 'src/services/posts'
-
 export const schema = gql`
   type Post {
     id: ID!

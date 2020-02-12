@@ -1,7 +1,7 @@
 import { UserInputError } from '@redwoodjs/api'
 import { PrismaClient } from '@prisma/client'
 
-const prisma = new PrismaClient()
+const db = new PrismaClient()
 
 const validate = (input) => {
   if (input.slug && !input.slug.match(/^\S+$/)) {
@@ -22,32 +22,32 @@ export const allPosts = async ({
   const offset = (page - 1) * limit
 
   return {
-    posts: prisma.post.findMany({
+    posts: db.post.findMany({
       include: { tags: true },
       first: limit,
       skip: offset,
       orderBy: order,
     }),
-    count: prisma.post.count(),
+    count: db.post.count(),
   }
 }
 
 export const findPostById = ({ id }) => {
-  return prisma.post.findOne({
+  return db.post.findOne({
     where: { id: parseInt(id) },
     include: { tags: true },
   })
 }
 
 export const findPostBySlug = ({ slug }) => {
-  return prisma.post.findOne({
+  return db.post.findOne({
     where: { slug: slug },
     include: { tags: true },
   })
 }
 
 export const findPostsByTag = ({ tag }) => {
-  return prisma.tag
+  return db.tag
     .findOne({
       where: { name: tag },
     })
@@ -55,7 +55,7 @@ export const findPostsByTag = ({ tag }) => {
 }
 
 export const searchPosts = ({ term }) => {
-  return prisma.post.findMany({
+  return db.post.findMany({
     where: {
       OR: [{ title: { contains: term } }, { body: { contains: term } }],
     },
@@ -64,28 +64,28 @@ export const searchPosts = ({ term }) => {
 }
 
 export const postsCount = () => {
-  return prisma.post.count().then((count) => ({ count }))
+  return db.post.count().then((count) => ({ count }))
 }
 
 export const createPost = ({ input }) => {
   validate(input)
-  return prisma.post.create({ data: input })
+  return db.post.create({ data: input })
 }
 
 export const updatePost = ({ id, input }) => {
   validate(input)
-  return prisma.post.update({ data: input, where: { id: Number(id) } })
+  return db.post.update({ data: input, where: { id: Number(id) } })
 }
 
 export const hidePost = ({ id }) => {
-  return prisma.post.update({
+  return db.post.update({
     data: { postedAt: null },
     where: { id: parseInt(id) },
   })
 }
 
 export const deletePost = ({ id }) => {
-  return prisma.post.delete({
+  return db.post.delete({
     where: { id: Number(id) },
   })
 }
