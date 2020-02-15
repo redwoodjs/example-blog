@@ -1,3 +1,3 @@
 module.exports = {
-  presets: ['@redwoodjs/scripts/config/babel-preset'],
+  presets: ['@redwoodjs/core/config/babel-preset'],
 }

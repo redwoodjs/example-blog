@@ -4,8 +4,8 @@
   "version": "0.0.0",
   "dependencies": {
     "@gouch/to-title-case": "^2.2.1",
-    "@redwoodjs/web": "^0.0.1-alpha.23",
-    "@redwoodjs/router": "^0.0.1-alpha.23",
+    "@redwoodjs/web": "^0.0.1-alpha.27",
+    "@redwoodjs/router": "^0.0.1-alpha.27",
     "filestack-react": "^3.1.0",
     "html-truncate": "^1.2.2",
     "markdown-it": "^10.0.0",
@@ -15,7 +15,6 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-hook-form": "^3.23.18",
-    "react-router-dom": "^5.1.2",
     "styled-components": "^4.4.1",
     "tailwindcss": "^1.1.2"
   }
