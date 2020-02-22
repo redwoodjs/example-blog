@@ -1,7 +1,4 @@
 import { UserInputError } from '@redwoodjs/api'
-import { PrismaClient } from '@prisma/client'
-
-const db = new PrismaClient()
 
 const validate = (input) => {
   if (input.slug && !input.slug.match(/^\S+$/)) {
@@ -13,7 +10,6 @@ const validate = (input) => {
   }
 }
 
-//const Posts = {
 export const allPosts = async ({
   page = 1,
   limit = 100,
