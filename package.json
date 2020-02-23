@@ -5,7 +5,7 @@
     "web"
   ],
   "devDependencies": {
-    "@redwoodjs/core": "^0.0.1-alpha.29"
+    "@redwoodjs/core": "^0.0.1-alpha.30"
   },
   "eslintConfig": {
     "extends": "@redwoodjs/eslint-config"
