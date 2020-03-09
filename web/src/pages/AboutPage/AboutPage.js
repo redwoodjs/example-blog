@@ -19,14 +19,12 @@ const AboutPage = () => {
         <p className="mt-4">
           <strong className="font-semibold">Hammer Review</strong> is a sample
           application created with the{' '}
-          <a
-            className="underline"
-            href="https://github.com/hammerframework/hammer"
-          >
-            Hammer Framework
+          <a className="underline" href="https://redwoodjs.com">
+            Redwood Framework
           </a>{' '}
           to demonstrate common usage patterns and guide new adopters of the
-          framework. It demonstrates many of the core Hammer concepts including:
+          framework. It demonstrates many of the core Redwood concepts
+          including:
         </p>
         <ul className="mt-4 ml-8 list-disc list-outside">
           <li>
@@ -51,30 +49,23 @@ const AboutPage = () => {
             A serverless API deployed somewhere like{' '}
             <strong className="font-semibold">Netlify</strong>
           </li>
-          <li>
-            Component documentation using{' '}
-            <strong className="font-semibold">Storybook</strong>
-          </li>
-          <li>
-            Testing using <strong className="font-semibold">Jest</strong>
-          </li>
         </ul>
         <p className="mt-4">
-          Check out the code at in the{' '}
+          Check out the code in the{' '}
           <a
             href="https://github.com/hammerframework/example-blog"
             className="underline"
           >
             example-blog
           </a>{' '}
-          and read the{' '}
+          repo and read the{' '}
           <a
             href="https://github.com/hammerframework/example-blog/tree/master/README.md"
             className="underline"
           >
             README
           </a>{' '}
-          for more info. repo.
+          for more info.
         </p>
       </main>
     </BlogLayout>
