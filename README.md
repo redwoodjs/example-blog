@@ -2,12 +2,14 @@
 
 ![RedwoodJS Example Blog Screenshot](https://user-images.githubusercontent.com/300/67903394-aced3080-fb28-11e9-85bb-b5fdbb4b6c34.png)
 
+You can view this app live at https://redwood-example-blog.netlify.com
+
 ## Table of Contents
 
 * [Overview](#overview)
 * [Getting Started](#getting-started)
   * [Installation](#installation)
-    * [Disabling Authentication](#disabling-authentication)
+    * [Enabling Authentication](#enabling-authentication)
     * [Enabling Identity on Netlify](#enabling-identity-on-netlify)
     * [Enabling Image Uploads](#enabling-image-uploads)
 * [Architecture](#architecture)
@@ -78,9 +80,9 @@ To access the admin you have two options:
 * Disable authentication
 * Enable the Identity feature on Netlify
 
-#### Disabling Authentication
+#### Enabling Authentication
 
-Copy the `.env.example` file to a new file `.env` and edit it, setting the `USE_AUTHENTICATION` variable to `false` instead of `true`. Restart your `yarn dev`
+Copy the `.env.defaults` file to a new file `.env` and edit it, setting the `USE_AUTHENTICATION` variable to `true` instead of `false`. Restart your `yarn dev`
 process and you should now be able to go to http://localhost:8910/admin without a login prompt.
 
 #### Enabling Identity on Netlify
