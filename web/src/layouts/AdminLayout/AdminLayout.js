@@ -6,8 +6,6 @@ const AdminLayout = (props) => {
   const [currentUser, setCurrentUser] = useState(netlifyIdentity.currentUser())
   const isAuthEnabled = process?.env?.USE_AUTHENTICATION !== 'false'
 
-  console.info('isAuthEnabled', isAuthEnabled)
-
   const signin = () => {
     netlifyIdentity.open()
     netlifyIdentity.on('login', (user) => {
