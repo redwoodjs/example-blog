@@ -21,7 +21,7 @@
         "source": "hammerDatasource"
       },
       "argument": "url",
-      "value": "\"file:./dev.db\""
+      "value": "env(\"DB_HOST\")"
     },
     {
       "tag": "CreateModel",
