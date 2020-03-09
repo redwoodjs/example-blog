@@ -1,8 +1,8 @@
 {
-  "private": true,
   "name": "api",
   "version": "0.0.0",
+  "private": true,
   "dependencies": {
-    "@redwoodjs/api": "^0.0.1-alpha.30"
+    "@redwoodjs/api": "^0.1.0"
   }
 }
