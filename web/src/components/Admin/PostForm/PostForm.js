@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import {
-  RedwoodForm,
+  Form,
   TextField,
   TextAreaField,
   Submit,
@@ -47,7 +47,7 @@ const PostForm = (props) => {
   }
 
   return (
-    <RedwoodForm error={props.error} onSubmit={onSubmit}>
+    <Form error={props.error} onSubmit={onSubmit}>
       <Label
         name="title"
         className={CSS.label}
@@ -157,7 +157,7 @@ const PostForm = (props) => {
           {props.publish || 'Publish'}
         </Submit>
       </div>
-    </RedwoodForm>
+    </Form>
   )
 }
 

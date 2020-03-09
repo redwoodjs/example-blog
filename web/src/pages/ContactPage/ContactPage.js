@@ -1,6 +1,6 @@
 import BlogLayout from 'src/layouts/BlogLayout'
 import {
-  RedwoodForm,
+  Form,
   TextField,
   TextAreaField,
   Submit,
@@ -39,7 +39,7 @@ const ContactPage = () => {
           our reviews? Send us a message!
         </p>
 
-        <RedwoodForm
+        <Form
           onSubmit={onSubmit}
           className="mt-8 max-w-lg mx-auto"
           netlify="true"
@@ -98,7 +98,7 @@ const ContactPage = () => {
           <div className="mt-4 text-right">
             <Submit className={CSS.submit}>Submit</Submit>
           </div>
-        </RedwoodForm>
+        </Form>
       </main>
     </BlogLayout>
   )
