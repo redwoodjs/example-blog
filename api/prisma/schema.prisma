@@ -1,6 +1,6 @@
 datasource hammerDatasource {
-  provider = "sqlite"
-  url = "file:./dev.db"
+  provider = "postgresql"
+  url = env("DB_HOST")
 }
 
 generator photonjs {
