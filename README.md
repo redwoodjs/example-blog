@@ -59,6 +59,17 @@ Clone the repo:
     git clone https://github.com/redwoodjs/example-blog.git
     cd example-blog
 
+Update the database provider to use a local SQLite database. Edit `api/prisma/schema.prisma` and change "postgresql" to "sqlite". (There is an update coming soon from Prisma will let us avoid this step.)
+
+```javascript
+// api/prisma/schema.prisma
+
+datasource hammerDatasource {
+  provider = "sqlite"
+  url = env("DB_HOST")
+}
+```
+
 Install dependencies:
 
     yarn install
@@ -75,10 +86,7 @@ Now you should be able to start a development server:
 Assuming everything worked, open a browser to http://localhost:8910 and you should
 be seeing the homepage (similar to the screenshot above).
 
-To access the admin you have two options:
 
-* Disable authentication
-* Enable the Identity feature on Netlify
 
 #### Enabling Authentication
 
