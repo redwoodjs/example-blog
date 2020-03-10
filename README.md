@@ -61,6 +61,10 @@ Install dependencies:
 
     yarn install
 
+Copy the `.env.example` file to a new file `.env`
+
+    cp .env.example .env
+
 Create a local SQLite database and seed it with a few blog posts:
 
     yarn redwood db up
@@ -80,7 +84,7 @@ To access the admin you have two options:
 
 #### Disabling Authentication
 
-Copy the `.env.example` file to a new file `.env` and edit it, setting the `USE_AUTHENTICATION` variable to `false` instead of `true`. Restart your `yarn dev`
+Set the `USE_AUTHENTICATION` variable in the `.env` file you created to `false` instead of `true`. Restart your `yarn dev`
 process and you should now be able to go to http://localhost:8910/admin without a login prompt.
 
 #### Enabling Identity on Netlify
