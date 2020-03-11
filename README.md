@@ -61,7 +61,7 @@ Clone the repo:
 
 If you want to use Postgres locally then you don't have to change anything, just be sure to set a `DB_HOST` ENV var. If you create a `.env` file and define it there it will be added to your environment automatically.
 
-If you want to use MySQL or SQLite (SQLite is the easist as the entire database is contained in a single file in the app) you'll need to update the database provider. Edit `api/prisma/schema.prisma` and change "postgresql" to "sqlite" or "mysql". (There is an update coming soon from Prisma will let us avoid this step and keep the provider in an ENV variable.)
+If you want to use MySQL or SQLite (SQLite is the easiest as the entire database is contained in a single file in the app) you'll need to update the database provider. Edit `api/prisma/schema.prisma` and change "postgresql" to "sqlite" or "mysql". (There is an update coming soon from Prisma will let us avoid this step and keep the provider in an ENV variable.)
 
 ```javascript
 // api/prisma/schema.prisma
