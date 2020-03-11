@@ -56,7 +56,7 @@ migration ..20200309150234-create-posts-tags-users
 +  url = env("DB_HOST")
 +}
 +
-+generator photonjs {
++generator client {
 +  provider = "prisma-client-js"
 +  binaryTargets = ["native", "rhel-openssl-1.0.x"]
 +}
