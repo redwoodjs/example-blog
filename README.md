@@ -88,7 +88,9 @@ Now you should be able to start a development server:
 Assuming everything worked, open a browser to http://localhost:8910 and you should
 be seeing the homepage (similar to the screenshot above).
 
+### Deployment
 
+See the section on [Deployment](https://redwoodjs.com/tutorial/deployment#netlify) in the [Redwood Tutorial](https://redwoodjs.com/tutorial).
 
 #### Enabling Authentication
 
@@ -168,10 +170,6 @@ new blog post http://localhost:8910/admin/new you should see a filepicker toward
 bottom of the form:
 
 ![New post screenshot](https://user-images.githubusercontent.com/300/67907861-9f3ea780-fb36-11e9-8bca-4e71c38d47e3.png)
-
-## Architecture
-
-Coming soon.
 
 ## TODO
 
