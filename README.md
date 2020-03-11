@@ -59,7 +59,7 @@ Clone the repo:
     git clone https://github.com/redwoodjs/example-blog.git
     cd example-blog
 
-Update the database provider to use a local SQLite database. Edit `api/prisma/schema.prisma` and change "postgresql" to "sqlite". (There is an update coming soon from Prisma will let us avoid this step.)
+If you want to use Postgres locally then you don't have to change anything. If you want to use MySQL or SQLite (SQLite is the easist as the entire database is contained in a single file in the app) you'll need to update the database provider. Edit `api/prisma/schema.prisma` and change "postgresql" to "sqlite" or "mysql". (There is an update coming soon from Prisma will let us avoid this step and keep the provider in an `ENV` variable.)
 
 ```javascript
 // api/prisma/schema.prisma
@@ -69,6 +69,8 @@ datasource hammerDatasource {
   url = env("DB_HOST")
 }
 ```
+
+If you use "sqlite" then you are ready to go—the `DB_HOST` is set in `.env.defaults` to a local file, `api/prisma/dev.db`. If you use "mysql" then create `.env` and set `DB_HOST` to the [connection string](https://github.com/prisma/prisma2/blob/master/docs/core/connectors/mysql.md) for your database.
 
 Install dependencies:
 
