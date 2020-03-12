@@ -59,21 +59,6 @@ Clone the repo:
     git clone https://github.com/redwoodjs/example-blog.git
     cd example-blog
 
-If you want to use Postgres locally then you don't have to change anything, just be sure to set a `DB_HOST` ENV var. If you create a `.env` file and define it there it will be added to your environment automatically.
-
-If you want to use MySQL or SQLite (SQLite is the easiest as the entire database is contained in a single file in the app) you'll need to update the database provider. Edit `api/prisma/schema.prisma` and change "postgresql" to "sqlite" or "mysql". (There is an update coming soon from Prisma will let us avoid this step and keep the provider in an ENV variable.)
-
-```javascript
-// api/prisma/schema.prisma
-
-datasource hammerDatasource {
-  provider = "sqlite"
-  url = env("DB_HOST")
-}
-```
-
-If you use "sqlite" then you are ready to go—the `DB_HOST` is set in `.env.defaults` to a local file, `api/prisma/dev.db`. If you use "mysql" then create `.env` and set `DB_HOST` to the [connection string](https://github.com/prisma/prisma2/blob/master/docs/core/connectors/mysql.md) for your database.
-
 Install dependencies:
 
     yarn install
@@ -96,8 +81,9 @@ See the section on [Deployment](https://redwoodjs.com/tutorial/deployment#netlif
 
 #### Enabling Authentication
 
-Copy the `.env.defaults` file to a new file `.env` and edit it, setting the `USE_AUTHENTICATION` variable to `true` instead of `false`. Restart your `yarn dev`
-process and you should now be able to go to http://localhost:8910/admin without a login prompt.
+> We're working on supporting the `netlify dev` command properly with Redwood, which is required to use Netlify Identity in a local dev environment. The following instructions will not work until this fix is complete.
+
+Copy the `.env.defaults` file to a new file `.env` and edit it, setting the `USE_AUTHENTICATION` variable to `true`.
 
 #### Enabling Identity on Netlify
 
@@ -116,17 +102,13 @@ Create a new site:
 
     netlify init --manual
 
-Choose `Create & configure a new site`.
+Now you have two paths:
 
-Choose which team to associate this new site with (if you have more than one).
+1. Find and link to the existing site you have deployed
+2. Choose `Create & configure a new site`, choose which team to associate this new site with (if you have more than one). You can enter a `Site name` or just hit ENTER to get a random one. You can enter `n`
+when asked if you want to continue.
 
-You can enter a `Site name` or just hit ENTER to get a random one.
-
-And that's it, you should have a new site created in Netlify. You can enter `n`
-when asked if you want to continue. Head to the `Admin URL` that Netlify CLI just
-gave you.
-
-Click on the Identity link and the Enable Identity button:
+Go to netlify.com and find your site. Click on the Identity link and the Enable Identity button:
 
 ![Netlify Screenshot](https://user-images.githubusercontent.com/300/67904407-854b9780-fb2b-11e9-940e-ddf2c7a36a47.png)
 
