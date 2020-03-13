@@ -4,8 +4,8 @@
   "version": "0.0.0",
   "dependencies": {
     "@gouch/to-title-case": "^2.2.1",
-    "@redwoodjs/web": "^0.1.0",
     "@redwoodjs/router": "^0.1.0",
+    "@redwoodjs/web": "^0.1.0",
     "filestack-react": "^3.1.0",
     "html-truncate": "^1.2.2",
     "markdown-it": "^10.0.0",
@@ -13,7 +13,6 @@
     "netlify-identity-widget": "^1.5.5",
     "prop-types": "^15.7.2",
     "react": "^16.13.0",
-    "react-dom": "^16.13.0",
-    "tailwindcss": "^1.1.2"
+    "react-dom": "^16.13.0"
   }
 }
