@@ -1,5 +1,7 @@
 import { UserInputError } from '@redwoodjs/api'
 
+import { db } from 'src/lib/db'
+
 const validate = (input) => {
   if (input.slug && !input.slug.match(/^\S+$/)) {
     throw new UserInputError("Can't create new post", {
