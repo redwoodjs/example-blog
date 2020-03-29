@@ -6,13 +6,22 @@
     "@gouch/to-title-case": "^2.2.1",
     "@redwoodjs/router": "^0.3.0",
     "@redwoodjs/web": "^0.3.0",
+    "apollo-cache-inmemory": "^1.6.5",
+    "apollo-client": "^2.6.8",
+    "apollo-link-http": "^1.5.16",
+    "apollo-link-ws": "^1.0.19",
     "filestack-react": "^3.1.0",
     "html-truncate": "^1.2.2",
+    "isomorphic-fetch": "^2.2.1",
     "markdown-it": "^10.0.0",
     "moment": "^2.24.0",
     "netlify-identity-widget": "^1.5.6",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^0.88.2",
+    "subscriptions-transport-ws": "^0.9.16",
+    "ws": "^7.2.3"
   }
 }

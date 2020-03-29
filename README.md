@@ -157,6 +157,6 @@ bottom of the form:
 
 ## TODO
 
-* Remove file picker if ENV var not set, with instructions for enabling
+* Remove file picker if FILESTACK_API_KEY not set, with instructions for enabling
 * Add instructions for enabling Authentication
 * In public view don't include posts in Draft state

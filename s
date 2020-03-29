@@ -1,0 +1,6 @@
+subscription {
+  tagChanged {
+    id
+    name
+  }
+}

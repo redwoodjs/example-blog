@@ -1,4 +1,10 @@
 export const schema = gql`
+  enum MutationType {
+    CREATED
+    UPDATED
+    DELETED
+  }
+
   type Post {
     id: ID!
     title: String!
@@ -23,9 +29,15 @@ export const schema = gql`
     searchPosts(term: String): [Post]
   }
 
+  type Subscription {
+    postChanged: Post
+  }
+
   input PostInput {
     title: String!
     slug: String!
+    tags: String
+    priorTags: String
     author: String!
     body: String!
     image: String
@@ -39,3 +51,10 @@ export const schema = gql`
     deletePost(id: ID!): Post
   }
 `
+
+// input PostSubscriptionWhereInput {
+//   mutation_in: [MutationType!]
+//   updatedFields_contains: String
+//   AND: [PostSubscriptionWhereInput!]
+//   OR: [PostSubscriptionWhereInput!]
+// }
