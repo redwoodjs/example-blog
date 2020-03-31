@@ -26,6 +26,8 @@ export const schema = gql`
   input PostInput {
     title: String!
     slug: String!
+    tags: String
+    priorTags: String
     author: String!
     body: String!
     image: String

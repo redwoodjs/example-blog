@@ -1,5 +1,4 @@
 node_modules
-.DS_Store
 dist
 yarn-error.log
 .env
@@ -17,3 +16,7 @@ packages/photon/index.d.ts
 # Local Netlify folder
 .netlify
 
+# OSX
+.DS_Store
+.AppleDouble
+.LSOverride

@@ -4,7 +4,7 @@ import { Link, routes } from '@redwoodjs/router'
 
 const AdminLayout = (props) => {
   const [currentUser, setCurrentUser] = useState(netlifyIdentity.currentUser())
-  const isAuthEnabled = true
+  const isAuthEnabled = process.env.USE_AUTHENTICATION === 'true'
 
   const signin = () => {
     netlifyIdentity.open()
