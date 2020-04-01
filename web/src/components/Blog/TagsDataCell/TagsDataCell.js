@@ -1,5 +1,3 @@
-/* TagsDataCell */
-
 export const QUERY = gql`
   query {
     tags {
@@ -18,7 +16,10 @@ export const Failure = ({ error }) => <div>Error: {error.message}</div>
 export const Success = ({ tags, forwardRef }) => {
   return (
     <>
-      <data value={JSON.stringify(tags)} ref={forwardRef} />
+      <data
+        value={JSON.stringify(tags)}
+        ref={forwardRef}
+      />
     </>
   )
 }

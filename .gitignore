@@ -12,7 +12,6 @@ packages/photon/runtime
 packages/photon/index.js
 packages/photon/index.d.ts
 
-
 # Local Netlify folder
 .netlify
 

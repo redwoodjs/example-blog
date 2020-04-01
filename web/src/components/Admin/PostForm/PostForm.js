@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
+
 import {
   Form,
   TextField,
@@ -7,6 +8,7 @@ import {
   Label,
   FieldError,
 } from '@redwoodjs/web'
+
 import ReactFilestack from 'filestack-react'
 import { Dropdown } from 'semantic-ui-react'
 import TagsDataCell from 'src/components/Blog/TagsDataCell'
@@ -18,7 +20,8 @@ const CSS = {
     'block mt-6 uppercase text-sm font-semibold tracking-wider text-red-700',
   input:
     'block mt-2 w-full p-2 border text-lg text-gray-900 rounded focus:outline-none focus:border-indigo-300',
-  inputHidden: 'hidden',
+  inputHidden:
+    'hidden',
   inputError:
     'block mt-2 w-full p-2 border border-red-500 text-lg text-red-700 rounded focus:outline-none focus:border-red-700',
   error: 'block mt-1 font-semibold uppercase text-xs text-red-600',
@@ -65,7 +68,6 @@ const PostForm = (props) => {
 
   const replaceImage = (event) => {
     event.preventDefault()
-
     setSplashImage(null)
   }
 
@@ -109,7 +111,9 @@ const PostForm = (props) => {
       <FieldError name="slug" className={CSS.error} />
 
       {/* master list-of-tags as <data> */}
-      <TagsDataCell forwardRef={allTagsRef} />
+      <TagsDataCell
+        forwardRef={allTagsRef}
+      />
 
       {/* does NOT change based on dropdown changes; hide */}
       <TextField
