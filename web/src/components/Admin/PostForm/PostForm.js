@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useState, useEffect, useCallback } from 'react'
+
 import {
   Form,
   TextField,
@@ -7,7 +8,12 @@ import {
   Label,
   FieldError,
 } from '@redwoodjs/web'
+
 import ReactFilestack from 'filestack-react'
+
+import { Dropdown } from 'semantic-ui-react'
+
+import TagsDataCell from 'src/components/Blog/TagsDataCell'
 
 const CSS = {
   label:
@@ -16,17 +22,47 @@ const CSS = {
     'block mt-6 uppercase text-sm font-semibold tracking-wider text-red-700',
   input:
     'block mt-2 w-full p-2 border text-lg text-gray-900 rounded focus:outline-none focus:border-indigo-300',
+  inputHidden:
+    'hidden',
   inputError:
     'block mt-2 w-full p-2 border border-red-500 text-lg text-red-700 rounded focus:outline-none focus:border-red-700',
   error: 'block mt-1 font-semibold uppercase text-xs text-red-600',
   save:
     'px-6 py-2 bg-gray-400 text-gray-600 text-sm rounded mr-4 uppercase font-bold tracking-wide',
   publish:
-    'px-6 py-2 bg-indigo-700 text-white text-sm rounded uppercase font-bold tracking-wider',
+    'px-6 py-2 bg-indigo-700 text-white text-sm rounded mr-4 uppercase font-bold tracking-wider',
+  unpublish:
+    'px-6 py-2 bg-red-400 text-white text-sm rounded uppercase font-bold tracking-wider',
 }
 
 const PostForm = (props) => {
+
   const [splashImage, setSplashImage] = useState(props.post?.image)
+
+  // the create and update functions manage tags via unique name, no need for
+  // id field -- convert prop from array-of-objects to array-of-name-strings
+  const [tags, setTags] = useState(
+    props.post?.tags.reduce((prev, curr) => [...prev, curr.name], []).sort() ||
+      []
+  )
+
+  // capture prior tags on first render only, so update function can do diffs
+  const [priorTags, setPriorTags] = useState([])
+  useEffect(() => {
+    setPriorTags(tags.slice())
+  }, [])
+
+  // master list of tags is embedded as data tag; process after first render
+  const [allTags, setAllTags] = useState([])
+  const allTagsRef = useCallback((data) => {
+    if (data.value) {
+      setAllTags(
+        JSON.parse(data.value)
+          .sort((l, r) => (l.name < r.name ? -1 : 1))
+          .map((i) => ({ text: i.name, value: i.name }))
+      )
+    }
+  }, [])
 
   const onSubmit = (data) => {
     const type = document.activeElement.dataset.action
@@ -36,7 +72,6 @@ const PostForm = (props) => {
 
   const replaceImage = (event) => {
     event.preventDefault()
-
     setSplashImage(null)
   }
 
@@ -61,7 +96,6 @@ const PostForm = (props) => {
         validation={{ required: true }}
       />
       <FieldError name="title" className={CSS.error} />
-
       <Label
         name="slug"
         className={CSS.label}
@@ -78,7 +112,46 @@ const PostForm = (props) => {
         }}
       />
       <FieldError name="slug" className={CSS.error} />
-
+      {/* tags block */}
+      <Label
+        name="tags"
+        className={CSS.label}
+        errorClassName={CSS.labelError}
+      />
+      {/* master list-of-tags as <data> */}
+      <TagsDataCell forwardRef={allTagsRef} />
+      {/* does NOT change based on dropdown changes; hide */}
+      <TextField
+        name="priorTags"
+        defaultValue={priorTags.join(',')}
+        className={CSS.inputHidden}
+        errorClassName={CSS.inputError}
+        readOnly
+        validation={{
+          required: false,
+        }}
+      />
+      {/* DOES change based on dropdown changes; hide */}
+      <TextField
+        name="tags"
+        value={tags.join(',')}
+        className={CSS.inputHidden}
+        errorClassName={CSS.inputError}
+        readOnly
+        validation={{
+          required: false,
+        }}
+      />
+      {/* this is what the user sees as the tags control */}
+      <Dropdown
+        defaultValue={tags}
+        fluid
+        multiple
+        selection
+        options={allTags}
+        onChange={(event, { value }) => setTags(value)}
+      />
+      <FieldError name="tags" className={CSS.error} />
       <Label
         name="author"
         className={CSS.label}
@@ -92,7 +165,6 @@ const PostForm = (props) => {
         validation={{ required: true }}
       />
       <FieldError name="author" className={CSS.error} />
-
       <Label
         name="body"
         className={CSS.label}
@@ -106,9 +178,7 @@ const PostForm = (props) => {
         validation={{ required: true }}
       />
       <FieldError name="body" className={CSS.error} />
-
       <label className={CSS.label}>Splash Image</label>
-
       <ReactFilestack
         apikey={process.env.FILESTACK_API_KEY}
         onSuccess={onFileUpload}
@@ -121,12 +191,10 @@ const PostForm = (props) => {
           fromSources: ['local_file_system', 'url'],
         }}
       />
-
       <div
         id="embedded"
         className={`h-80 ${splashImage ? 'hidden' : ''}`}
       ></div>
-
       {splashImage && (
         <div className="mt-2">
           <img src={splashImage} alt="Splash image" className="max-h-80" />
@@ -138,24 +206,32 @@ const PostForm = (props) => {
           </div>
         </div>
       )}
-
-      <div className="flex justify-end mt-4">
-        {props.save && (
+      <div className="flex justify-end pt-20">
+        <Submit
+          data-action="save"
+          disabled={props.loading}
+          className={CSS.save}
+        >
+          {props.save || 'Save'}
+        </Submit>
+        {props.publish && !props?.post?.postedAt && (
           <Submit
-            data-action="save"
+            data-action="publish"
             disabled={props.loading}
-            className={CSS.save}
+            className={CSS.publish}
           >
-            Save
+            {props.publish || 'Publish'}
           </Submit>
         )}
-        <Submit
-          data-action="publish"
-          disabled={props.loading}
-          className={CSS.publish}
-        >
-          {props.publish || 'Publish'}
-        </Submit>
+        {props.unpublish && props?.post?.postedAt && (
+          <Submit
+            data-action="unpublish"
+            disabled={props.loading}
+            className={CSS.unpublish}
+          >
+            {props.unpublish || 'Un-publish'}
+          </Submit>
+        )}
       </div>
     </Form>
   )

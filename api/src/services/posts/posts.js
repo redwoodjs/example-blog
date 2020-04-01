@@ -12,6 +12,9 @@ const validate = (input) => {
   }
 }
 
+const setSubtract = (left, right) =>
+  new Set([...left].filter((x) => !right.has(x)))
+
 export const allPosts = async ({
   page = 1,
   limit = 100,
@@ -65,13 +68,60 @@ export const postsCount = () => {
   return db.post.count().then((count) => ({ count }))
 }
 
+// @@later utility function to handle connect / disconnect for any model
+
 export const createPost = ({ input }) => {
   validate(input)
+
+  // replace input.tags string,of,tags with GraphQL nested object
+  // -- in create, all tags are net-add -- always use connect operation
+  if (input.tags) {
+    const addTags = input.tags
+      .split(',')
+      .reduce((prev, curr) => [...prev, { name: curr }], [])
+    input.tags = { connect: addTags }
+  } else {
+    delete input.tags
+  }
+
+  delete input.priorTags
   return db.post.create({ data: input })
 }
 
 export const updatePost = ({ id, input }) => {
   validate(input)
+
+  // replace input.tags string,of,tags with GraphQL nested object
+  // -- in update, tags can be net-add (connect) or net-delete (disconnect)
+  if (input.tags || input.priorTags) {
+    const tagsSet = input.tags
+      ? new Set((input.tags || '').split(','))
+      : new Set()
+    const priorTagsSet = input.priorTags
+      ? new Set((input.priorTags || '').split(','))
+      : new Set()
+    input.tags = {}
+
+    const addTags = [...setSubtract(tagsSet, priorTagsSet)].reduce(
+      (prev, curr) => [...prev, { name: curr }],
+      []
+    )
+    if (addTags.length) {
+      input.tags.connect = addTags
+    }
+
+    const dropTags = [...setSubtract(priorTagsSet, tagsSet)].reduce(
+      (prev, curr) => [...prev, { name: curr }],
+      []
+    )
+    if (dropTags.length) {
+      input.tags.disconnect = dropTags
+    }
+  } else {
+    delete input.tags
+  }
+
+  delete input.priorTags
   return db.post.update({ data: input, where: { id: Number(id) } })
 }
 

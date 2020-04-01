@@ -29,10 +29,12 @@ export const QUERY = gql`
 
 export const Loading = () => <div>Loading...</div>
 
+
+// sort descending by date; no-date sorts last
 const sortedPosts = (posts) => {
   return posts.sort((a, b) => {
-    if (new Date(a.postedAt) < new Date(b.postedAt)) return 1
-    if (new Date(a.postedAt) > new Date(b.postedAt)) return -1
+    if (new Date(a.postedAt) < new Date(b.postedAt)) return -1
+    if (new Date(a.postedAt) > new Date(b.postedAt)) return 1
     return 0
   })
 }

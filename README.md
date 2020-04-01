@@ -9,6 +9,7 @@ You can view this app live at https://redwood-example-blog.netlify.com
 * [Overview](#overview)
 * [Getting Started](#getting-started)
   * [Installation](#installation)
+  * [Deployment](#deployment)
     * [Enabling Authentication](#enabling-authentication)
     * [Enabling Identity on Netlify](#enabling-identity-on-netlify)
     * [Enabling Image Uploads](#enabling-image-uploads)
@@ -157,6 +158,18 @@ bottom of the form:
 
 ## TODO
 
-* Remove file picker if ENV var not set, with instructions for enabling
-* Add instructions for enabling Authentication
+* Remove file picker if FILESTACK_API_KEY not set, with instructions for enabling
+* Add instructions for enabling Authentication, synch with main Redwood tutorial
 * In public view don't include posts in Draft state
+* Try to create or update a post with a non-unique slug; there's a GraphQL
+error in the console log, but no visible error message on the Post page. Message excerpt:
+
+```
+react_devtools_backend.js:6 [GraphQL error]: Message: 
+Invalid `prisma.post.create()` invocation in .../api/src/services/posts/posts.js
+Unique constraint failed on the fields: (`slug`), Location: [object Object], Path: createPost
+...
+Unique constraint failed on the fields: (`slug`)
+    at new ApolloError (bundle.esm.js:63)
+...
+```
