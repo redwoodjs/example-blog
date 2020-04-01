@@ -7,7 +7,6 @@ import FatalErrorBoundary from 'src/lib/FatalErrorBoundary'
 import Routes from 'src/Routes'
 
 import './index.css'
-import 'semantic-ui-css/semantic.css'
 
 if (process.env.USE_AUTHENTICATION === 'true') {
   window.netlifyIdentity = netlifyIdentity

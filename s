@@ -1,6 +1,0 @@
-subscription {
-  tagChanged {
-    id
-    name
-  }
-}

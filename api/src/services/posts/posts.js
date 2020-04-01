@@ -1,26 +1,6 @@
 import { UserInputError } from '@redwoodjs/api'
-import { MQTTPubSub } from 'graphql-mqtt-subscriptions'
-
-// `db` is the prisma client; `db.x` is a Prisma-generated CRUD operation based on the model
-// See https://www.prisma.io/docs/prisma-client/basic-data-access/writing-data-JAVASCRIPT-rsc6/
-//
-// The operations for Post can be found via `Object.getOwnPropertyNames(db.post)`, currently:
-//    count
-//    create
-//    delete
-//    deleteMany
-//    findMany
-//    findOne
-//    update
-//    updateMany
-//    upsert
 
 import { db } from 'src/lib/db'
-
-const pubsub = new MQTTPubSub()
-const POST_CHANGED = 'POST_CHANGED'
-
-// helpers
 
 const validate = (input) => {
   if (input.slug && !input.slug.match(/^\S+$/)) {
@@ -34,8 +14,6 @@ const validate = (input) => {
 
 const setSubtract = (left, right) =>
   new Set([...left].filter((x) => !right.has(x)))
-
-// data access
 
 export const allPosts = async ({
   page = 1,
@@ -144,7 +122,6 @@ export const updatePost = ({ id, input }) => {
   }
 
   delete input.priorTags
-  pubsub.publish(POST_CHANGED, { postChanged: { id } })
   return db.post.update({ data: input, where: { id: Number(id) } })
 }
 

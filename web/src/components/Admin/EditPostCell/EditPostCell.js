@@ -46,6 +46,9 @@ export const Success = ({ post }) => {
     if (type === 'publish') {
       data.postedAt = new Date()
     }
+    if (type === 'unpublish') {
+      data.postedAt = null
+    }
     updatePost({ variables: { id: parseInt(post.id), input: data } })
   }
 
@@ -57,8 +60,9 @@ export const Success = ({ post }) => {
       <div className="mt-8">
         <PostForm
           post={post}
-          save={false}
-          publish="Update"
+          save="Update"
+          publish="Publish"
+          unpublish="Un-publish"
           onSave={onSave}
           error={updateError}
           loading={updateLoading}
