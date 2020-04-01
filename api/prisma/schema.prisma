@@ -1,5 +1,5 @@
 datasource hammerDatasource {
-  provider = "sqlite"
+  provider = "postgresql"
   url = env("DB_HOST")
 }
 
