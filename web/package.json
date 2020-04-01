@@ -4,8 +4,8 @@
   "version": "0.0.0",
   "dependencies": {
     "@gouch/to-title-case": "^2.2.1",
-    "@redwoodjs/router": "^0.3.0",
-    "@redwoodjs/web": "^0.3.0",
+    "@redwoodjs/router": "^0.4.0-rc.1",
+    "@redwoodjs/web": "^0.4.0-rc.1",
     "filestack-react": "^3.1.0",
     "html-truncate": "^1.2.2",
     "markdown-it": "^10.0.0",
