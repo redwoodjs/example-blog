@@ -11,6 +11,7 @@ import {
 
 import ReactFilestack from 'filestack-react'
 
+import 'semantic-ui-css/semantic.css'
 import { Dropdown } from 'semantic-ui-react'
 
 import TagsDataCell from 'src/components/Blog/TagsDataCell'
@@ -72,6 +73,7 @@ const PostForm = (props) => {
 
   const replaceImage = (event) => {
     event.preventDefault()
+
     setSplashImage(null)
   }
 
@@ -96,6 +98,7 @@ const PostForm = (props) => {
         validation={{ required: true }}
       />
       <FieldError name="title" className={CSS.error} />
+
       <Label
         name="slug"
         className={CSS.label}
@@ -165,6 +168,7 @@ const PostForm = (props) => {
         validation={{ required: true }}
       />
       <FieldError name="author" className={CSS.error} />
+
       <Label
         name="body"
         className={CSS.label}
@@ -178,7 +182,9 @@ const PostForm = (props) => {
         validation={{ required: true }}
       />
       <FieldError name="body" className={CSS.error} />
+
       <label className={CSS.label}>Splash Image</label>
+
       <ReactFilestack
         apikey={process.env.FILESTACK_API_KEY}
         onSuccess={onFileUpload}
@@ -191,10 +197,12 @@ const PostForm = (props) => {
           fromSources: ['local_file_system', 'url'],
         }}
       />
+
       <div
         id="embedded"
         className={`h-80 ${splashImage ? 'hidden' : ''}`}
       ></div>
+
       {splashImage && (
         <div className="mt-2">
           <img src={splashImage} alt="Splash image" className="max-h-80" />
