@@ -8188,6 +8188,11 @@ netlify-identity-widget@^1.5.6:
   resolved "https://registry.yarnpkg.com/netlify-identity-widget/-/netlify-identity-widget-1.5.6.tgz#b841d4d469ad37bdc47e876d87cc2926aba2c302"
   integrity sha512-DvWVUGuswOd+IwexKjzIpYcqYMrghmnkmflNqCQc4lG4KX55zE3fFjfXziCTr6LibP7hvZp37s067j5N3kRuyw==
 
+netlify-plugin-prisma-provider@^0.1.0:
+  version "0.1.1"
+  resolved "https://registry.npmjs.org/netlify-plugin-prisma-provider/-/netlify-plugin-prisma-provider-0.1.1.tgz#c2b867da08480b0e380e4200457d443ff9306186"
+  integrity sha512-JbwCgLgO22JN4lFEVsxtBf8YmNfjjsfYIHBvaGTRxhN6vwXe2ewD13wBDwjhxjZmAVv1XaYigjv870QOKJSBfA==
+
 nice-try@^1.0.4:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/nice-try/-/nice-try-1.0.5.tgz#a3378a7696ce7d223e88fc9b764bd7ef1089e366"
