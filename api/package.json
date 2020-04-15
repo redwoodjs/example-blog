@@ -3,6 +3,6 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
-    "@redwoodjs/api": "^0.4.0"
+    "@redwoodjs/api": "^0.5.0"
   }
 }
