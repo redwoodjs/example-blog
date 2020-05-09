@@ -7,7 +7,7 @@
     ]
   },
   "devDependencies": {
-    "@redwoodjs/core": "^0.5.0",
+    "@redwoodjs/core": "^0.6.0",
     "netlify-plugin-prisma-provider": "^0.1.0"
   },
   "eslintConfig": {
