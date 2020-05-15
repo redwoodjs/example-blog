@@ -1600,6 +1600,11 @@
     lodash.omitby "^4.6.0"
     merge-graphql-schemas "^1.7.6"
 
+"@redwoodjs/auth@^0.6.1-canary.26":
+  version "0.6.1-canary.26"
+  resolved "https://registry.yarnpkg.com/@redwoodjs/auth/-/auth-0.6.1-canary.26.tgz#cfa4dd97bb388a170752dca1928d3407a8d0c34c"
+  integrity sha512-Zwf8/mRB56s/3su/bgCudVhRkcyNL1Xiyq/fES0fwp42HZYy8mmXuJTKM+rOPb/i3QSlBEmiN7MM49IXJ927Ug==
+
 "@redwoodjs/cli@^0.6.1-canary.42+04f6730":
   version "0.6.1-canary.42"
   resolved "https://registry.yarnpkg.com/@redwoodjs/cli/-/cli-0.6.1-canary.42.tgz#a6e26fcba9873ede8634453eecd7276faf00a6d3"
@@ -8473,6 +8478,11 @@ neo-async@^2.5.0, neo-async@^2.6.1:
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.1.tgz#ac27ada66167fa8849a6addd837f6b189ad2081c"
   integrity sha512-iyam8fBuCUpWeKPGpaNMetEocMt364qkCsfL9JuhjXX6dRnguRVOfk2GZaDpPjcOKiiXCPINZC1GczQ7iTq3Zw==
+
+netlify-identity-widget@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/netlify-identity-widget/-/netlify-identity-widget-1.6.0.tgz#35f89f802311ad45ff6fdb271167429192ec0aad"
+  integrity sha512-TcZLl0bWCyudCOThskOGyAhBqy1zRmBLbLWpyOmnK/8Vf5+6UwPwTVl71muWwybRoSFlSyc5Qyu+c4D5sBLSDA==
 
 netlify-plugin-prisma-provider@^0.1.0:
   version "0.1.1"

@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "dependencies": {
     "@gouch/to-title-case": "^2.2.1",
+    "@redwoodjs/auth": "^0.6.1-canary.26",
     "@redwoodjs/router": "^0.6.1-canary.42",
     "@redwoodjs/web": "^0.6.1-canary.42",
     "error-overlay-webpack-plugin": "^0.4.1",
@@ -11,6 +12,7 @@
     "html-truncate": "^1.2.2",
     "markdown-it": "^10.0.0",
     "moment": "^2.24.0",
+    "netlify-identity-widget": "^1.6.0",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
