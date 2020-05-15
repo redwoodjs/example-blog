@@ -33,7 +33,7 @@ const BlogLayout = (props) => {
                 <NavLink
                   to={routes.about()}
                   className="text-indigo-200 hover:text-indigo-800"
-                  activeClassName=""
+                  activeClassName="bg-white text-indigo-600 px-2 py-1 rounded"
                 >
                   About
                 </NavLink>
@@ -42,7 +42,7 @@ const BlogLayout = (props) => {
                 <NavLink
                   to={routes.contact()}
                   className="text-indigo-200 hover:text-indigo-800"
-                  activeClassName=""
+                  activeClassName="bg-white text-indigo-600 px-2 py-1 rounded"
                 >
                   Contact
                 </NavLink>
