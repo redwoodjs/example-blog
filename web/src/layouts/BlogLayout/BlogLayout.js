@@ -1,8 +1,6 @@
 import Menu from 'src/components/Blog/Menu'
 import { Link, NavLink, routes, usePageLoadingContext } from '@redwoodjs/router'
 import { useAuth } from '@redwoodjs/auth'
-import netlifyIdentity from 'netlify-identity-widget'
-import { useEffect } from 'react'
 
 import logo from './logo.png'
 import Spinner from './spinner.svg'
@@ -13,10 +11,6 @@ const BlogLayout = (props) => {
   const { loading } = usePageLoadingContext()
 
   const doAuth = () => (authenticated ? logout() : login())
-
-  netlifyIdentity.on('login', () => {
-    netlifyIdentity.close()
-  })
 
   return (
     <div className="max-w-8xl mx-auto">
