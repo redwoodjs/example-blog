@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "dependencies": {
     "@gouch/to-title-case": "^2.2.1",
-    "@redwoodjs/auth": "^0.6.1-canary.26",
+    "@redwoodjs/auth": "^0.6.1-canary.42",
     "@redwoodjs/router": "^0.6.1-canary.42",
     "@redwoodjs/web": "^0.6.1-canary.42",
     "error-overlay-webpack-plugin": "^0.4.1",

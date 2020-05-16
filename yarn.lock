@@ -1600,10 +1600,10 @@
     lodash.omitby "^4.6.0"
     merge-graphql-schemas "^1.7.6"
 
-"@redwoodjs/auth@^0.6.1-canary.26":
-  version "0.6.1-canary.26"
-  resolved "https://registry.yarnpkg.com/@redwoodjs/auth/-/auth-0.6.1-canary.26.tgz#cfa4dd97bb388a170752dca1928d3407a8d0c34c"
-  integrity sha512-Zwf8/mRB56s/3su/bgCudVhRkcyNL1Xiyq/fES0fwp42HZYy8mmXuJTKM+rOPb/i3QSlBEmiN7MM49IXJ927Ug==
+"@redwoodjs/auth@^0.6.1-canary.42":
+  version "0.6.1-canary.42"
+  resolved "https://registry.yarnpkg.com/@redwoodjs/auth/-/auth-0.6.1-canary.42.tgz#c809b754ea1637fd7ac162b244a3555ecccc4f6f"
+  integrity sha512-qgwiZUWqs+TVpRrw+lgexYzJn8TzcE5nuXPCictkaSRvKN/35zqY0ypqI03UjVEjOOzQbpT+lW2vw9HZwrQ20Q==
 
 "@redwoodjs/cli@^0.6.1-canary.42+04f6730":
   version "0.6.1-canary.42"
