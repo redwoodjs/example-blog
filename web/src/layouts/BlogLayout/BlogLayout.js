@@ -52,6 +52,17 @@ const BlogLayout = (props) => {
                   Contact
                 </NavLink>
               </li>
+              {authenticated && (
+                <li className="mx-4 font-semibold uppercase">
+                  <NavLink
+                    to={routes.admin()}
+                    className="text-white hover:text-indigo-800"
+                    activeClassName="bg-white text-indigo-600 px-2 py-1 rounded"
+                  >
+                    Admin
+                  </NavLink>
+                </li>
+              )}
               <li className="mx-4 font-semibold uppercase">
                 <a
                   onClick={doAuth}
