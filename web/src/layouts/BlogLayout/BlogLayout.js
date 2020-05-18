@@ -55,7 +55,7 @@ const BlogLayout = (props) => {
               <li className="mx-4 font-semibold uppercase">
                 <a
                   onClick={doAuth}
-                  className="text-indigo-200 hover:text-indigo-800"
+                  className="cursor-pointer text-indigo-200 hover:text-indigo-800"
                 >
                   {authenticated ? 'Logout' : 'Login'}
                 </a>
