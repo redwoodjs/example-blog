@@ -1,12 +1,7 @@
-import { UserInputError, AuthenticationError } from '@redwoodjs/api'
+import { UserInputError } from '@redwoodjs/api'
 
 import { db } from 'src/lib/db'
-
-const authenticate = (currentUser) => {
-  if (!currentUser) {
-    throw new AuthenticationError()
-  }
-}
+import { requireAuth } from 'src/lib/auth'
 
 const validate = (input) => {
   if (input.slug && !input.slug.match(/^\S+$/)) {
@@ -72,21 +67,21 @@ export const postsCount = () => {
 }
 
 export const createPost = ({ input }, { context: { currentUser } }) => {
-  authenticate(currentUser)
+  requireAuth()
   validate(input)
 
   return db.post.create({ data: input })
 }
 
 export const updatePost = ({ id, input }, { context: { currentUser } }) => {
-  authenticate(currentUser)
+  requireAuth()
   validate(input)
 
   return db.post.update({ data: input, where: { id: Number(id) } })
 }
 
 export const hidePost = ({ id }, { context: { currentUser } }) => {
-  authenticate(currentUser)
+  requireAuth()
 
   return db.post.update({
     data: { postedAt: null },
@@ -95,7 +90,7 @@ export const hidePost = ({ id }, { context: { currentUser } }) => {
 }
 
 export const deletePost = ({ id }, { context: { currentUser } }) => {
-  authenticate(currentUser)
+  requireAuth()
 
   return db.post.delete({
     where: { id: Number(id) },
