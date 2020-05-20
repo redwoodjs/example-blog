@@ -1,6 +1,7 @@
+import { AuthProvider } from '@redwoodjs/auth'
+import netlifyIdentity from 'netlify-identity-widget'
 import ReactDOM from 'react-dom'
 import { RedwoodProvider } from '@redwoodjs/web'
-import netlifyIdentity from 'netlify-identity-widget'
 import FatalErrorPage from 'src/pages/FatalErrorPage'
 
 import FatalErrorBoundary from 'src/lib/FatalErrorBoundary'
@@ -8,16 +9,15 @@ import Routes from 'src/Routes'
 
 import './index.css'
 
-if (process.env.USE_AUTHENTICATION === 'true') {
-  window.netlifyIdentity = netlifyIdentity
-  netlifyIdentity.init()
-}
+netlifyIdentity.init()
 
 ReactDOM.render(
   <FatalErrorBoundary page={FatalErrorPage}>
-    <RedwoodProvider>
-      <Routes />
-    </RedwoodProvider>
+    <AuthProvider client={netlifyIdentity} type="netlify">
+      <RedwoodProvider>
+        <Routes />
+      </RedwoodProvider>
+    </AuthProvider>
   </FatalErrorBoundary>,
   document.getElementById('redwood-app')
 )

@@ -4,14 +4,15 @@
   "version": "0.0.0",
   "dependencies": {
     "@gouch/to-title-case": "^2.2.1",
-    "@redwoodjs/router": "^0.6.0",
-    "@redwoodjs/web": "^0.6.0",
+    "@redwoodjs/auth": "0.7.0",
+    "@redwoodjs/router": "0.7.0",
+    "@redwoodjs/web": "0.7.0",
     "error-overlay-webpack-plugin": "^0.4.1",
     "filestack-react": "^3.1.0",
     "html-truncate": "^1.2.2",
     "markdown-it": "^10.0.0",
     "moment": "^2.24.0",
-    "netlify-identity-widget": "^1.5.6",
+    "netlify-identity-widget": "^1.6.0",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
