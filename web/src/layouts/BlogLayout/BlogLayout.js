@@ -6,11 +6,11 @@ import logo from './logo.png'
 import Spinner from './spinner.svg'
 
 const BlogLayout = (props) => {
-  const { authenticated, login, logout } = useAuth()
+  const { authenticated, logIn, logOut } = useAuth()
 
   const { loading } = usePageLoadingContext()
 
-  const doAuth = () => (authenticated ? logout() : login())
+  const doAuth = () => (authenticated ? logOut() : logIn())
 
   return (
     <div className="max-w-8xl mx-auto">
