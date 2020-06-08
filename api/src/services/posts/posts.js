@@ -1,5 +1,4 @@
 import { UserInputError } from '@redwoodjs/api'
-
 import { db } from 'src/lib/db'
 import { requireAuth } from 'src/lib/auth'
 
@@ -23,7 +22,7 @@ export const allPosts = async ({
   return {
     posts: db.post.findMany({
       include: { tags: true },
-      first: limit,
+      take: limit,
       skip: offset,
       orderBy: order,
     }),
