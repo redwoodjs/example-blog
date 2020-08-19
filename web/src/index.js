@@ -1,10 +1,8 @@
 import { AuthProvider } from '@redwoodjs/auth'
 import netlifyIdentity from 'netlify-identity-widget'
 import ReactDOM from 'react-dom'
-import { RedwoodProvider } from '@redwoodjs/web'
+import { RedwoodProvider, FatalErrorBoundary } from '@redwoodjs/web'
 import FatalErrorPage from 'src/pages/FatalErrorPage'
-
-import FatalErrorBoundary from 'src/lib/FatalErrorBoundary'
 import Routes from 'src/Routes'
 
 import './index.css'

@@ -2,9 +2,10 @@ node_modules
 .DS_Store
 dist
 yarn-error.log
-.env
-dist/
+dist
+dist-babel
 schema.graphql
+web/public/mockServiceWorker.js
 
 # api
 dev.db

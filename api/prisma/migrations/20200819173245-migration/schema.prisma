@@ -1,6 +1,6 @@
 datasource hammerDatasource {
   provider = ["sqlite", "postgresql"]
-  url      = env("DATABASE_URL")
+  url = "***"
 }
 
 generator client {
