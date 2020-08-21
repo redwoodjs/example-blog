@@ -6,6 +6,11 @@ import { Link, routes } from '@redwoodjs/router'
 
 const md = new MarkdownIt()
 
+const IMAGE_WIDTHS = {
+  summary: 384,
+  full: 1632,
+}
+
 const formattedDate = (date) => {
   return moment(date).fromNow()
 }
@@ -18,10 +23,23 @@ const formattedBody = (post, summary) => {
   return output
 }
 
+const postImageUrl = (post, summary) => {
+  const filename = post.image.split('/').pop()
+  const type = summary ? 'summary' : 'full'
+
+  return `https://cdn.filestackcontent.com/resize=width:${IMAGE_WIDTHS[type]}/auto_image/compress/${filename}`
+}
+
 const Post = ({ post, summary = false }) => {
   return (
     <article className="mt-4 mb-12">
-      {!summary && <img src={post.image} className="mt-1 mb-2 mr-4 w-full" />}
+      {!summary && (
+        <img
+          src={postImageUrl(post, summary)}
+          className="mt-1 mb-2 mr-4 w-full"
+          loading="lazy"
+        />
+      )}
       <header className="flex items-center justify-between">
         <h1 className="text-2xl font-semibold">
           <Link
@@ -35,7 +53,10 @@ const Post = ({ post, summary = false }) => {
       </header>
       <div className="mt-2">
         {summary && (
-          <img src={post.image} className="float-left mt-1 mr-4 w-48" />
+          <img
+            src={postImageUrl(post, summary)}
+            className="float-left mt-1 mr-4 w-48"
+          />
         )}
         <div
           className="markdown"
