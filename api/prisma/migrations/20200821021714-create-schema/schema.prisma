@@ -1,14 +1,14 @@
 datasource hammerDatasource {
-  provider = "sqlite"
+  provider = ["sqlite", "postgresql"]
   url = "***"
 }
 
-generator photonjs {
+generator client {
   provider = "prisma-client-js"
-  binaryTargets = ["native", "rhel-openssl-1.0.x"]
+  binaryTargets = "native"
 }
 
-// Define your own models here and run yarn db:save to create
+// Define your own datamodels here and run `yarn redwood db save` to create
 // migrations for them.
 
 model Post {

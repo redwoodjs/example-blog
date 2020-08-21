@@ -1,5 +1,4 @@
 import BlogLayout from 'src/layouts/BlogLayout'
-import image from 'web/public/images/wall-o-hammers.jpg'
 
 const AboutPage = () => {
   return (
@@ -7,7 +6,10 @@ const AboutPage = () => {
       <main className="text-left py-6 font-light">
         <figure>
           <div className="h-64 overflow-hidden">
-            <img alt="Wall of hammers" src={image} />
+            <img
+              alt="Wall of hammers"
+              src="https://cdn.filestackcontent.com/resize=width:1632/auto_image/compress/TO4k0qKNRLKbMSJ2fQGj"
+            />
           </div>
           <figcaption className="text-right text-xs text-gray-500">
             Image from https://www.juritroy.com/en/office/hammer-collection
