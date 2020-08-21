@@ -1,6 +1,6 @@
-body {
-  font-family: 'Avenir', sans-serif;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 .markdown p {
   margin-top: 1rem;
