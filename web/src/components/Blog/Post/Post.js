@@ -7,7 +7,7 @@ import { Link, routes } from '@redwoodjs/router'
 const md = new MarkdownIt()
 
 const IMAGE_WIDTHS = {
-  summary: 384,
+  summary: 576,
   full: 1632,
 }
 
