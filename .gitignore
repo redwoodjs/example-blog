@@ -3,8 +3,10 @@ node_modules
 dist
 yarn-error.log
 .env
-dist/
+dist
+dist-babel
 schema.graphql
+web/public/mockServiceWorker.js
 
 # api
 dev.db
@@ -12,7 +14,6 @@ api/generated/generated-types.d.ts
 packages/photon/runtime
 packages/photon/index.js
 packages/photon/index.d.ts
-
 
 # Local Netlify folder
 .netlify

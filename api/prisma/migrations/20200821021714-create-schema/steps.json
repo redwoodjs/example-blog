@@ -12,7 +12,7 @@
         "source": "hammerDatasource"
       },
       "argument": "provider",
-      "value": "\"sqlite\""
+      "value": "[\"sqlite\", \"postgresql\"]"
     },
     {
       "tag": "CreateArgument",
@@ -21,7 +21,7 @@
         "source": "hammerDatasource"
       },
       "argument": "url",
-      "value": "env(\"DB_HOST\")"
+      "value": "\"***\""
     },
     {
       "tag": "CreateModel",
