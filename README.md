@@ -1,11 +1,11 @@
-## RedwoodJS Example Blog
+## RedwoodJS Example Blog: Vercel Deploy
 
 ![RedwoodJS Example Blog Screenshot](https://user-images.githubusercontent.com/300/67903394-aced3080-fb28-11e9-85bb-b5fdbb4b6c34.png)
 
-You can view this app live at redwoodjs-example-blog.vercel.app
+You can view this app live at https://redwoodjs-example-blog.vercel.app
 
 ## Table of Contents
-- [RedwoodJS Example Blog](#redwoodjs-example-blog)
+- [RedwoodJS Example Blog: Vercel Deploy](#redwoodjs-example-blog-vercel-deploy)
 - [Table of Contents](#table-of-contents)
 - [Overview](#overview)
 - [Getting Started](#getting-started)
@@ -78,10 +78,12 @@ To create, publish, and edit Posts, navigate to http://localhost:8910/admin
 
 > **Admin Error Message:** If you have not set a value for the `FILESTACK_API_KEY` env var, you'll encounter an error when you try to create or edit posts. See the [Enabling Image Uploads](#enabling-image-uploads) section below.
 
+> The /admin routes are enabled by an environment variable `USE_ADMIN=enable` in `env.defaults`. See the file `web/src/Routes.js`. Without this env var, /admin will be disabled when deployed. It is recommended to replace this with proper authentication. See "TO DO: Enabling Authentication" below.
+
 ### Deployment
 
 See the section on [Vercel Deployment](https://redwoodjs.com/docs/deploy#vercel-deploy) in the Deploy doc.
-1. Setup a production database (Postgres recommended)
+1. Set up a production database (Postgres recommended)
 2. Configure for Vercel deploy with the command `yarn rw g deploy vercel`
 3. Import project from git repo into Vercel
 
@@ -90,8 +92,6 @@ See the section on [Vercel Deployment](https://redwoodjs.com/docs/deploy#vercel-
 > **Warning:** Do not use this project in production without adding Authentication to the Admin pages.
 
 To add Redwood Auth to this blog, see the [Authentication](https://redwoodjs.com/docs/authentication) documentation. The Redwood Tutorial provides a walkthrough of [Netlify Identity setup](https://redwoodjs.com/tutorial/authentication), which will give you an overview of the process but will not work on the Vercel platform.
-
-
 
 #### Enabling Image Uploads
 

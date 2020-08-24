@@ -3,14 +3,21 @@ import { Router, Route } from '@redwoodjs/router'
 const Routes = () => {
   return (
     <Router>
-      <Route path="/admin" page={AdminPostsPage} name="admin" />
-      <Route path="/admin/new" page={AdminNewPostPage} name="adminNew" />
-      <Route
-        path="/admin/{id}/edit"
-        page={AdminEditPostPage}
-        name="adminEdit"
-      />
-
+      {/* disables /admin routes unless USE_ADMIN=true
+      TODO replace with Redwood Authentication */}
+      {process.env.USE_ADMIN && (
+        <Route path="/admin" page={AdminPostsPage} name="admin" />
+      )}
+      {process.env.USE_ADMIN && (
+        <Route path="/admin/new" page={AdminNewPostPage} name="adminNew" />
+      )}
+      {process.env.USE_ADMIN && (
+        <Route
+          path="/admin/{id}/edit"
+          page={AdminEditPostPage}
+          name="adminEdit"
+        />
+      )}
       <Route path="/" page={HomePage} name="home" />
       <Route path="/page/{page}" page={HomePage} name="page" />
       <Route path="/about" page={AboutPage} name="about" />
