@@ -5,13 +5,13 @@ const Routes = () => {
     <Router>
       {/* disables /admin routes unless USE_ADMIN=true
       TODO replace with Redwood Authentication */}
-      {process.env.USE_ADMIN === 'true' && (
+      {process.env.USE_ADMIN === 'enable' && (
         <Route path="/admin" page={AdminPostsPage} name="admin" />
       )}
-      {process.env.USE_ADMIN === 'true' && (
+      {process.env.USE_ADMIN === 'enable' && (
         <Route path="/admin/new" page={AdminNewPostPage} name="adminNew" />
       )}
-      {process.env.USE_ADMIN === 'true' && (
+      {process.env.USE_ADMIN === 'enable' && (
         <Route
           path="/admin/{id}/edit"
           page={AdminEditPostPage}
