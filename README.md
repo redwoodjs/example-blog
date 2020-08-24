@@ -2,7 +2,7 @@
 
 ![RedwoodJS Example Blog Screenshot](https://user-images.githubusercontent.com/300/67903394-aced3080-fb28-11e9-85bb-b5fdbb4b6c34.png)
 
-You can view this app live at redwoodjs-example-blog.vercel.app
+You can view this app live at https://redwoodjs-example-blog.vercel.app
 
 ## Table of Contents
 - [Overview](#overview)
