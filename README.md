@@ -5,6 +5,8 @@
 You can view this app live at https://redwoodjs-example-blog.vercel.app
 
 ## Table of Contents
+- [RedwoodJS Example Blog: Vercel Deploy](#redwoodjs-example-blog-vercel-deploy)
+- [Table of Contents](#table-of-contents)
 - [Overview](#overview)
 - [Getting Started](#getting-started)
   - [Installation](#installation)
@@ -76,12 +78,12 @@ To create, publish, and edit Posts, navigate to http://localhost:8910/admin
 
 > **Admin Error Message:** If you have not set a value for the `FILESTACK_API_KEY` env var, you'll encounter an error when you try to create or edit posts. See the [Enabling Image Uploads](#enabling-image-uploads) section below.
 
-> The /admin routes are enabled by an environment variable `USE_ADMIN=true` in `env.defaults`. See the file `web/src/Routes.js`. Without this env var, /admin will be disabled when deployed. It is recommended to replace this with proper authentication. See "TO DO: Enabling Authentication" below.
+> The /admin routes are enabled by an environment variable `USE_ADMIN=enable` in `env.defaults`. See the file `web/src/Routes.js`. Without this env var, /admin will be disabled when deployed. It is recommended to replace this with proper authentication. See "TO DO: Enabling Authentication" below.
 
 ### Deployment
 
 See the section on [Vercel Deployment](https://redwoodjs.com/docs/deploy#vercel-deploy) in the Deploy doc.
-1. Setup a production database (Postgres recommended)
+1. Set up a production database (Postgres recommended)
 2. Configure for Vercel deploy with the command `yarn rw g deploy vercel`
 3. Import project from git repo into Vercel
 
