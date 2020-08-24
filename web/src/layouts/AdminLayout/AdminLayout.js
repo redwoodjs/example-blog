@@ -1,12 +1,6 @@
-import { useState } from 'react'
 import { Link, routes } from '@redwoodjs/router'
-import { useAuth } from '@redwoodjs/auth'
 
 const AdminLayout = (props) => {
-  const { logout } = useAuth()
-
-  const isAuthEnabled = true
-
   return (
     <div className="mx-8">
       <header className="block md:flex justify-between items-center pt-4 pb-4 px-8 border-b">
@@ -26,15 +20,6 @@ const AdminLayout = (props) => {
             </Link>
           </h1>
         </div>
-        <nav className="text-right">
-          <a
-            href="#"
-            onClick={logout}
-            className="text-indigo-500 hover:text-indigo-800 text-xs uppercase"
-          >
-            Logout
-          </a>
-        </nav>
       </header>
       <main className="flex mt-2 px-8 pb-8">
         <aside className="hidden md:block w-64 mt-4">

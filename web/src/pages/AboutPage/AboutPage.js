@@ -34,10 +34,6 @@ const AboutPage = () => {
             Wrapping pages in <strong className="font-semibold">layouts</strong>
           </li>
           <li>
-            Authentication using{' '}
-            <strong className="font-semibold">Netlify Identity</strong>
-          </li>
-          <li>
             Components which handle their own data access, loading placeholders
             and display we call <strong className="font-semibold">cells</strong>
           </li>
@@ -47,26 +43,10 @@ const AboutPage = () => {
           </li>
           <li>
             A serverless API deployed somewhere like{' '}
-            <strong className="font-semibold">Netlify</strong>
+            <strong className="font-semibold">Netlify</strong> or{' '}
+            <strong className="font-semibold">Vercel</strong>
           </li>
         </ul>
-        <p className="mt-4">
-          Check out the code in the{' '}
-          <a
-            href="https://github.com/hammerframework/example-blog"
-            className="underline"
-          >
-            example-blog
-          </a>{' '}
-          repo and read the{' '}
-          <a
-            href="https://github.com/hammerframework/example-blog/tree/master/README.md"
-            className="underline"
-          >
-            README
-          </a>{' '}
-          for more info.
-        </p>
       </main>
     </BlogLayout>
   )

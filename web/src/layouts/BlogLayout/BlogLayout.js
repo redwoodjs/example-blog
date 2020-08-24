@@ -1,16 +1,11 @@
 import Menu from 'src/components/Blog/Menu'
 import { Link, NavLink, routes, usePageLoadingContext } from '@redwoodjs/router'
-import { useAuth } from '@redwoodjs/auth'
 
 import logo from './logo.png'
 import Spinner from './spinner.svg'
 
 const BlogLayout = (props) => {
-  const { authenticated, logIn, logOut } = useAuth()
-
   const { loading } = usePageLoadingContext()
-
-  const doAuth = () => (authenticated ? logOut() : logIn())
 
   return (
     <div className="max-w-8xl mx-auto">
@@ -52,25 +47,6 @@ const BlogLayout = (props) => {
                   Contact
                 </NavLink>
               </li>
-              {authenticated && (
-                <li className="mx-4 font-semibold uppercase">
-                  <NavLink
-                    to={routes.admin()}
-                    className="text-white hover:text-indigo-800"
-                    activeClassName="bg-white text-indigo-600 px-2 py-1 rounded"
-                  >
-                    Admin
-                  </NavLink>
-                </li>
-              )}
-              <li className="mx-4 font-semibold uppercase">
-                <a
-                  onClick={doAuth}
-                  className="cursor-pointer text-indigo-200 hover:text-indigo-800"
-                >
-                  {authenticated ? 'Logout' : 'Login'}
-                </a>
-              </li>
             </ul>
           </nav>
         </header>
@@ -81,7 +57,7 @@ const BlogLayout = (props) => {
           </section>
         </main>
         <footer className="bg-indigo-600 text-indigo-200 text-sm text-center py-4">
-          Copyright ©2019 Hammers, Inc.
+          Copyright ©{new Date().getFullYear()} Hammers, Inc.
         </footer>
       </div>
     </div>

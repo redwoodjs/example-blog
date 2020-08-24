@@ -1,17 +1,15 @@
-import { Router, Private, Route } from '@redwoodjs/router'
+import { Router, Route } from '@redwoodjs/router'
 
 const Routes = () => {
   return (
     <Router>
-      <Private unauthenticated="home">
-        <Route path="/admin" page={AdminPostsPage} name="admin" />
-        <Route path="/admin/new" page={AdminNewPostPage} name="adminNew" />
-        <Route
-          path="/admin/{id}/edit"
-          page={AdminEditPostPage}
-          name="adminEdit"
-        />
-      </Private>
+      <Route path="/admin" page={AdminPostsPage} name="admin" />
+      <Route path="/admin/new" page={AdminNewPostPage} name="adminNew" />
+      <Route
+        path="/admin/{id}/edit"
+        page={AdminEditPostPage}
+        name="adminEdit"
+      />
 
       <Route path="/" page={HomePage} name="home" />
       <Route path="/page/{page}" page={HomePage} name="page" />

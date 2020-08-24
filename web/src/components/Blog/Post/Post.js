@@ -24,10 +24,14 @@ const formattedBody = (post, summary) => {
 }
 
 const postImageUrl = (post, summary) => {
-  const filename = post.image.split('/').pop()
-  const type = summary ? 'summary' : 'full'
+  if (post.image) {
+    const filename = post.image.split('/').pop()
+    const type = summary ? 'summary' : 'full'
 
-  return `https://cdn.filestackcontent.com/resize=width:${IMAGE_WIDTHS[type]}/auto_image/compress/${filename}`
+    return `https://cdn.filestackcontent.com/resize=width:${IMAGE_WIDTHS[type]}/auto_image/compress/${filename}`
+  } else {
+    return '/images/wall-o-hammers.jpg'
+  }
 }
 
 const Post = ({ post, summary = false }) => {
