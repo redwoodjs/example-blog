@@ -6,7 +6,7 @@ import {
   Submit,
   Label,
   FieldError,
-} from '@redwoodjs/web'
+} from '@redwoodjs/forms'
 
 const CSS = {
   label:
