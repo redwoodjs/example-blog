@@ -3,6 +3,7 @@ node_modules
 dist
 yarn-error.log
 .env
+.redwood
 dist
 dist-babel
 schema.graphql
