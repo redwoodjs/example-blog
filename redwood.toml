@@ -7,7 +7,8 @@
 
 [web]
   port = 8910
-  apiProxyPath = "/.netlify/functions"
+  apiProxyPath = "/.redwood/functions"
+  includeEnvironmentVariables = ['FILESTACK_API_KEY', 'USE_AUTHENTICATION']
 [api]
   port = 8911
 [browser]

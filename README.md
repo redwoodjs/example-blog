@@ -6,14 +6,16 @@ You can view this app live at https://redwood-example-blog.netlify.com
 
 ## Table of Contents
 
-* [Overview](#overview)
-* [Getting Started](#getting-started)
-  * [Installation](#installation)
-    * [Enabling Authentication](#enabling-authentication)
-    * [Enabling Identity on Netlify](#enabling-identity-on-netlify)
-    * [Enabling Image Uploads](#enabling-image-uploads)
-* [Architecture](#architecture)
-* [TODO](#todo)
+- [RedwoodJS Example Blog](#redwoodjs-example-blog)
+- [Table of Contents](#table-of-contents)
+- [Overview](#overview)
+- [Getting Started](#getting-started)
+  - [Installation](#installation)
+  - [Deployment](#deployment)
+    - [Enabling Authentication](#enabling-authentication)
+    - [Enabling Identity on Netlify](#enabling-identity-on-netlify)
+    - [Enabling Image Uploads](#enabling-image-uploads)
+- [TODO](#todo)
 
 ## Overview
 
@@ -77,7 +79,7 @@ be seeing the homepage (similar to the screenshot above).
 
 ### Deployment
 
-See the section on [Deployment](https://redwoodjs.com/tutorial/deployment#netlify) in the [Redwood Tutorial](https://redwoodjs.com/tutorial).
+See the section on [Deployment](https://redwoodjs.com/tutorial/deployment) in the [Redwood Tutorial](https://redwoodjs.com/tutorial).
 
 #### Enabling Authentication
 
