@@ -1,6 +1,6 @@
 import { useMutation } from '@redwoodjs/web'
 import { Link, routes } from '@redwoodjs/router'
-import moment from 'moment'
+import { format, formatDistanceToNow } from 'date-fns'
 
 const HIDE_POST_MUTATION = gql`
   mutation HidePostMutation($id: ID!) {
@@ -76,14 +76,14 @@ const PostsList = ({ posts }) => {
                   <span className="block">
                     Published{' '}
                     <time dateTime={post.postedAt}>
-                      {moment(post.postedAt).fromNow()}
+                      {formatDistanceToNow(new Date(post.postedAt), { addSuffix: true })}
                     </time>
                   </span>
                   <time
                     className="block text-gray-500"
                     dateTime={post.postedAt}
                   >
-                    {moment(post.postedAt).format('LLLL')}
+                    {format(new Date(post.postedAt), "PPPPp")}
                   </time>
                 </>
               ) : (
