@@ -3,15 +3,21 @@
   "name": "web",
   "version": "0.0.0",
   "browserslist": {
-    "development": [ "last 1 version" ],
-    "production": ["defaults", "not IE 11", "not IE_Mob 11"]
+    "development": [
+      "last 1 version"
+    ],
+    "production": [
+      "defaults",
+      "not IE 11",
+      "not IE_Mob 11"
+    ]
   },
   "dependencies": {
     "@gouch/to-title-case": "^2.2.1",
-    "@redwoodjs/auth": "0.18.0",
-    "@redwoodjs/forms": "^0.18.0",
-    "@redwoodjs/router": "0.18.0",
-    "@redwoodjs/web": "0.18.0",
+    "@redwoodjs/auth": "0.19.1",
+    "@redwoodjs/forms": "^0.19.1",
+    "@redwoodjs/router": "0.19.1",
+    "@redwoodjs/web": "0.19.1",
     "date-fns": "^2.16.1",
     "error-overlay-webpack-plugin": "^0.4.1",
     "filestack-react": "^3.1.0",
