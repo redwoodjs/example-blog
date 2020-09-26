@@ -1,4 +1,4 @@
-import moment from 'moment'
+import { formatDistanceToNow } from 'date-fns'
 import MarkdownIt from 'markdown-it'
 import truncate from 'html-truncate'
 import TagList from 'src/components/Blog/TagList'
@@ -12,7 +12,7 @@ const IMAGE_WIDTHS = {
 }
 
 const formattedDate = (date) => {
-  return moment(date).fromNow()
+  return formatDistanceToNow(new Date(date), { addSuffix: true })
 }
 
 const formattedBody = (post, summary) => {

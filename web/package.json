@@ -2,20 +2,28 @@
   "private": true,
   "name": "web",
   "version": "0.0.0",
+  "browserslist": {
+    "development": [ "last 1 version" ],
+    "production": ["defaults", "not IE 11", "not IE_Mob 11"]
+  },
   "dependencies": {
     "@gouch/to-title-case": "^2.2.1",
     "@redwoodjs/forms": "0.18.0",
     "@redwoodjs/router": "0.18.0",
     "@redwoodjs/web": "0.18.0",
+    "date-fns": "^2.16.1",
     "error-overlay-webpack-plugin": "^0.4.1",
     "filestack-react": "^3.1.0",
     "html-truncate": "^1.2.2",
     "markdown-it": "^10.0.0",
-    "moment": "^2.24.0",
     "netlify-identity-widget": "^1.6.0",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "tailwindcss": "^1.7.3"
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.8.6",
+    "postcss-loader": "^4.0.1",
+    "tailwindcss": "^1.8.6"
   }
 }
