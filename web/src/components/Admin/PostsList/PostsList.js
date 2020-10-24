@@ -2,6 +2,8 @@ import { useMutation } from '@redwoodjs/web'
 import { Link, routes } from '@redwoodjs/router'
 import { format, formatDistanceToNow } from 'date-fns'
 
+import { QUERY } from 'src/components/Admin/PostsCell'
+
 const HIDE_POST_MUTATION = gql`
   mutation HidePostMutation($id: ID!) {
     hidePost(id: $id) {
@@ -27,12 +29,22 @@ const PostsList = ({ posts }) => {
     onCompleted: () => {
       location.reload()
     },
+    // This refetches the query on the list page. Read more about other ways to
+    // update the cache over here:
+    // https://www.apollographql.com/docs/react/data/mutations/#making-all-other-cache-updates
+    refetchQueries: [{ query: QUERY }],
+    awaitRefetchQueries: true,
   })
 
   const [deletePost] = useMutation(DELETE_POST_MUTATION, {
     onCompleted: () => {
       location.reload()
     },
+    // This refetches the query on the list page. Read more about other ways to
+    // update the cache over here:
+    // https://www.apollographql.com/docs/react/data/mutations/#making-all-other-cache-updates
+    refetchQueries: [{ query: QUERY }],
+    awaitRefetchQueries: true,
   })
 
   const onHideClick = (event) => {
