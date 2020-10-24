@@ -1,6 +1,8 @@
 import { useMutation } from '@redwoodjs/web'
 import PostForm from 'src/components/Admin/PostForm'
 
+import { QUERY } from 'src/components/Admin/PostsCell'
+
 const CREATE_POST_MUTATION = gql`
   mutation CreatePostMutation($input: PostInput!) {
     createPost(input: $input) {
@@ -14,6 +16,11 @@ const NewPost = () => {
     onCompleted: () => {
       location.href = '/admin'
     },
+    // This refetches the query on the list page. Read more about other ways to
+    // update the cache over here:
+    // https://www.apollographql.com/docs/react/data/mutations/#making-all-other-cache-updates
+    refetchQueries: [{ query: QUERY }],
+    awaitRefetchQueries: true,
   })
 
   const onSave = (data, type) => {
