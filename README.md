@@ -17,7 +17,7 @@ You can view this app live at https://redwood-example-blog.netlify.com
     - [Enabling Image Uploads](#enabling-image-uploads)
 - [TODO](#todo)
 
-## Overview
+## Overview  
 
 Here is a full-featured blog engine written with RedwoodJS. It includes:
 
