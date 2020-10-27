@@ -27,7 +27,7 @@ Here is a full-featured blog engine written with RedwoodJS. It includes:
 * Contact form
 * Fully responsive at various viewport sizes
 
-The admin includes:
+The admin includes:  
 
 * Create a new blog post with:
     * Title
