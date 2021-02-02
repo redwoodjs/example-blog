@@ -2,7 +2,11 @@
 
 ![RedwoodJS Example Blog Screenshot](https://user-images.githubusercontent.com/300/67903394-aced3080-fb28-11e9-85bb-b5fdbb4b6c34.png)
 
-You can view this app live at https://redwood-example-blog.netlify.com
+You can view this app live at:
+- Netlify Deploy: https://redwood-example-blog.netlify.com
+- Vercel Deploy: https://redwoodjs-example-blog.vercel.app
+
+> Note: The Authentication section of this walkthrough uses Netlify Identity, which will _only_ work on Netlify. If you wish to use Vercel, you can simply replace the Netlify Identity provider with another provider supported by [Redwood Auth](https://redwoodjs.com/docs/authentication). Or you can start the project from the [`vercel-deploy` branch](https://github.com/redwoodjs/example-blog/tree/vercel-deploy) of this repository. 
 
 ## Table of Contents
 
