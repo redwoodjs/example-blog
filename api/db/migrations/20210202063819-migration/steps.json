@@ -3,13 +3,13 @@
   "steps": [
     {
       "tag": "CreateSource",
-      "source": "hammerDatasource"
+      "source": "DS"
     },
     {
       "tag": "CreateArgument",
       "location": {
         "tag": "Source",
-        "source": "hammerDatasource"
+        "source": "DS"
       },
       "argument": "provider",
       "value": "[\"sqlite\", \"postgresql\"]"
@@ -18,7 +18,7 @@
       "tag": "CreateArgument",
       "location": {
         "tag": "Source",
-        "source": "hammerDatasource"
+        "source": "DS"
       },
       "argument": "url",
       "value": "\"***\""
