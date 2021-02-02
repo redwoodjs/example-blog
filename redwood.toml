@@ -11,5 +11,6 @@
   includeEnvironmentVariables = ['FILESTACK_API_KEY', 'USE_ADMIN']
 [api]
   port = 8911
+  schemaPath = "./api/db/schema.prisma"
 [browser]
   open = true
