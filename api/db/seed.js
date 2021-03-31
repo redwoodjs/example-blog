@@ -2,12 +2,6 @@
 const { PrismaClient } = require('@prisma/client')
 const prisma = new PrismaClient()
 
-async function asyncForEach(array, callback) {
-  for (let index = 0; index < array.length; index++) {
-    await callback(array[index], index, array)
-  }
-}
-
 async function main() {
   const tagData = [
     {
@@ -29,13 +23,13 @@ async function main() {
 
   const tags = []
 
-  await asyncForEach(tagData, async (tag) => {
+  for (const tag of tagData) {
     tags.push(
       await prisma.tag.create({
         data: tag,
       })
     )
-  })
+  }
 
   const postData = [
     {
@@ -174,14 +168,14 @@ async function main() {
 
   const posts = []
 
-  await asyncForEach(postData, async (post) => {
+  for (const post of postData) {
     console.log(`Creating ${post.title}...`)
     posts.push(
       await prisma.post.create({
         data: post,
       })
     )
-  })
+  }
 
   console.info(`\nSeeded ${postData.length} posts\n`)
 }

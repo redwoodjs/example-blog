@@ -31,14 +31,14 @@ export const allPosts = async ({
 }
 
 export const findPostById = ({ id }) => {
-  return db.post.findOne({
+  return db.post.findUnique({
     where: { id: parseInt(id) },
     include: { tags: true },
   })
 }
 
 export const findPostBySlug = ({ slug }) => {
-  return db.post.findOne({
+  return db.post.findUnique({
     where: { slug: slug },
     include: { tags: true },
   })
@@ -46,7 +46,7 @@ export const findPostBySlug = ({ slug }) => {
 
 export const findPostsByTag = ({ tag }) => {
   return db.tag
-    .findOne({
+    .findUnique({
       where: { name: tag },
     })
     .posts({ include: { tags: true } })

@@ -1,4 +1,3 @@
-import BlogLayout from 'src/layouts/BlogLayout'
 import {
   Form,
   TextField,
@@ -32,75 +31,73 @@ const ContactPage = () => {
   }
 
   return (
-    <BlogLayout>
-      <main className="text-left py-6 font-light">
-        <p className="text-lg">
-          Do you have a hammer you want us to review? Suggestions for improving
-          our reviews? Send us a message!
-        </p>
+    <main className="text-left py-6 font-light">
+      <p className="text-lg">
+        Do you have a hammer you want us to review? Suggestions for improving
+        our reviews? Send us a message!
+      </p>
 
-        <Form
-          onSubmit={onSubmit}
-          className="mt-8 max-w-lg mx-auto"
-          netlify="true"
+      <Form
+        onSubmit={onSubmit}
+        className="mt-8 max-w-lg mx-auto"
+        netlify="true"
+      >
+        <Label
+          name="name"
+          className={CSS.label}
+          errorClassName={CSS.labelError}
         >
-          <Label
-            name="name"
-            className={CSS.label}
-            errorClassName={CSS.labelError}
-          >
-            Name
-          </Label>
-          <TextField
-            name="name"
-            className={CSS.input}
-            errorClassName={CSS.inputError}
-            validation={{ required: true }}
-          />
-          <FieldError name="name" className={CSS.error} />
+          Name
+        </Label>
+        <TextField
+          name="name"
+          className={CSS.input}
+          errorClassName={CSS.inputError}
+          validation={{ required: true }}
+        />
+        <FieldError name="name" className={CSS.error} />
 
-          <Label
-            name="email"
-            className={CSS.label}
-            errorClassName={CSS.labelError}
-          >
-            Email
-          </Label>
-          <TextField
-            name="email"
-            className={CSS.input}
-            errorClassName={CSS.inputError}
-            validation={{
-              required: true,
-              pattern: {
-                value: EMAIL_REGEX,
-                message: 'Enter a valid email address',
-              },
-            }}
-          />
-          <FieldError name="email" className={CSS.error} />
+        <Label
+          name="email"
+          className={CSS.label}
+          errorClassName={CSS.labelError}
+        >
+          Email
+        </Label>
+        <TextField
+          name="email"
+          className={CSS.input}
+          errorClassName={CSS.inputError}
+          validation={{
+            required: true,
+            pattern: {
+              value: EMAIL_REGEX,
+              message: 'Enter a valid email address',
+            },
+          }}
+        />
+        <FieldError name="email" className={CSS.error} />
 
-          <Label
-            name="body"
-            className={CSS.label}
-            errorClassName={CSS.labelError}
-          >
-            Message
-          </Label>
-          <TextAreaField
-            name="body"
-            className={CSS.input + ' h-48'}
-            errorClassName={CSS.inputError + ' h-48'}
-            validation={{ required: true }}
-          />
-          <FieldError name="body" className={CSS.error} />
+        <Label
+          name="body"
+          className={CSS.label}
+          errorClassName={CSS.labelError}
+        >
+          Message
+        </Label>
+        <TextAreaField
+          name="body"
+          className={CSS.input + ' h-48'}
+          errorClassName={CSS.inputError + ' h-48'}
+          validation={{ required: true }}
+        />
+        <FieldError name="body" className={CSS.error} />
 
-          <div className="mt-4 text-right">
-            <Submit className={CSS.submit}>Submit</Submit>
-          </div>
-        </Form>
-      </main>
-    </BlogLayout>
+        <div className="mt-4 text-right">
+          <Submit className={CSS.submit}>Submit</Submit>
+        </div>
+      </Form>
+    </main>
   )
 }
 

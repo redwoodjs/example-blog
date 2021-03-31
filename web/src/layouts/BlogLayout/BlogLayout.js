@@ -1,5 +1,5 @@
 import Menu from 'src/components/Blog/Menu'
-import { Link, NavLink, routes, usePageLoadingContext } from '@redwoodjs/router'
+import { Link, NavLink, routes } from '@redwoodjs/router'
 import { useAuth } from '@redwoodjs/auth'
 
 import logo from './logo.png'
@@ -8,17 +8,10 @@ import Spinner from './spinner.svg'
 const BlogLayout = (props) => {
   const { authenticated, logIn, logOut } = useAuth()
 
-  const { loading } = usePageLoadingContext()
-
   const doAuth = () => (authenticated ? logOut() : logIn())
 
   return (
     <div className="max-w-8xl mx-auto">
-      {loading && (
-        <div className="fixed inset-0 z-50 overflow-auto bg-black opacity-25 flex">
-          <Spinner className="w-32 h-32 bg-white p-8 rounded-md relative m-auto" />
-        </div>
-      )}
       <div className="sm:mx-8">
         <header className="md:flex flex-wrap items-center border-b-4 border-indigo-300 bg-indigo-600 text-white px-8 py-6 ">
           <div className="flex flex-1">
