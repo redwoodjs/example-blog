@@ -1,7 +1,5 @@
 datasource DS {
-  // optionally set multiple providers
-  // example: provider = ["sqlite", "postgresql"]
-  provider = ["sqlite", "postgresql"]
+  provider = "sqlite"
   url      = env("DATABASE_URL")
 }
 
@@ -14,25 +12,25 @@ generator client {
 // migrations for them.
 
 model Post {
-  id Int @id @default(autoincrement())
-  title String
-  slug String @unique
-  author String
-  body String
-  image String?
-  tags Tag[]
+  id       Int @id @default(autoincrement())
+  title    String
+  slug     String @unique
+  author   String
+  body     String
+  image    String?
+  tags     Tag[]
   postedAt DateTime?
 }
 
 model Tag {
-  id Int @id @default(autoincrement())
-  name String @unique
-  posts Post[]
+  id     Int @id @default(autoincrement())
+  name   String @unique
+  posts  Post[]
 }
 
 model User {
-  id Int @id @default(autoincrement())
-  name String?
-  email String @unique
+  id Int  @id @default(autoincrement())
+  name    String?
+  email   String @unique
   isAdmin Boolean @default(false)
 }
