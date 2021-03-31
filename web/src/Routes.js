@@ -1,17 +1,20 @@
 import { Router, Private, Route, Set } from '@redwoodjs/router'
 import BlogLayout from 'src/layouts/BlogLayout'
+import AdminLayout from 'src/layouts/AdminLayout'
 
 const Routes = () => {
   return (
     <Router>
       <Private unauthenticated="home">
-        <Route path="/admin" page={AdminPostsPage} name="admin" />
-        <Route path="/admin/new" page={AdminNewPostPage} name="adminNew" />
-        <Route
-          path="/admin/{id}/edit"
-          page={AdminEditPostPage}
-          name="adminEdit"
-        />
+        <Set wrap={AdminLayout}>
+          <Route path="/admin" page={AdminPostsPage} name="admin" />
+          <Route path="/admin/new" page={AdminNewPostPage} name="adminNew" />
+          <Route
+            path="/admin/{id}/edit"
+            page={AdminEditPostPage}
+            name="adminEdit"
+          />
+        </Set>
       </Private>
 
       <Set wrap={BlogLayout}>
