@@ -1,5 +1,6 @@
 import Post from 'src/components/Blog/Post'
 import Pagination from 'src/components/Blog/Pagination'
+import InlineLoader from 'src/components/InlineLoader/InlineLoader'
 
 export const beforeQuery = ({ page, perPage }) => {
   page = page ? parseInt(page) : 1
@@ -27,7 +28,7 @@ export const QUERY = gql`
   }
 `
 
-export const Loading = () => <div>Loading...</div>
+export const Loading = InlineLoader
 
 const sortedPosts = (posts) => {
   return posts.slice().sort((a, b) => {
