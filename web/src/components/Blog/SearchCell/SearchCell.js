@@ -1,5 +1,6 @@
 import gql from 'graphql-tag'
 import Post from 'src/components/Blog/Post'
+import InlineLoader from 'src/components/InlineLoader/InlineLoader'
 
 export const beforeQuery = ({ term }) => ({ variables: { term } })
 
@@ -21,7 +22,7 @@ export const QUERY = gql`
   }
 `
 
-export const Loading = () => <div>Loading...</div>
+export const Loading = InlineLoader
 
 export const Success = ({ posts, variables }) => {
   return (
