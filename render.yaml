@@ -19,9 +19,9 @@ services:
 #####
 # NOTE: replace destination api url after first deploy to Render
 # example:
-#   destination: https://myredwoodproject-api.onrender.com/*
+#   destination: https://redwood-example-blog-api.onrender.com/*
 #####
-    destination: replace_with_api_url/*
+    destination: https://redwood-example-blog-api.onrender.com/*
   - type: rewrite
     source: /*
     destination: /index.html
