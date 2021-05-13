@@ -18,9 +18,9 @@ const Routes = () => {
       </Private>
 
       <Set wrap={BlogLayout}>
-        <Route path="/" page={HomePage} name="home" />
+        <Route path="/" page={HomePage} name="home" prerender />
         <Route path="/page/{page}" page={HomePage} name="page" />
-        <Route path="/about" page={AboutPage} name="about" />
+        <Route path="/about" page={AboutPage} name="about" prerender />
         <Route path="/contact" page={ContactPage} name="contact" />
         <Route path="/posts/{slug}" page={PostPage} name="post" />
         <Route path="/tags/{tag}" page={TaggedPostsPage} name="tag" />
