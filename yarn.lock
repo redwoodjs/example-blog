@@ -2010,6 +2010,24 @@
     tiny-warning "^1.0.3"
     tslib "^2.1.0"
 
+"@redwoodjs/api-server@^0.31.2":
+  version "0.31.2"
+  resolved "https://registry.yarnpkg.com/@redwoodjs/api-server/-/api-server-0.31.2.tgz#8a6c9bcd61f38f8db3252360cb87dc90f044433a"
+  integrity sha512-2etsTx/cXQsvpdsenlHs63X+ajp7U2zh81EIasfLK+0H963dUdeaajvkjd6z28huLGYGdZI1SnbnYIv8ih89SA==
+  dependencies:
+    body-parser "^1.19.0"
+    chokidar "3.5.1"
+    dotenv-defaults "2.0.1"
+    express "^4.17.1"
+    glob "7.1.6"
+    http-proxy-middleware "^1.1.0"
+    lodash.escape "^4.0.1"
+    morgan "^1.10.0"
+    qs "^6.9.3"
+    yargs "^16.0.3"
+    youch "^2.1.1"
+    youch-terminal "^1.0.1"
+
 "@redwoodjs/api-server@^0.32.1-canary.9+2c4761ae":
   version "0.32.1-canary.9"
   resolved "https://registry.yarnpkg.com/@redwoodjs/api-server/-/api-server-0.32.1-canary.9.tgz#fcdaa2f73e81eced5ad1977cf3bba46f14f62c05"
@@ -16318,14 +16336,14 @@ yocto-queue@^0.1.0:
   resolved "https://registry.yarnpkg.com/yocto-queue/-/yocto-queue-0.1.0.tgz#0294eb3dee05028d31ee1a5fa2c556a6aaf10a1b"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
 
-youch-terminal@^1.1.1:
+youch-terminal@^1.0.1, youch-terminal@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/youch-terminal/-/youch-terminal-1.1.1.tgz#1b16780be43816e8817adced966a9a36113827f8"
   integrity sha512-LRJCIDkMH4AA6KtiX1JH3nBO8xCJx8le/CHI2hheBGHd7hcpP62owgUW5R9ObrxW0RLQT/VqPRO4mR92STkvAw==
   dependencies:
     kleur "^4.1.4"
 
-youch@^2.2.2:
+youch@^2.1.1, youch@^2.2.2:
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/youch/-/youch-2.2.2.tgz#cb87a359a5c524ebd35eb07ca3a1521dbc7e1a3e"
   integrity sha512-/FaCeG3GkuJwaMR34GHVg0l8jCbafZLHiFowSjqLlqhC6OMyf2tPJBu8UirF7/NI9X/R5ai4QfEKUCOxMAGxZQ==
