@@ -4,7 +4,7 @@
 
 You can view this app live at https://redwoodjs-example-blog.vercel.app
 
-## Table of Contents
+## Table of Contents  
 - [RedwoodJS Example Blog: Vercel Deploy](#redwoodjs-example-blog-vercel-deploy)
 - [Table of Contents](#table-of-contents)
 - [Overview](#overview)
