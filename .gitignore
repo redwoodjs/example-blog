@@ -10,7 +10,7 @@ schema.graphql
 web/public/mockServiceWorker.js
 
 # api
-dev.db
+dev.db*
 api/generated/generated-types.d.ts
 packages/photon/runtime
 packages/photon/index.js
