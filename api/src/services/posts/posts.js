@@ -1,5 +1,6 @@
 import { UserInputError } from '@redwoodjs/api'
 import { db } from 'src/lib/db'
+import { logger } from 'src/lib/logger'
 import { requireAuth } from 'src/lib/auth'
 
 const validate = (input) => {
@@ -17,6 +18,7 @@ export const allPosts = async ({
   limit = 100,
   order = { postedAt: 'desc' },
 }) => {
+  logger.debug({ page, limit, order }, 'In all posts')
   const offset = (page - 1) * limit
 
   return {
@@ -31,6 +33,8 @@ export const allPosts = async ({
 }
 
 export const findPostById = ({ id }) => {
+  logger.debug({ id }, 'In findPostById')
+
   return db.post.findUnique({
     where: { id: parseInt(id) },
     include: { tags: true },
@@ -38,6 +42,8 @@ export const findPostById = ({ id }) => {
 }
 
 export const findPostBySlug = ({ slug }) => {
+  logger.debug({ slug }, 'In findPostBySlug')
+
   return db.post.findUnique({
     where: { slug: slug },
     include: { tags: true },
@@ -53,6 +59,8 @@ export const findPostsByTag = ({ tag }) => {
 }
 
 export const searchPosts = ({ term }) => {
+  logger.debug({ term }, 'In searchPosts')
+
   return db.post.findMany({
     where: {
       OR: [{ title: { contains: term } }, { body: { contains: term } }],
