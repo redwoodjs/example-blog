@@ -864,7 +864,7 @@ and limitations under the License.
 
 /*! ModuleConcatenation bailout: Cannot concat with ../node_modules/@apollo/client/utilities/common/arrays.js because of ../node_modules/@apollo/client/core/index.js */
 
-/*! ModuleConcatenation bailout: Cannot concat with ../node_modules/@apollo/client/utilities/common/canUse.js because of ../node_modules/@apollo/client/core/index.js */
+/*! ModuleConcatenation bailout: Cannot concat with ../node_modules/@apollo/client/utilities/common/canUse.js because of ../node_modules/@apollo/client/react/index.js */
 
 /*! ModuleConcatenation bailout: Cannot concat with ../node_modules/@apollo/client/utilities/common/compact.js because of ../node_modules/@apollo/client/core/index.js */
 
@@ -902,7 +902,7 @@ and limitations under the License.
 
 /*! ModuleConcatenation bailout: Cannot concat with ../node_modules/graphql/jsutils/inspect.mjs because of ../node_modules/@apollo/client/core/index.js */
 
-/*! ModuleConcatenation bailout: Cannot concat with ../node_modules/graphql/jsutils/nodejsCustomInspectSymbol.mjs because of ../node_modules/@apollo/client/core/index.js */
+/*! ModuleConcatenation bailout: Cannot concat with ../node_modules/graphql/jsutils/nodejsCustomInspectSymbol.mjs because of ./src/components/Blog/SinglePostCell/SinglePostCell.js */
 
 /*! ModuleConcatenation bailout: Cannot concat with ../node_modules/graphql/language/ast.mjs because of ../node_modules/@apollo/client/core/index.js */
 

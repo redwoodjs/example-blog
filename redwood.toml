@@ -7,7 +7,7 @@
 
 [web]
   port = 8910
-  apiProxyPath = "/api"
+  apiProxyPath = "/.netlify/functions"
   includeEnvironmentVariables = ['FILESTACK_API_KEY', 'USE_AUTHENTICATION']
 [api]
   port = 8911

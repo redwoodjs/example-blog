@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/services/tags/tags.js"],"names":["tags","db","tag","findMany"],"mappings":";;;;;;;;;;AAAA;;AAEO,MAAMA,IAAI,GAAG,MAAMC,OAAGC,GAAH,CAAOC,QAAP,EAAnB","sourcesContent":["import { db } from 'src/lib/db'\n\nexport const tags = () => db.tag.findMany()\n"],"file":"tags.js"}

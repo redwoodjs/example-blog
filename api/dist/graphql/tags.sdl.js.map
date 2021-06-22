@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/graphql/tags.sdl.js"],"names":["schema"],"mappings":";;;;;;;;;;;;;;AAAO,MAAMA,MAAM,GAAG,wBAAI;AAC1B;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA,CATO","sourcesContent":["export const schema = gql`\n  type Tag {\n    id: ID!\n    name: String\n  }\n\n  type Query {\n    tags: [Tag]\n  }\n`\n"],"file":"tags.sdl.js"}
