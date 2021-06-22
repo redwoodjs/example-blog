@@ -14,4 +14,4 @@
 [browser]
   open = false
 [experimental]
-  esbuild = true
+  esbuild = false
