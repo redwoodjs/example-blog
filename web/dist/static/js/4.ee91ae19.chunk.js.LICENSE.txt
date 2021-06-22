@@ -1,0 +1,15 @@
+/*! ModuleConcatenation bailout: Cannot concat with ../node_modules/date-fns/esm/_lib/getTimezoneOffsetInMilliseconds/index.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ../node_modules/date-fns/esm/_lib/requiredArgs/index.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ../node_modules/date-fns/esm/locale/en-US/index.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ../node_modules/date-fns/esm/toDate/index.js */
+
+/*! exports provided: default */
+
+/*! exports used: default */
+
+/*!*****************************************************************!*\
+  !*** ../node_modules/date-fns/esm/format/index.js + 18 modules ***!
+  \*****************************************************************/

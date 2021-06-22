@@ -1,0 +1,33 @@
+/*! ../../../components/Admin/PostsCell/PostsCell */
+
+/*! ModuleConcatenation bailout: Cannot concat with ../node_modules/_redwood-linked-packages/router/dist/index.js (<- Module is not an ECMAScript module) */
+
+/*! ModuleConcatenation bailout: Cannot concat with ../node_modules/_redwood-linked-packages/web/dist/index.js (<- Module is not an ECMAScript module) */
+
+/*! ModuleConcatenation bailout: Cannot concat with ../node_modules/date-fns/esm/format/index.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ../node_modules/date-fns/esm/formatDistanceToNow/index.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ../node_modules/graphql-tag/lib/index.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ../node_modules/react/index.js (<- Module is not an ECMAScript module) */
+
+/*! ModuleConcatenation bailout: Module is referenced from these modules with unsupported syntax: ./src/Routes.js (referenced with import()) */
+
+/*! all exports used */
+
+/*! exports provided: QUERY, Loading, Success, default */
+
+/*! exports provided: default */
+
+/*! exports used: QUERY, default */
+
+/*! react */
+
+/*!************************************************!*\
+  !*** ./src/pages/Admin/PostsPage/PostsPage.js ***!
+  \************************************************/
+
+/*!*****************************************************************!*\
+  !*** ./src/components/Admin/PostsCell/PostsCell.js + 1 modules ***!
+  \*****************************************************************/

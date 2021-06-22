@@ -1,0 +1,118 @@
+/*!
+ * MIT License
+ * 
+ * Copyright (c) 2020 Filestack
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ * 
+ */
+
+/*!
+ * The buffer module from node.js, for the browser.
+ *
+ * @author   Feross Aboukhadijeh <http://feross.org>
+ * @license  MIT
+ */
+
+/*! *****************************************************************************
+Copyright (c) Microsoft Corporation. All rights reserved.
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at http://www.apache.org/licenses/LICENSE-2.0
+
+THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
+WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
+MERCHANTABLITY OR NON-INFRINGEMENT.
+
+See the Apache Version 2.0 License for specific language governing permissions
+and limitations under the License.
+***************************************************************************** */
+
+/*! ./../../../node-libs-browser/node_modules/buffer/index.js */
+
+/*! ./../../../webpack/buildin/global.js */
+
+/*! ./factoryWithThrowingShims */
+
+/*! ./lib/ReactPropTypesSecret */
+
+/*! ModuleConcatenation bailout: Module is not an ECMAScript module */
+
+/*! ModuleConcatenation bailout: Module uses eval() */
+
+/*! all exports used */
+
+/*! base64-js */
+
+/*! exports provided: Filestack, init, version, EAlignOptions, EAlignFacesOptions, EFitOptions, EBlurMode, EShapeType, ENoiseType, EStyleType, EColorspaceType, ECropfacesType, ESmartCropMode, EImageWatermarkPosition, EVideoTypes, EUrlscreenshotAgent, EUrlscreenshotMode, EUrlscreenshotOrientation, EVideoLocations, EVideoAccess, EVideoAccessMode, transform, Align, FitOptions, BlurMode, ShapeType, NoiseType, StyleType, ColorspaceType, CropfacesType, ImageWatermarkPosition, SmartCropMode, VideoTypes, URLScreenshotAgent, URLScreenshotMode, URLScreenshotOrientation, Locations, VideoAccess, VideoAccessMode, EnhancePreset, Filelink, FilestackErrorType, FsHttpMethod, FsRequest, FsRequestErrorCode, FsRequestError, FsCancelToken, resolveCdnUrl, resolveHost, removeEmpty, uniqueTime, uniqueId, extensionToMime, sanitizeName, filterObject, cleanUpCallbacks, md5, b64, getVersion, isMobile, isFacebook, TransformSchema, getSecurity, validateWebhookSignature, Client, FilestackError, PickerDisplayMode, getMimetype, PrefetchEvents */
+
+/*! exports used: default */
+
+/*! filestack-js */
+
+/*! https://mths.be/punycode v1.3.2 by @mathias */
+
+/*! ieee754 */
+
+/*! ieee754. BSD-3-Clause License. Feross Aboukhadijeh <https://feross.org/opensource> */
+
+/*! isarray */
+
+/*! no static exports found */
+
+/*! prop-types */
+
+/*! react */
+
+/*!****************************************!*\
+  !*** ../node_modules/ieee754/index.js ***!
+  \****************************************/
+
+/*!****************************************!*\
+  !*** ../node_modules/isarray/index.js ***!
+  \****************************************/
+
+/*!******************************************!*\
+  !*** ../node_modules/base64-js/index.js ***!
+  \******************************************/
+
+/*!*******************************************!*\
+  !*** ../node_modules/prop-types/index.js ***!
+  \*******************************************/
+
+/*!**************************************************************!*\
+  !*** ../node_modules/prop-types/factoryWithThrowingShims.js ***!
+  \**************************************************************/
+
+/*!**************************************************************!*\
+  !*** ../node_modules/prop-types/lib/ReactPropTypesSecret.js ***!
+  \**************************************************************/
+
+/*!***************************************************************!*\
+  !*** ../node_modules/filestack-react/dist/filestack-react.js ***!
+  \***************************************************************/
+
+/*!*******************************************************************!*\
+  !*** ../node_modules/filestack-js/build/browser/filestack.esm.js ***!
+  \*******************************************************************/
+
+/*!**********************************************************************!*\
+  !*** ../node_modules/node-libs-browser/node_modules/buffer/index.js ***!
+  \**********************************************************************/

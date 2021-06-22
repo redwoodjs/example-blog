@@ -1,0 +1,11 @@
+/*! ModuleConcatenation bailout: Module is referenced from these modules with unsupported syntax: ./src/Routes.js (referenced with import()) */
+
+/*! all exports used */
+
+/*! exports provided: default */
+
+/*! react */
+
+/*!************************************************!*\
+  !*** ./src/pages/NotFoundPage/NotFoundPage.js ***!
+  \************************************************/
