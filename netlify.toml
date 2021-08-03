@@ -3,6 +3,9 @@ command = "yarn rw deploy netlify"
 publish = "web/dist"
 functions = "api/dist/functions"
 
+[functions]
+  external_node_modules = ["babel/runtime-corejs3/core-js/object/define-property"]
+
 [dev]
   # To use [Netlify Dev](https://www.netlify.com/products/dev/),
   # install netlify-cli from https://docs.netlify.com/cli/get-started/#installation
