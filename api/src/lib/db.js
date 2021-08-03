@@ -3,7 +3,10 @@
 
 import { PrismaClient } from '@prisma/client'
 
-import { emitLogLevels, handlePrismaLogging } from '@redwoodjs/api/logger'
+import {
+  emitLogLevels,
+  handlePrismaLogging,
+} from '@redwoodjs/graphql-server/logger'
 
 import { logger } from './logger'
 
