@@ -8,6 +8,8 @@ dist
 dist-babel
 schema.graphql
 web/public/mockServiceWorker.js
+web/types/graphql.d.ts
+api/types/graphql.d.ts
 
 # api
 dev.db*
