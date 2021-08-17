@@ -1,5 +1,5 @@
 [build]
-command = "yarn rw deploy netlify"
+command = "yarn patch-package && yarn rw deploy netlify"
 publish = "web/dist"
 functions = "api/dist/functions"
 

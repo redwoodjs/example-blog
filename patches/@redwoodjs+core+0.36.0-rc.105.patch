@@ -1,0 +1,13 @@
+diff --git a/node_modules/@redwoodjs/core/config/babel-preset.js b/node_modules/@redwoodjs/core/config/babel-preset.js
+index e1c8c09..8291c23 100644
+--- a/node_modules/@redwoodjs/core/config/babel-preset.js
++++ b/node_modules/@redwoodjs/core/config/babel-preset.js
+@@ -35,7 +35,7 @@ module.exports = () => {
+           // https://babeljs.io/docs/en/babel-plugin-transform-runtime/#version
+           // Transform-runtime assumes that @babel/runtime@7.0.0 is installed.
+           // Specifying the version can result in a smaller bundle size.
+-          version: packageJSON.devDependencies['@babel/runtime-corejs3'],
++          version: packageJSON.dependencies['@babel/runtime-corejs3'],
+         },
+       ],
+ 
