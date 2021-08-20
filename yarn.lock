@@ -2114,6 +2114,56 @@
     ts-node "^9"
     tslib "^2"
 
+"@envelop/apollo-server-errors@1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@envelop/apollo-server-errors/-/apollo-server-errors-1.0.2.tgz#f957fd7066c611b6e820b6bc1db8a1ee09560428"
+  integrity sha512-sWKjYZnchEmMwpvnqSHpKt1nhp5ZM32sCAks+hP/8BLB3OilXssQm9dFdsWOiQhlOeE04nPgxVq0Z7hjJH4jBg==
+  dependencies:
+    apollo-server-errors "3.0.1"
+
+"@envelop/core@1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@envelop/core/-/core-1.0.3.tgz#80effebd5f41faff229b9b34dbe0d6b13beed4f2"
+  integrity sha512-lJ4/NEk8h2oe7cnTY8FXRHOiYdWnXyfUJwfN2trJNZksllwUxaabD1KK/Y/MH8brtQ2NbOR3YGUtiurRbrFzzQ==
+  dependencies:
+    "@envelop/types" "1.0.2"
+
+"@envelop/depth-limit@1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@envelop/depth-limit/-/depth-limit-1.0.0.tgz#7269943879eeabd31fade1ccefbc5c1fdd2762b7"
+  integrity sha512-Ujy75wKcNJk8AwT1iOKVPUEODrtWxHCuA2SuCGXOG1IUfuKBpskiwkrIE5G46hoYzfQhZfZ8KS9Ak3AKA/e+vg==
+  dependencies:
+    graphql-depth-limit "^1.1.0"
+
+"@envelop/disable-introspection@1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@envelop/disable-introspection/-/disable-introspection-1.0.0.tgz#d93f938fc9d6c7febfc8cbca1a6580474cb41a56"
+  integrity sha512-lb2ijbJNcsLfHeYJfbNDYdLEGfbQa7UKUU63RT7LZJDIvk/5TZeNzlZ5N0Bhox+e2g2TyYdtZu7dUjJp/thAMg==
+
+"@envelop/filter-operation-type@1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@envelop/filter-operation-type/-/filter-operation-type-1.0.0.tgz#85e251e4d0124308581880289ed0e4cde7b17d0d"
+  integrity sha512-Lr9sBHw3o6XB1y6G8/m093SLaQv+OTy6vXPOi9xDgC1FymFfZKI1DMXLxBa0ANvpDEBeXQvpJYkd5ceUK7kvvA==
+
+"@envelop/parser-cache@1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@envelop/parser-cache/-/parser-cache-1.0.0.tgz#1dfdf0ff916f8b90139389b588fbc021b57b956d"
+  integrity sha512-mdMf4wJiMWRRpqUOQkaaa5hP2FUWS80UMjDUJ/Ga2dIXUJZVlPapoWjIRd9JH14wg8n0/jpHs27YR7ETKV259g==
+  dependencies:
+    tiny-lru "7.0.6"
+
+"@envelop/types@1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@envelop/types/-/types-1.0.2.tgz#c0eb58929209aa3c6563921a9fc58f63448c02fc"
+  integrity sha512-uL1Nn0aiDN72nEPvhJixH0DoCGxkPPW6/HZcl9lwnaVld1TDQhs72TVuX3vTsZQIvk2s62T5XsvrcdIbMkKfJw==
+
+"@envelop/validation-cache@1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@envelop/validation-cache/-/validation-cache-1.0.0.tgz#0e16553e9dd6047a024c9c75520f57217d10c777"
+  integrity sha512-HI4in/DlqSsZ6/hCAG9TTqvigTgd+5TGdz3JTGQr471vMW/Biw1a1C90VQO1XYMScxjranQfbBXu+ktA4kN6Kw==
+  dependencies:
+    tiny-lru "7.0.6"
+
 "@eslint/eslintrc@^0.4.3":
   version "0.4.3"
   resolved "https://registry.yarnpkg.com/@eslint/eslintrc/-/eslintrc-0.4.3.tgz#9e42981ef035beb3dd49add17acb96e8ff6f394c"
@@ -2451,7 +2501,7 @@
     relay-compiler "11.0.2"
     tslib "~2.3.0"
 
-"@graphql-tools/schema@^8.0.2", "@graphql-tools/schema@^8.0.3":
+"@graphql-tools/schema@8.0.3", "@graphql-tools/schema@^8.0.2", "@graphql-tools/schema@^8.0.3":
   version "8.0.3"
   resolved "https://registry.yarnpkg.com/@graphql-tools/schema/-/schema-8.0.3.tgz#504a6b279be52a278b9c8af90b710c9dcc9ff732"
   integrity sha512-ufJH7r/RcetVPd3kKCZ16/JTRkOX8aB1yGbYnUjqWEIdYEZc3Fpg7AVlcliu2JlvwR+WSNlgWn2QK76QCsFFdA==
@@ -3126,7 +3176,7 @@
     youch "2.2.2"
     youch-terminal "1.1.1"
 
-"@redwoodjs/api@^0.36.0":
+"@redwoodjs/api@0.36.0", "@redwoodjs/api@^0.36.0":
   version "0.36.0"
   resolved "https://registry.yarnpkg.com/@redwoodjs/api/-/api-0.36.0.tgz#139a56ec1d3574b94879451f46305497dcb3d8d1"
   integrity sha512-iV3mvEKfytXIo3kyJSx7xlXAvKa4nFPKZv9IMVvBqFp3ADoDU5Kgrcg5JxX1UcUW7kooXVnR0lrfxlMFEgv6ig==
@@ -3148,7 +3198,7 @@
     pino-pretty "5.1.3"
     uuid "8.3.2"
 
-"@redwoodjs/auth@0.36.0", "@redwoodjs/auth@^0.36.0-rc.105":
+"@redwoodjs/auth@0.36.0", "@redwoodjs/auth@^0.36.0":
   version "0.36.0"
   resolved "https://registry.yarnpkg.com/@redwoodjs/auth/-/auth-0.36.0.tgz#4726bcfc6f13fb75806f9094f9da0fdefecaa0b1"
   integrity sha512-Ro8FJITVtN0n+ihapUwpzvVfiMkYoCamGGqtxzBmsBtbYqKZcjs/hZK9+7/PX2OXISE5AjuGbOlaBy257cM5oA==
@@ -3269,7 +3319,7 @@
     eslint-plugin-react-hooks "4.2.0"
     prettier "2.3.2"
 
-"@redwoodjs/forms@^0.36.0-rc.105":
+"@redwoodjs/forms@^0.36.0":
   version "0.36.0"
   resolved "https://registry.yarnpkg.com/@redwoodjs/forms/-/forms-0.36.0.tgz#2d29c16a55d2b6bebb6c895be66e7bf80481b871"
   integrity sha512-YJYJFJKIyAtG2XdZjNzGYTos2jvnB0K969Ry0ANLHPKfozKaYT/K565NohSE/k5xBEvtEf6RjwJZ1DB6yIbbpQ==
@@ -3278,6 +3328,37 @@
     core-js "3.16.1"
     pascalcase "1.0.0"
     react-hook-form "7.12.2"
+
+"@redwoodjs/graphql-server@^0.36.0":
+  version "0.36.0"
+  resolved "https://registry.yarnpkg.com/@redwoodjs/graphql-server/-/graphql-server-0.36.0.tgz#819b89e8923000796942962d2da3dfbed57497e7"
+  integrity sha512-Si76VLOaEepG7CZZ/3z50M5GP2aIVQcbJPAYYA26XzsHnMQko3cj6ZLXI9IEWCX7orLf8aeSGW434oxleQncPQ==
+  dependencies:
+    "@envelop/apollo-server-errors" "1.0.2"
+    "@envelop/core" "1.0.3"
+    "@envelop/depth-limit" "1.0.0"
+    "@envelop/disable-introspection" "1.0.0"
+    "@envelop/filter-operation-type" "1.0.0"
+    "@envelop/parser-cache" "1.0.0"
+    "@envelop/validation-cache" "1.0.0"
+    "@graphql-tools/merge" "7.0.0"
+    "@graphql-tools/schema" "8.0.3"
+    "@graphql-tools/utils" "8.0.2"
+    "@prisma/client" "2.29.1"
+    "@redwoodjs/api" "0.36.0"
+    "@types/pino" "6.3.11"
+    core-js "3.16.1"
+    graphql "15.5.1"
+    graphql-helix "1.7.0"
+    graphql-playground-html "1.6.29"
+    graphql-scalars "1.10.0"
+    jsonwebtoken "8.5.1"
+    jwks-rsa "2.0.4"
+    lodash.merge "4.6.2"
+    lodash.omitby "4.6.0"
+    pino "6.13.0"
+    pino-pretty "5.1.3"
+    uuid "8.3.2"
 
 "@redwoodjs/internal@0.36.0":
   version "0.36.0"
@@ -3322,7 +3403,7 @@
     cheerio "1.0.0-rc.10"
     node-fetch "2.6.1"
 
-"@redwoodjs/router@0.36.0", "@redwoodjs/router@^0.36.0-rc.105":
+"@redwoodjs/router@0.36.0", "@redwoodjs/router@^0.36.0":
   version "0.36.0"
   resolved "https://registry.yarnpkg.com/@redwoodjs/router/-/router-0.36.0.tgz#c78faf5bc0ead032d9be56e2e3301ee012f4da66"
   integrity sha512-I8z72M87SarQIdvdCdk5NJ0+374kpTfcwVe2+VpXIJ+uP8KkW+cSF9XVm94aTcH7Nt3103YHJxFSbi6pZ3zImQ==
@@ -3388,7 +3469,7 @@
     ts-toolbelt "9.6.0"
     whatwg-fetch "3.6.2"
 
-"@redwoodjs/web@0.36.0", "@redwoodjs/web@^0.36.0-rc.105":
+"@redwoodjs/web@0.36.0", "@redwoodjs/web@^0.36.0":
   version "0.36.0"
   resolved "https://registry.yarnpkg.com/@redwoodjs/web/-/web-0.36.0.tgz#cbe38a70da765a80fd6c06ec8725cafb293064a0"
   integrity sha512-IGCZv1c5HCpXbmG6U8MDB6i3v+hrtyf/MPzPLslKKcVVwYzSOY2ObpwF4iY+5Zp1tWKx2IxtB4YqGek9KDBgZw==
@@ -5746,6 +5827,11 @@ apollo-server-env@^3.1.0:
   dependencies:
     node-fetch "^2.6.1"
     util.promisify "^1.0.0"
+
+apollo-server-errors@3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/apollo-server-errors/-/apollo-server-errors-3.0.1.tgz#0dfcc1fe8b10eab311fc7e4f6da93189ea6bcdae"
+  integrity sha512-PSp64IFeN1YK5EYZ3V/8iDRESMMyE00h1vE5aCr83wHL3T0mN7VRiMKoOIZ+2rUtnn7CpK73o6QLmouhxPtXsQ==
 
 apollo-server-errors@^2.5.0:
   version "2.5.0"
@@ -10424,7 +10510,7 @@ graphql-config@^4.0.1:
     minimatch "3.0.4"
     string-env-interpolation "1.0.1"
 
-graphql-depth-limit@1.1.0:
+graphql-depth-limit@1.1.0, graphql-depth-limit@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/graphql-depth-limit/-/graphql-depth-limit-1.1.0.tgz#59fe6b2acea0ab30ee7344f4c75df39cc18244e8"
   integrity sha512-+3B2BaG8qQ8E18kzk9yiSdAa75i/hnnOwgSeAxVJctGQPvmeiLtqKOYF6HETCyRjiF7Xfsyal0HbLlxCQkgkrw==
@@ -10439,6 +10525,18 @@ graphql-extensions@^0.15.0:
     "@apollographql/apollo-tools" "^0.5.0"
     apollo-server-env "^3.1.0"
     apollo-server-types "^0.9.0"
+
+graphql-helix@1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/graphql-helix/-/graphql-helix-1.7.0.tgz#452b2792447dddd259cdf4d6731da2171c8a7e49"
+  integrity sha512-CUqBZL0e/ivPnqFguzWCmMzPTjYXvak2465SsIiAYt0C2yZa4kjzQjB/JIF7YKHCsP8VrJwA29HXmYOJzPAe3g==
+
+graphql-playground-html@1.6.29:
+  version "1.6.29"
+  resolved "https://registry.yarnpkg.com/graphql-playground-html/-/graphql-playground-html-1.6.29.tgz#5b0c60a0161cc0f3116085f64c5a16cb3b2d9a16"
+  integrity sha512-fbF/zZKuw2sdfKp8gjTORJ/I9xBsqeEYRseWxBzuR15NHMptRTT9414IyRCs3ognZzUDr5MDJgx97SlLZCtQyA==
+  dependencies:
+    xss "^1.0.6"
 
 graphql-request@^3.3.0:
   version "3.4.0"
@@ -17434,6 +17532,11 @@ tiny-emitter@^2.0.0:
   resolved "https://registry.yarnpkg.com/tiny-emitter/-/tiny-emitter-2.1.0.tgz#1d1a56edfc51c43e863cbb5382a72330e3555423"
   integrity sha512-NB6Dk1A9xgQPMoGqC5CVXn123gWyte215ONT5Pp5a0yt4nlEoO1ZWeCwpncaekPHXO60i47ihFnZPiRPjRMq4Q==
 
+tiny-lru@7.0.6:
+  version "7.0.6"
+  resolved "https://registry.yarnpkg.com/tiny-lru/-/tiny-lru-7.0.6.tgz#b0c3cdede1e5882aa2d1ae21cb2ceccf2a331f24"
+  integrity sha512-zNYO0Kvgn5rXzWpL0y3RS09sMK67eGaQj9805jlK9G6pSadfriTczzLHFXa/xcW4mIRfmlB9HyQ/+SgL0V1uow==
+
 tiny-warning@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/tiny-warning/-/tiny-warning-1.0.3.tgz#94a30db453df4c643d0fd566060d60a875d84754"
@@ -18885,7 +18988,7 @@ xregexp@4.0.0:
   resolved "https://registry.yarnpkg.com/xregexp/-/xregexp-4.0.0.tgz#e698189de49dd2a18cc5687b05e17c8e43943020"
   integrity sha512-PHyM+sQouu7xspQQwELlGwwd05mXUFqwFYfqPO0cC7x4fxyHnnuetmQr6CjJiafIDoH4MogHb9dOoJzR/Y4rFg==
 
-xss@^1.0.8:
+xss@^1.0.6, xss@^1.0.8:
   version "1.0.9"
   resolved "https://registry.yarnpkg.com/xss/-/xss-1.0.9.tgz#3ffd565571ff60d2e40db7f3b80b4677bec770d2"
   integrity sha512-2t7FahYnGJys6DpHLhajusId7R0Pm2yTmuL0GV9+mV0ZlaLSnb2toBmppATfg5sWIhZQGlsTLoecSzya+l4EAQ==
