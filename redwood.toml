@@ -9,10 +9,10 @@
   port = 8910
   apiProxyPath = "/.netlify/functions"
   includeEnvironmentVariables = ['FILESTACK_API_KEY', 'USE_AUTHENTICATION']
+  title = "Redwood Example Blog"
 [api]
   port = 8911
 [browser]
   open = true
 [experimental]
-  esbuild = false
   useEnvelop = true
