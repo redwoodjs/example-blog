@@ -3148,7 +3148,7 @@
     pino-pretty "5.1.3"
     uuid "8.3.2"
 
-"@redwoodjs/auth@0.36.0", "@redwoodjs/auth@^0.36.0":
+"@redwoodjs/auth@0.36.0", "@redwoodjs/auth@^0.36.0-rc.105":
   version "0.36.0"
   resolved "https://registry.yarnpkg.com/@redwoodjs/auth/-/auth-0.36.0.tgz#4726bcfc6f13fb75806f9094f9da0fdefecaa0b1"
   integrity sha512-Ro8FJITVtN0n+ihapUwpzvVfiMkYoCamGGqtxzBmsBtbYqKZcjs/hZK9+7/PX2OXISE5AjuGbOlaBy257cM5oA==
@@ -3269,7 +3269,7 @@
     eslint-plugin-react-hooks "4.2.0"
     prettier "2.3.2"
 
-"@redwoodjs/forms@^0.36.0":
+"@redwoodjs/forms@^0.36.0-rc.105":
   version "0.36.0"
   resolved "https://registry.yarnpkg.com/@redwoodjs/forms/-/forms-0.36.0.tgz#2d29c16a55d2b6bebb6c895be66e7bf80481b871"
   integrity sha512-YJYJFJKIyAtG2XdZjNzGYTos2jvnB0K969Ry0ANLHPKfozKaYT/K565NohSE/k5xBEvtEf6RjwJZ1DB6yIbbpQ==
@@ -3322,7 +3322,7 @@
     cheerio "1.0.0-rc.10"
     node-fetch "2.6.1"
 
-"@redwoodjs/router@0.36.0", "@redwoodjs/router@^0.36.0":
+"@redwoodjs/router@0.36.0", "@redwoodjs/router@^0.36.0-rc.105":
   version "0.36.0"
   resolved "https://registry.yarnpkg.com/@redwoodjs/router/-/router-0.36.0.tgz#c78faf5bc0ead032d9be56e2e3301ee012f4da66"
   integrity sha512-I8z72M87SarQIdvdCdk5NJ0+374kpTfcwVe2+VpXIJ+uP8KkW+cSF9XVm94aTcH7Nt3103YHJxFSbi6pZ3zImQ==
@@ -3388,7 +3388,7 @@
     ts-toolbelt "9.6.0"
     whatwg-fetch "3.6.2"
 
-"@redwoodjs/web@0.36.0", "@redwoodjs/web@^0.36.0":
+"@redwoodjs/web@0.36.0", "@redwoodjs/web@^0.36.0-rc.105":
   version "0.36.0"
   resolved "https://registry.yarnpkg.com/@redwoodjs/web/-/web-0.36.0.tgz#cbe38a70da765a80fd6c06ec8725cafb293064a0"
   integrity sha512-IGCZv1c5HCpXbmG6U8MDB6i3v+hrtyf/MPzPLslKKcVVwYzSOY2ObpwF4iY+5Zp1tWKx2IxtB4YqGek9KDBgZw==
