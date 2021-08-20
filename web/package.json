@@ -14,10 +14,10 @@
   },
   "dependencies": {
     "@gouch/to-title-case": "^2.2.1",
-    "@redwoodjs/auth": "^0.35.3-canary.94",
-    "@redwoodjs/forms": "^0.35.3-canary.94",
-    "@redwoodjs/router": "^0.35.3-canary.94",
-    "@redwoodjs/web": "^0.35.3-canary.94",
+    "@redwoodjs/auth": "^0.36.0",
+    "@redwoodjs/forms": "^0.36.0",
+    "@redwoodjs/router": "^0.36.0",
+    "@redwoodjs/web": "^0.36.0",
     "date-fns": "^2.16.1",
     "error-overlay-webpack-plugin": "^0.4.1",
     "filestack-react": "^3.1.0",
@@ -29,8 +29,9 @@
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "autoprefixer": "^9.8.6",
-    "postcss-loader": "^4.0.1",
-    "tailwindcss": "^1.8.6"
+    "autoprefixer": "^10.3.1",
+    "postcss": "^8.3.6",
+    "postcss-loader": "^6.1.1",
+    "tailwindcss": "^2.2.7"
   }
 }
