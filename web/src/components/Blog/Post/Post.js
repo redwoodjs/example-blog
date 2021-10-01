@@ -3,6 +3,7 @@ import MarkdownIt from 'markdown-it'
 import truncate from 'html-truncate'
 import TagList from 'src/components/Blog/TagList'
 import { Link, routes } from '@redwoodjs/router'
+import { MetaTags } from '@redwoodjs/web'
 
 const md = new MarkdownIt()
 
@@ -33,6 +34,7 @@ const postImageUrl = (post, summary) => {
 const Post = ({ post, summary = false }) => {
   return (
     <article className="mt-4 mb-12">
+      <MetaTags title={post.title} />
       {!summary && (
         <img
           src={postImageUrl(post, summary)}
