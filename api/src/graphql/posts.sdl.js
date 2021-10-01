@@ -16,11 +16,11 @@ export const schema = gql`
   }
 
   type Query {
-    allPosts(page: Int, limit: Int): PostsSet
-    findPostById(id: ID): Post
-    findPostBySlug(slug: String): Post
-    findPostsByTag(tag: String): [Post]
-    searchPosts(term: String): [Post]
+    allPosts(page: Int, limit: Int): PostsSet @skipAuth
+    findPostById(id: ID): Post @skipAuth
+    findPostBySlug(slug: String): Post @skipAuth
+    findPostsByTag(tag: String): [Post] @skipAuth
+    searchPosts(term: String): [Post] @skipAuth
   }
 
   input PostInput {
@@ -33,9 +33,9 @@ export const schema = gql`
   }
 
   type Mutation {
-    createPost(input: PostInput!): Post
-    updatePost(id: ID!, input: PostInput!): Post
-    hidePost(id: ID!): Post
-    deletePost(id: ID!): Post
+    createPost(input: PostInput!): Post @requireAuth
+    updatePost(id: ID!, input: PostInput!): Post @requireAuth
+    hidePost(id: ID!): Post @requireAuth
+    deletePost(id: ID!): Post @requireAuth
   }
 `

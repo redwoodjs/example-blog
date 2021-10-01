@@ -43,14 +43,12 @@ export const beforeQuery = ({ id }) => {
 export const Loading = () => <div>Loading...</div>
 
 export const Success = ({ post }) => {
-  const [
-    updatePost,
-    { loading: updateLoading, error: updateError },
-  ] = useMutation(UPDATE_POST_MUTATION, {
-    onCompleted: () => {
-      location.href = '/admin'
-    },
-  })
+  const [updatePost, { loading: updateLoading, error: updateError }] =
+    useMutation(UPDATE_POST_MUTATION, {
+      onCompleted: () => {
+        location.href = '/admin'
+      },
+    })
 
   const onSave = (data, type) => {
     if (type === 'publish') {

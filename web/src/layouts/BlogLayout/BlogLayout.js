@@ -3,12 +3,11 @@ import { Link, NavLink, routes } from '@redwoodjs/router'
 import { useAuth } from '@redwoodjs/auth'
 
 import logo from './logo.png'
-import Spinner from './spinner.svg'
 
 const BlogLayout = (props) => {
-  const { authenticated, logIn, logOut } = useAuth()
+  const { isAuthenticated, logIn, logOut } = useAuth()
 
-  const doAuth = () => (authenticated ? logOut() : logIn())
+  const doAuth = () => (isAuthenticated ? logOut() : logIn())
 
   return (
     <div className="max-w-8xl mx-auto">
@@ -45,7 +44,7 @@ const BlogLayout = (props) => {
                   Contact
                 </NavLink>
               </li>
-              {authenticated && (
+              {isAuthenticated && (
                 <li className="mx-4 font-semibold uppercase">
                   <NavLink
                     to={routes.admin()}
@@ -61,7 +60,7 @@ const BlogLayout = (props) => {
                   onClick={doAuth}
                   className="cursor-pointer text-indigo-200 hover:text-indigo-800"
                 >
-                  {authenticated ? 'Logout' : 'Login'}
+                  {isAuthenticated ? 'Logout' : 'Login'}
                 </a>
               </li>
             </ul>
@@ -74,7 +73,7 @@ const BlogLayout = (props) => {
           </section>
         </main>
         <footer className="bg-indigo-600 text-indigo-200 text-sm text-center py-4">
-          Copyright ©2019 Hammers, Inc.
+          Copyright 2021 Hammers, Inc.
         </footer>
       </div>
     </div>

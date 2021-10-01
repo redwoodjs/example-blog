@@ -1,7 +1,7 @@
 import TagList from 'src/components/Blog/TagList'
 
 export const QUERY = gql`
-  {
+  query ALL_TAGS {
     tags {
       id
       name
