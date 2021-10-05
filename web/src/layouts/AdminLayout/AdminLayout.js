@@ -1,11 +1,8 @@
-import { useState } from 'react'
 import { Link, routes } from '@redwoodjs/router'
 import { useAuth } from '@redwoodjs/auth'
 
 const AdminLayout = (props) => {
   const { logout } = useAuth()
-
-  const isAuthEnabled = true
 
   return (
     <div className="mx-8">

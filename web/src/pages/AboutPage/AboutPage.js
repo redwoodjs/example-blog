@@ -1,6 +1,10 @@
+import { MetaTags } from '@redwoodjs/web'
+
 const AboutPage = () => {
   return (
     <main className="text-left py-6 font-light">
+      <MetaTags title="About" />
+
       <figure>
         <div className="h-64 overflow-hidden">
           <img

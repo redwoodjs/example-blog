@@ -5,6 +5,6 @@ export const schema = gql`
   }
 
   type Query {
-    tags: [Tag]
+    tags: [Tag] @skipAuth
   }
 `
