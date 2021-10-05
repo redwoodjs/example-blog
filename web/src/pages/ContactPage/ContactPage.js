@@ -6,6 +6,7 @@ import {
   Label,
   FieldError,
 } from '@redwoodjs/forms'
+import { MetaTags } from '@redwoodjs/web'
 
 const CSS = {
   label:
@@ -32,6 +33,8 @@ const ContactPage = () => {
 
   return (
     <main className="text-left py-6 font-light">
+      <MetaTags title="Contact" />
+
       <p className="text-lg">
         Do you have a hammer you want us to review? Suggestions for improving
         our reviews? Send us a message!

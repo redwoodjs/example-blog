@@ -1,7 +1,6 @@
 import { UserInputError } from '@redwoodjs/graphql-server'
 import { db } from 'src/lib/db'
 import { logger } from 'src/lib/logger'
-import { requireAuth } from 'src/lib/auth'
 
 const validate = (input) => {
   if (input.slug && !input.slug.match(/^\S+$/)) {
@@ -73,32 +72,26 @@ export const postsCount = () => {
   return db.post.count().then((count) => ({ count }))
 }
 
-export const createPost = ({ input }, { context: { currentUser } }) => {
-  requireAuth()
+export const createPost = ({ input }) => {
   validate(input)
 
   return db.post.create({ data: input })
 }
 
-export const updatePost = ({ id, input }, { context: { currentUser } }) => {
-  requireAuth()
+export const updatePost = ({ id, input }) => {
   validate(input)
 
   return db.post.update({ data: input, where: { id: Number(id) } })
 }
 
-export const hidePost = ({ id }, { context: { currentUser } }) => {
-  requireAuth()
-
+export const hidePost = ({ id }) => {
   return db.post.update({
     data: { postedAt: null },
     where: { id: parseInt(id) },
   })
 }
 
-export const deletePost = ({ id }, { context: { currentUser } }) => {
-  requireAuth()
-
+export const deletePost = ({ id }) => {
   return db.post.delete({
     where: { id: Number(id) },
   })
