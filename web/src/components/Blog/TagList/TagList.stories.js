@@ -1,9 +1,8 @@
-import StoryRouter from 'storybook-react-router'
 import React from 'react'
 
 import TagList from './TagList'
 
-export default { title: 'Blog/TagList', decorators: [StoryRouter()] }
+export default { title: 'Blog/TagList' }
 
 export const plain = () => {
   return (

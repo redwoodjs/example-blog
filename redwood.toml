@@ -7,7 +7,7 @@
 
 [web]
   port = 8910
-  apiProxyPath = "/.netlify/functions"
+  apiUrl = "/.netlify/functions"
   includeEnvironmentVariables = ['FILESTACK_API_KEY', 'USE_AUTHENTICATION']
   title = "Redwood Example Blog"
 [api]
