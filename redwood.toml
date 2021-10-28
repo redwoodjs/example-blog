@@ -7,7 +7,7 @@
 
 [web]
   port = 8910
-  apiProxyPath = "/.redwood/functions"
+  apiUrl = "/.redwood/functions"
   includeEnvironmentVariables = ['FILESTACK_API_KEY', 'USE_AUTHENTICATION']
   title = "Redwood Example Blog"
 [api]
