@@ -1,4 +1,8 @@
-## RedwoodJS Example Blog
+## RedwoodJS Example Blog [Pre 1.0 Release]
+
+> ⚠️ This is an original example project created for the release of Redwood v0.1. 
+> It's in need of some TLC via a re-write. Until that time, we recommend checking out our [other example projects](https://github.com/redwoodjs?q=example-). 
+
 
 ![RedwoodJS Example Blog Screenshot](https://user-images.githubusercontent.com/300/67903394-aced3080-fb28-11e9-85bb-b5fdbb4b6c34.png)
 
